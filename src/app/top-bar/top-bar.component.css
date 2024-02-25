@@ -1,0 +1,33 @@
+.navbar {
+  background-color: #f0f1f3;
+  padding: 10px 0;
+}
+
+nav a:hover {
+  color: #fcb700;
+}
+
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: none;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    display: block;
+  }
+  .navbar .nav-item .dropdown-menu {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  #topBar-nav {
+    display: none;
+  }
+  #top-bar-container {
+    justify-content: center;
+  }
+}
+
+#top-bar {
+  font-size: 14px;
+}

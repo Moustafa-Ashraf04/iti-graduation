@@ -1,0 +1,4 @@
+// to ignore the tailwind errors in styles.css global file
+{
+  "css.lint.unknownAtRules": "ignore"
+}
