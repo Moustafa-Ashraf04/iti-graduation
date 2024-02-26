@@ -1,0 +1,11 @@
+.carousel-inner {
+  max-height: 730px;
+}
+.flash-sale-heading::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 100%;
+  background-color: #ffc107;
+  margin-right: 10px;
+}
