@@ -9,3 +9,9 @@
   background-color: #ffc107;
   margin-right: 10px;
 }
+.view-more a {
+  color: black;
+}
+.view-more a:hover {
+  color: #fcb700;
+}

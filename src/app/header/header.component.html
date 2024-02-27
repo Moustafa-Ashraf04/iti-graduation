@@ -21,18 +21,33 @@
         <button class="btn custom-btn" type="submit">Search</button>
       </div>
     </div>
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end">
+    <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+      <!-- wishlist icon  -->
       <li class="nav-item ps-4">
-        <a class="nav-link" href="/wishlist">wishlist</a>
+        <a class="nav-link" href="/wishlist">
+          <i class="fa-regular fa-heart fa-xl"></i>
+        </a>
       </li>
+      <!-- cart icon and counter  -->
       <li class="nav-item ps-4">
-        <a class="nav-link" href="/cart">cart</a>
+        <a class="nav-link" href="/cart">
+          <i class="fa-solid fa-cart-shopping fa-lg"></i>
+          <p class="badge bg-warning p-1 m-0">0</p>
+        </a>
       </li>
+      <!-- login/profile icon  -->
       <li class="nav-item ps-5">
-        <a class="nav-link" href="/login">login</a>
+        <a class="nav-link">
+          <i class="fa-regular fa-user fa-xl"></i>
+        </a>
       </li>
-      <!-- <li>cart</li>
-        <li>login/register and profile</li> -->
+      <li class="">
+        <a class="nav-link" href="/login">
+          <!-- if there is a token then it will be profile and  if not then its login  -->
+          <!-- will handle it later  -->
+          <span>Login</span>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>

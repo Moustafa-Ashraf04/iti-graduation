@@ -1,15 +1,28 @@
 <div class="card">
-  <img
-    src="../../assets/images/testproduct.jpg"
-    class="card-img-top"
-    alt="..."
-  />
+  <!-- button  to product details  -->
+  <a href="">
+    <img
+      src="../../assets/images/testproduct.jpg"
+      class="card-img-top"
+      alt="..."
+      style="position: relative"
+    />
+    <p
+      (click)="preventClick($event)"
+      class="text-info bi-cursor-text text-decoration-none onsale bg-danger text-dark rounded p-1"
+    >
+      <!-- if onsale is false display none  -->
+      Sale!
+    </p>
+  </a>
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <span class="text-decoration-line-through">100$</span>
+    <div class="d-flex justify-content-between">
+      <!-- <a href="#" class="btn btn-primary">Details</a>
+      <a href="#" class="btn btn-primary">cart icon</a> -->
+
+      <!-- add cart icon and wishlist icon  -->
+    </div>
   </div>
 </div>
