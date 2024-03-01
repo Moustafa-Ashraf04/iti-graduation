@@ -1,6 +1,7 @@
 .carousel-inner {
   max-height: 730px;
 }
+
 .flash-sale-heading::before {
   content: "";
   display: inline-block;
@@ -9,9 +10,13 @@
   background-color: #ffc107;
   margin-right: 10px;
 }
+
 .view-more a {
   color: black;
 }
 .view-more a:hover {
   color: #fcb700;
+}
+body {
+  background-color: #f6f6fa;
 }

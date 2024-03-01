@@ -1,19 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { RegistrComponent } from './registr/registr.component';
+import { RegisterComponent } from './register/register.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-RegistrComponent
-
-  ],
+  imports: [CommonModule, RouterOutlet, RegisterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-}
+export class AppComponent {}

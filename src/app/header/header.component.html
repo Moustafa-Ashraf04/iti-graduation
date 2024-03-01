@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand p-3">
-  <div class="container">
-    <a class="navbar-brand p-0 pe-5" href="/"
+  <div class="container-fluid">
+    <a class="navbar-brand p-0 me-5" href="/"
       ><img src="../../assets/images/logo.jpg" alt="logo" id="navbar-logo"
     /></a>
     <div
-      class="d-flex justify-content-start ms-4 search"
+      class="d-flex justify-content-start search"
       id="navbarSupportedContent"
     >
       <div class="col-9 me-1">
         <form class="d-flex" role="search">
           <input
-            class="form-control text-secondary searchBtn"
+            class="form-control text-secondary searchBtn w-md-100"
             type="search"
             placeholder="I'm shopping for"
             aria-label="Search"
@@ -21,39 +21,41 @@
         <button class="btn custom-btn" type="submit">Search</button>
       </div>
     </div>
-    <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+    <ul
+      class="navbar-nav mb-2 mb-lg-0 align-items-center justify-content-around col-3"
+    >
       <!-- wishlist icon  -->
-      <li class="nav-item ps-4">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/wishlist">
           <i class="fa-regular fa-heart fa-xl"></i>
         </a>
       </li>
       <!-- cart icon and counter  -->
-      <li class="nav-item ps-4">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/cart">
           <i class="fa-solid fa-cart-shopping fa-lg"></i>
           <p class="badge bg-warning p-1 m-0">0</p>
         </a>
       </li>
       <!-- login/profile icon  -->
-      <li class="nav-item ps-5">
-        <a class="nav-link">
-          <i class="fa-regular fa-user fa-xl"></i>
-        </a>
-      </li>
-      <li class="">
-        <a class="nav-link" routerLink="login">
-          <!-- if there is a token then it will be profile and  if not then its login  -->
-          <!-- will handle it later  -->
-          <span>Login</span>
-        </a>
-      </li>
-      <li class="">
-        <a class="nav-link" routerLink="registr">
-          <!-- if there is a token then it will be profile and  if not then its login  -->
-          <!-- will handle it later  -->
-          <span>Registr</span>
-        </a>
+      <li>
+        <ul class="navbar-nav">
+          <li class="nav-item ps-3 align-items-center d-flex">
+            <a class="nav-link">
+              <i class="fa-regular fa-user fa-xl"></i>
+            </a>
+          </li>
+          <li class="">
+            <a class="nav-link py-0 login" routerLink="/login">
+              <!-- if there is a token then it will be profile and  if not then its login  -->
+              <!-- will handle it later  -->
+              <span>Login</span>
+            </a>
+            <a class="nav-link py-0 register" routerLink="/register">
+              <span>Register</span>
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
