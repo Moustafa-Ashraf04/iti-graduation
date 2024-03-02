@@ -1,0 +1,46 @@
+main {
+  /* background-color: #f6f6fa; */
+  background-color: white;
+  margin-bottom: 0;
+}
+.nav-link:hover {
+  /* transition: background-color 0.3s, color 0.3s; */
+  color: #ffc107;
+}
+
+.active-link {
+  color: #ffc107;
+}
+
+@media all and (max-width: 1200px) {
+  /* ul {
+    width: 35%;
+  } */
+}
+
+@media all and (min-width: 992px) {
+  .container-fluid {
+    width: 81%;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .container-fluid {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    /* flex-direction: column; */
+  }
+  ul {
+    width: 70%;
+  }
+}
+@media all and (max-width: 400px) {
+}

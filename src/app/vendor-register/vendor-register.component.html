@@ -1,4 +1,7 @@
 <app-header></app-header>
+<!-- <main style="min-height: 90vh; background-color: #f6f6fa">
+  <section class="container-fluid"></section>
+</main> -->
 
 <!-- prev 130vh -->
 <section style="background-color: #eee; height: 75rem" class="form-section">
@@ -10,14 +13,14 @@
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                 <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-0">
-                  Sign up
+                  Sign up as a vendor
                 </p>
                 <!-- register form  -->
                 <form
                   class="mx-1 mx-md-4"
                   action=""
-                  (ngSubmit)="submitregistration(registerform)"
-                  [formGroup]="registerform"
+                  (ngSubmit)="submitregistrationVendor(registerformvendor)"
+                  [formGroup]="registerformvendor"
                 >
                   <!-- First name  -->
                   <div class="d-flex flex-row align-items-center mb-4">
@@ -37,15 +40,15 @@
                         />
                         <div
                           *ngIf="
-                            registerform.get('first_name')?.errors &&
-                            registerform.get('first_name')?.touched
+                            registerformvendor.get('first_name')?.errors &&
+                            registerformvendor.get('first_name')?.touched
                           "
                           class="alert text-danger m-0 p-0"
                         >
                           <p
                             class=""
                             *ngIf="
-                              registerform
+                              registerformvendor
                                 .get('first_name')
                                 ?.getError('required')
                             "
@@ -55,7 +58,7 @@
                           <p
                             class=""
                             *ngIf="
-                              registerform
+                              registerformvendor
                                 .get('first_name')
                                 ?.getError('minlength')
                             "
@@ -65,7 +68,7 @@
                           <p
                             class=""
                             *ngIf="
-                              registerform
+                              registerformvendor
                                 .get('first_name')
                                 ?.getError('maxlength')
                             "
@@ -92,15 +95,17 @@
                       />
                       <div
                         *ngIf="
-                          registerform.get('last_name')?.errors &&
-                          registerform.get('last_name')?.touched
+                          registerformvendor.get('last_name')?.errors &&
+                          registerformvendor.get('last_name')?.touched
                         "
                         class="alert text-danger m-0 p-0 ms-2"
                       >
                         <p
                           class=""
                           *ngIf="
-                            registerform.get('last_name')?.getError('required')
+                            registerformvendor
+                              .get('last_name')
+                              ?.getError('required')
                           "
                         >
                           Last name is required
@@ -108,7 +113,9 @@
                         <p
                           class=""
                           *ngIf="
-                            registerform.get('last_name')?.getError('minlength')
+                            registerformvendor
+                              .get('last_name')
+                              ?.getError('minlength')
                           "
                         >
                           Minimum length is 4
@@ -116,7 +123,9 @@
                         <p
                           class=""
                           *ngIf="
-                            registerform.get('last_name')?.getError('maxlength')
+                            registerformvendor
+                              .get('last_name')
+                              ?.getError('maxlength')
                           "
                         >
                           Maximum length is 15
@@ -125,6 +134,61 @@
                     </div>
                   </div>
 
+                  <!-- business / brand  -->
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-briefcase fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="business"
+                        >Business / Brand</label
+                      >
+                      <input
+                        type="text"
+                        id="business"
+                        class="form-control"
+                        formControlName="business_name"
+                        name="business_name"
+                        id="business_name"
+                      />
+                      <div
+                        *ngIf="
+                          registerformvendor.get('business_name')?.errors &&
+                          registerformvendor.get('business_name')?.touched
+                        "
+                        class="alert text-danger m-0 p-0"
+                      >
+                        <p
+                          class="m-0"
+                          *ngIf="
+                            registerformvendor
+                              .get('business_name')
+                              ?.getError('required')
+                          "
+                        >
+                          Please Enter your business name
+                        </p>
+                        <p
+                          class="m-0"
+                          *ngIf="
+                            registerformvendor
+                              .get('business_name')
+                              ?.getError('minlength')
+                          "
+                        >
+                          Minimum length is 4
+                        </p>
+                        <p
+                          class="m-0"
+                          *ngIf="
+                            registerformvendor
+                              .get('business_name')
+                              ?.getError('maxlength')
+                          "
+                        >
+                          Maximum length is 30
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <!-- email input  -->
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw mt-4"></i>
@@ -142,22 +206,26 @@
                       />
                       <div
                         *ngIf="
-                          registerform.get('email')?.errors &&
-                          registerform.get('email')?.touched
+                          registerformvendor.get('email')?.errors &&
+                          registerformvendor.get('email')?.touched
                         "
                         class="alert text-danger m-0 p-0"
                       >
                         <p
                           class="m-0"
                           *ngIf="
-                            registerform.get('email')?.getError('required')
+                            registerformvendor
+                              .get('email')
+                              ?.getError('required')
                           "
                         >
                           Email is required
                         </p>
                         <p
                           class="m-0"
-                          *ngIf="registerform.get('email')?.getError('email')"
+                          *ngIf="
+                            registerformvendor.get('email')?.getError('email')
+                          "
                         >
                           Email is not valid
                         </p>
@@ -179,15 +247,17 @@
                       />
                       <div
                         *ngIf="
-                          registerform.get('password')?.errors &&
-                          registerform.get('password')?.touched
+                          registerformvendor.get('password')?.errors &&
+                          registerformvendor.get('password')?.touched
                         "
                         class="alert text-danger m-0 p-0"
                       >
                         <p
                           class=""
                           *ngIf="
-                            registerform.get('password')?.getError('required')
+                            registerformvendor
+                              .get('password')
+                              ?.getError('required')
                           "
                         >
                           Password is required
@@ -195,7 +265,9 @@
                         <p
                           class=""
                           *ngIf="
-                            registerform.get('password')?.getError('minlength')
+                            registerformvendor
+                              .get('password')
+                              ?.getError('minlength')
                           "
                         >
                           Minimum length is 8
@@ -220,15 +292,15 @@
                       />
                       <div
                         *ngIf="
-                          registerform.get('confirmPassword')?.errors &&
-                          registerform.get('confirmPassword')?.touched
+                          registerformvendor.get('confirmPassword')?.errors &&
+                          registerformvendor.get('confirmPassword')?.touched
                         "
                         class="alert text-danger m-0 p-0"
                       >
                         <p
                           class=""
                           *ngIf="
-                            registerform
+                            registerformvendor
                               .get('confirmPassword')
                               ?.getError('required')
                           "
@@ -238,7 +310,7 @@
                         <p
                           class=""
                           *ngIf="
-                            registerform
+                            registerformvendor
                               .get('confirmPassword')
                               ?.getError('minlength')
                           "
@@ -248,80 +320,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- phone number  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-solid fa-phone fa-lg me-3 fa-fw mt-4"></i>
 
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="phoneNumber"
-                        >Phone number</label
-                      >
-                      <input
-                        type="tel"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        formControlName="phoneNumber"
-                        class="form-control"
-                      />
-                      <div
-                        *ngIf="
-                          registerform.get('phoneNumber')?.errors &&
-                          registerform.get('phoneNumber')?.touched
-                        "
-                        class="alert text-danger m-0 p-0"
-                      >
-                        <p
-                          class=""
-                          *ngIf="
-                            registerform
-                              .get('phoneNumber')
-                              ?.getError('required')
-                          "
-                        >
-                          Phone number is required
-                        </p>
-                        <p
-                          class=""
-                          *ngIf="
-                            registerform.get('phoneNumber')?.getError('pattern')
-                          "
-                        >
-                          Invalid phone number
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div>
-                    <label for="birthday">Birthday:</label>
-                    <input type="date" id="birthday" name="birthday" />
-                  </div> -->
-                  <div class="ms-4 ps-3 py-3">
-                    <span class="p-float-label">
-                      <p-calendar
-                        inputId="birthDate"
-                        id="birthDate"
-                        name="birthDate"
-                        formControlName="birthDate"
-                      ></p-calendar>
-                      <label for="birthDate">Birth Date</label>
-                    </span>
-                    <div
-                      *ngIf="
-                        registerform.get('birthDate')?.errors &&
-                        registerform.get('birthDate')?.touched
-                      "
-                      class="alert text-danger m-0 p-0"
-                    >
-                      <p
-                        class=""
-                        *ngIf="
-                          registerform.get('birthDate')?.getError('birthDate')
-                        "
-                      >
-                        Please select your birthday
-                      </p>
-                    </div>
-                  </div>
                   <!-- terms of service check -->
                   <div
                     class="form-check d-flex justify-content-center mb-5 flex-column"
@@ -336,27 +335,10 @@
                         formControlName="termsCheckbox"
                       />
                       <label class="form-check-label" for="termsCheckbox">
-                        I accept and agree to the
-                        <a routerLink="/termsofservice">Terms of Use.</a>
+                        I agree all statements in
+                        <a routerLink="/termsofservice">Terms of service.</a>
                       </label>
                     </div>
-
-                    <!-- validation on the check box will do later  -->
-                    <!-- <div
-                      *ngIf="registerform.get('termsCheckbox')?.errors"
-                      class="alert text-danger m-0 p-0"
-                    >
-                      <p
-                        class=""
-                        *ngIf="
-                          registerform
-                            .get('termsCheckbox')
-                            ?.getError('requiredTrue')
-                        "
-                      >
-                        Please check this box if u want to proceed
-                      </p>
-                    </div> -->
                   </div>
 
                   <div
@@ -364,11 +346,10 @@
                   >
                     <button
                       class="btn btn-warning btn-lg"
-                      [disabled]="registerform.invalid"
+                      [disabled]="registerformvendor.invalid"
                       type="submit"
                     >
-                      <span *ngIf="!is_loading">Register</span>
-                      <i *ngIf="is_loading" class="fas fa-spinner fa-spin"></i>
+                      Register
                       <!-- will check later when we get api  -->
                       <!-- <span *ngIf="!is_loading">Register</span> -->
                       <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
@@ -408,10 +389,8 @@
                 </div>
                 <div>
                   <p>
-                    Register as a vendor from
-                    <a routerLink="/VendorRegister" class="text-danger">
-                      Here</a
-                    >
+                    Register as a customer from
+                    <a routerLink="/register" class="text-danger"> Here</a>
                   </p>
                 </div>
               </div>

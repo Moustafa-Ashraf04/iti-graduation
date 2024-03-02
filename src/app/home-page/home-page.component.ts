@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home-page',
@@ -16,6 +17,7 @@ import { RouterModule, Routes } from '@angular/router';
     ProductCardComponent,
     RouterModule,
     FooterComponent,
+    NavbarComponent,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
