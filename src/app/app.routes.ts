@@ -6,6 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { VendorRegisterComponent } from './vendor-register/vendor-register.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CartComponent } from './cart/cart.component';
+
+
 
 export const routes: Routes = [
   {
@@ -27,6 +30,11 @@ export const routes: Routes = [
     path: 'trackorder',
     component: TrackOrderComponent,
     title: 'Track your order',
+  },
+  {
+    path: 'cart',
+    component:CartComponent ,
+    title: 'cart',
   },
   {
     path: 'contactus',
