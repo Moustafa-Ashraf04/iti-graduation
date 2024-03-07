@@ -49,7 +49,7 @@ export class RegisterComponent {
   error: string = '';
   constructor(
     private _Router: Router,
-    private AuthService: AuthServiceService,
+    private AuthVendor: AuthServiceService,
     public _themeservice:ThemeService
   ) {}
   registerform: FormGroup = new FormGroup({
