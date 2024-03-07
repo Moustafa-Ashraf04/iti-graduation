@@ -2,36 +2,53 @@
 <app-header></app-header>
 
 <!-- cart + summary -->
-<div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}" >
-<section class=" pt-4">
-  <div class="container">
-    <div class="row">
-      <!-- cart -->
-      <div class="col-lg-9">
+<div [ngClass]="{ 'dark-mood': this._themeservice.isDarkMood }">
+  <section class="pt-4">
+    <div class="container">
+      <div class="row">
+        <!-- cart -->
+        <div class="col-lg-9">
+          <div
+            class="card border shadow-0"
+            [ngClass]="{ 'dark-mood-item': this._themeservice.isDarkMood }"
+          >
+            <div class="m-4">
+              <h4
+                class="card-title mb-4"
+                [ngClass]="{ 'dark-mood-text': this._themeservice.isDarkMood }"
+              >
+                Your shopping cart
+              </h4>
+              <app-cart-item></app-cart-item>
+              <!-- item 2 -->
 
+              <app-cart-item></app-cart-item>
+              <!-- item 3 -->
 
-        <div class="card border shadow-0 " [ngClass]="{'dark-mood-item':this._themeservice.isDarkMood}">
-          <div class="m-4">
-            <h4 class="card-title mb-4" [ngClass]="{'dark-mood-text':this._themeservice.isDarkMood}">Your shopping cart</h4>
-            <app-cart-item></app-cart-item>
-            <!-- item 2 -->
+              <app-cart-item></app-cart-item>
+            </div>
 
-          <app-cart-item></app-cart-item>
-            <!-- item 3 -->
+            <div
+              class="border-top pt-4 mx-4 mb-4"
+              [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+            >
+              <p
+                [ngClass]="{ 'dark-mood-icone': this._themeservice.isDarkMood }"
+              >
+                <i class="fas fa-truck fa-lg"></i> Free Delivery within 1-2
+                weeks
+              </p>
+              <p
+                [ngClass]="{ 'dark-mood-icone': this._themeservice.isDarkMood }"
+              >
+                FREE STANDARD SHIPPING Estimated to be delivered on 03/14/2024 -
+                03/16/2024.
+                <br />
+                75.56% are ≤ 10 days
+              </p>
 
-          <app-cart-item></app-cart-item>
-
-          </div>
-
-          <div class="border-top pt-4 mx-4 mb-4" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}">
-            <p [ngClass]="{'dark-mood-icone':this._themeservice.isDarkMood}"><i class="fas fa-truck fa-lg"></i> Free Delivery within 1-2 weeks</p>
-            <p [ngClass]="{'dark-mood-icone':this._themeservice.isDarkMood}">
-              FREE STANDARD SHIPPING
-              Estimated to be delivered on 03/14/2024 - 03/16/2024.
-              <br>
-               75.56% are ≤ 10 days
-          <div class="border-top pt-4 mx-4 mb-4">
-            <!-- <p>
+              <div class="border-top pt-4 mx-4 mb-4">
+                <!-- <p>
               <i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within
               1-2 weeks
             </p>
@@ -41,73 +58,82 @@
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip
             </p> -->
+              </div>
+            </div>
           </div>
-      </div>
-    </div>
 
-      <!-- cart -->
-      <!-- summary -->
-      <div class="col-lg-3">
-        <div class="card mb-3 border shadow-0 "[ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}">
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label class="form-label">Have coupon?</label>
-                <div class="input-group">
-                  <input
-                    type="text"
-                    class="form-control border"
-                    name=""
-                    placeholder="Coupon code"
-                  />
-                  <button class="btn btn-light border">Apply</button>
+          <!-- cart -->
+          <!-- summary -->
+          <div class="col-lg-3">
+            <div
+              class="card mb-3 border shadow-0"
+              [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+            >
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label class="form-label">Have coupon?</label>
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control border"
+                        name=""
+                        placeholder="Coupon code"
+                      />
+                      <button class="btn btn-light border">Apply</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card shadow-0 border">
+              <div
+                class="card-body"
+                [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+              >
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">Total price:</p>
+                  <p class="mb-2">$329.00</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">Discount:</p>
+                  <p class="mb-2 text-success">-$60.00</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">TAX:</p>
+                  <p class="mb-2">$14.00</p>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">Total price:</p>
+                  <p class="mb-2 fw-bold">$283.00</p>
+                </div>
+
+                <div class="mt-3">
+                  <a href="#" class="btn btn-warning w-100 shadow-0 mb-2">
+                    Check out
+                  </a>
+                  <a
+                    [routerLink]="'/deals'"
+                    class="btn btn-light w-100 border mt-2"
+                    [ngClass]="{
+                      'btn-dark-mood': this._themeservice.isDarkMood
+                    }"
+                  >
+                    <!-- Back to shop -->
+                    Continue Shopping
+                  </a>
                 </div>
               </div>
-            </form>
-          </div>
-        </div>
-        <div class="card shadow-0 border">
-          <div class="card-body" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}">
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">Total price:</p>
-              <p class="mb-2">$329.00</p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">Discount:</p>
-              <p class="mb-2 text-success">-$60.00</p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">TAX:</p>
-              <p class="mb-2">$14.00</p>
-            </div>
-            <hr />
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">Total price:</p>
-              <p class="mb-2 fw-bold">$283.00</p>
-            </div>
-
-            <div class="mt-3">
-              <a href="#" class="btn btn-warning w-100 shadow-0 mb-2">
-                Check out
-              </a>
-              <a
-                [routerLink]="'/deals'"
-                class="btn btn-light w-100 border mt-2" [ngClass]="{'btn-dark-mood':this._themeservice.isDarkMood}"
-              >
-                <!-- Back to shop -->
-                Continue Shopping
-              </a>
             </div>
           </div>
+          <!-- summary -->
+          <!-- </div> -->
+          <!-- </div> -->
         </div>
       </div>
-      <!-- summary -->
-    <!-- </div> -->
-  <!-- </div> -->
-
-</div>
-</div>
-</section>
+    </div>
+  </section>
 </div>
 <!-- Recommended items -->
 <app-recommended></app-recommended>

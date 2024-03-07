@@ -1,4 +1,3 @@
-import { AuthVendor } from './../services/authVendor.service';
 import { Component, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
@@ -19,7 +18,6 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { ThemeService } from '../services/theme.service';
 
-
 @Component({
   selector: 'app-registr',
   standalone: true,
@@ -37,9 +35,8 @@ import { ThemeService } from '../services/theme.service';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    NgClass
+    NgClass,
   ],
-  providers: [AuthVendor],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -47,11 +44,7 @@ export class RegisterComponent {
   is_loading: boolean = false;
   date: Date | undefined;
   error: string = '';
-  constructor(
-    private _Router: Router,
-    private AuthVendor: AuthServiceService,
-    public _themeservice:ThemeService
-  ) {}
+  constructor(private _Router: Router, public _themeservice: ThemeService) {}
   registerform: FormGroup = new FormGroup({
     first_name: new FormControl(null, [
       Validators.required,
@@ -96,6 +89,6 @@ export class RegisterComponent {
   }
 }
 
-// this is register for the user not finished yet 
+// this is register for the user not finished yet
 // pipe for the birthday
 // confirmpassword validation function

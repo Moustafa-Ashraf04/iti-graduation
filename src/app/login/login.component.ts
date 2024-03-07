@@ -31,7 +31,6 @@ import { ThemeService } from '../services/theme.service';
     HeaderComponent,
     NgClass,
   ],
-  providers: [AuthVendor],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })

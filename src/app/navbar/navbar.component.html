@@ -1,12 +1,14 @@
-<div [ngClass]="{'dark-mood': _themeservice.isDarkMood}">
-
+<div [ngClass]="{ 'dark-mood': _themeservice.isDarkMood }">
   <main>
     <hr class="m-0 p-0 bg-secondary" />
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-2">
       <div class="container-fluid">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-5">
           <li class="nav-item d-flex align-items-center justify-content-center">
-            <a class="nav-link py-0" routerLink="" routerLinkActive="active_link"
+            <a
+              class="nav-link py-0"
+              routerLink=""
+              routerLinkActive="active_link"
               >Home</a
             >
           </li>
@@ -28,7 +30,7 @@
               <a
                 class="nav-link py-0"
                 routerLink="vendor"
-                [routerLink]="['vendor']"
+                [routerLink]="['/vendor']"
                 routerLinkActive="active_link"
                 >Vendor</a
               >
@@ -53,14 +55,18 @@
               </ul>
             </li> -->
             <li class="nav-item pe-5">
-              <a class="nav-link py-0" routerLinkActive="active_link"
-              [routerLink]="'/category'"
+              <a
+                class="nav-link py-0"
+                routerLinkActive="active_link"
+                [routerLink]="'/category'"
                 >Categories</a
               >
             </li>
             <li class="nav-item pe-5">
-              <a class="nav-link py-0" routerLinkActive="active_link"
-              [routerLink]="'/deals'"
+              <a
+                class="nav-link py-0"
+                routerLinkActive="active_link"
+                [routerLink]="'/deals'"
                 >Flash deals</a
               >
             </li>
