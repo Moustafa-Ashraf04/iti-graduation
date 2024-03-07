@@ -1,7 +1,11 @@
 <!-- header  -->
 <app-header></app-header>
 <app-navbar></app-navbar>
-<section style="background-color: #f6f6fa" class="form-section">
+
+<section class="form-section">
+<div [ngClass]="{'dark-mood-item':this._themeservice.isDarkMood}">
+
+
   <div class="container-fluid">
     <div
       class="row d-flex justify-content-center align-items-center main-container"
@@ -86,6 +90,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 <!-- footer  -->

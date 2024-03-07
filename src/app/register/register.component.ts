@@ -8,7 +8,7 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { PasswordModule } from 'primeng/password';
@@ -16,6 +16,8 @@ import { CalendarModule } from 'primeng/calendar';
 import { AuthServiceService } from '../services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { ThemeService } from '../services/theme.service';
+
 
 @Component({
   selector: 'app-registr',
@@ -34,6 +36,7 @@ import { RouterModule, Routes } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    NgClass
   ],
   providers: [AuthServiceService],
   templateUrl: './register.component.html',
@@ -45,7 +48,8 @@ export class RegisterComponent {
   error: string = '';
   constructor(
     private _Router: Router,
-    private AuthService: AuthServiceService
+    private AuthService: AuthServiceService,
+    public _themeservice:ThemeService
   ) {}
   registerform: FormGroup = new FormGroup({
     first_name: new FormControl(null, [

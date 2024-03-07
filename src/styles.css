@@ -12,6 +12,51 @@
 /* font lato  */
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap");
 
+:root{
+  --background-color:#fff;
+  --text-color: #212529;
+}
+
+
 body {
   font-family: "Lato", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
+
+.dark-mood {
+  background-color: #171921;
+  color: #fff !important;
+
+
+}
+.dark-mood a{
+  color: #fff;
+}
+.dark-mood-item{
+  background-color: #1D2A35;
+
+  color: #fff !important;
+
+}
+.dark-mood-mini{
+  background-color: #38444D;
+  color: #fff !important;
+
+
+}
+.yellow-item{
+  color: #FFE707 !important;
+}
+
+.dark-mood-text
+{
+  color: #fff;
+}
+a.dark-mood-link{
+  color: #fff;
+}
+.dark-mood li a{
+  color: #fff;
+}
+

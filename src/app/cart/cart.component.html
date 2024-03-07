@@ -1,37 +1,40 @@
 <app-header></app-header>
 
+
 <!-- cart + summary -->
-<section class="bg-light  pt-4">
+<div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}" >
+<section class="  pt-4">
   <div class="container">
     <div class="row">
       <!-- cart -->
       <div class="col-lg-9">
-        <div class="card border shadow-0">
+
+
+        <div class="card border shadow-0 " [ngClass]="{'dark-mood-item':this._themeservice.isDarkMood}">
           <div class="m-4">
-            <h4 class="card-title mb-4">Your shopping cart</h4>
+            <h4 class="card-title mb-4" [ngClass]="{'dark-mood-text':this._themeservice.isDarkMood}">Your shopping cart</h4>
             <app-cart-item></app-cart-item>
-            <!-- item 2 -->
-
-          <app-cart-item></app-cart-item>
-            <!-- item 3 -->
-
-          <app-cart-item></app-cart-item>
+            <app-cart-item></app-cart-item>
+            <app-cart-item></app-cart-item>
 
           </div>
 
-          <div class="border-top pt-4 mx-4 mb-4">
-            <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip
+          <div class="border-top pt-4 mx-4 mb-4" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}">
+            <p [ngClass]="{'dark-mood-icone':this._themeservice.isDarkMood}"><i class="fas fa-truck fa-lg"></i> Free Delivery within 1-2 weeks</p>
+            <p [ngClass]="{'dark-mood-icone':this._themeservice.isDarkMood}">
+              FREE STANDARD SHIPPING
+              Estimated to be delivered on 03/14/2024 - 03/16/2024.
+              <br>
+               75.56% are ≤ 10 days
             </p>
           </div>
-        </div>
       </div>
+    </div>
+
       <!-- cart -->
       <!-- summary -->
       <div class="col-lg-3">
-        <div class="card mb-3 border shadow-0">
+        <div class="card mb-3 border shadow-0 "[ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}">
           <div class="card-body">
             <form>
               <div class="form-group">
@@ -45,7 +48,7 @@
           </div>
         </div>
         <div class="card shadow-0 border">
-          <div class="card-body">
+          <div class="card-body" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}">
             <div class="d-flex justify-content-between">
               <p class="mb-2">Total price:</p>
               <p class="mb-2">$329.00</p>
@@ -66,15 +69,19 @@
 
             <div class="mt-3">
               <a href="#" class="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
-              <a href="#" class="btn btn-light w-100 border mt-2"> Back to shop </a>
+              <a href="#" class="btn btn-light w-100 border mt-2" [ngClass]="{'btn-dark-mood':this._themeservice.isDarkMood}"> Back to shop </a>
             </div>
           </div>
         </div>
       </div>
       <!-- summary -->
-    </div>
-  </div>
+    <!-- </div> -->
+  <!-- </div> -->
+
+</div>
+</div>
 </section>
+</div>
 <!-- Recommended items -->
 <app-recommended></app-recommended>
 

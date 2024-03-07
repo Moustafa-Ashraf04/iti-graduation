@@ -1,3 +1,6 @@
+body{
+  background-color: tomato !important;
+}
 .icon-hover-primary:hover {
   border-color: #3b71ca !important;
   background-color: white !important;
@@ -13,4 +16,25 @@
 
 .icon-hover-danger:hover i {
   color: #dc4c64 !important;
+}
+.body{
+  background-color: #F8F9FA !important;
+}
+.dark-mood {
+  background-color: #171921 !important;
+  color: #fff !important;
+
+}
+.dark-mood-item{
+  background-color: #1D2A35;
+}
+.dark-mood-icone{
+  color:#fff
+}
+p
+{
+  color: #272D32;
+}
+.btn-dark-mood{
+  color: #000;
 }

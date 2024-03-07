@@ -3,6 +3,7 @@
 <app-navbar></app-navbar>
 <body>
   <!-- <hr /> -->
+  <div [ngClass]="{'dark-mood': _themeservice.isDarkMood}">
 
   <!-- carousel slider  -->
   <div
@@ -68,7 +69,7 @@
         <h3 class="w-50 ms-3 flash-sale-heading">Flash Sale</h3>
 
         <span class="w-50 text-end view-more"
-          ><a href="" class="fs-5 text-decoration-none"
+          ><a  href="" class="fs-5 text-decoration-none"
             >view more &#x203A;</a
           ></span
         >
@@ -118,5 +119,6 @@
       </div>
     </section>
   </main>
+</div>
 </body>
 <app-footer></app-footer>

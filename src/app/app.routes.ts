@@ -7,6 +7,8 @@ import { TrackOrderComponent } from './track-order/track-order.component';
 import { VendorRegisterComponent } from './vendor-register/vendor-register.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CartComponent } from './cart/cart.component';
+import { HelpPageComponent } from './help-page/help-page.component';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -20,6 +22,16 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     title: 'Register',
+  },
+  {
+    path: 'details',
+    component: DetailsComponent,
+    title: 'details',
+  },
+  {
+    path: 'help-page',
+    component: HelpPageComponent,
+    title: 'help-page',
   },
   {
     path: 'VendorRegister',

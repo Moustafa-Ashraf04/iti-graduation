@@ -1,0 +1,19 @@
+.help-header{
+background-color: #FFC107;
+height: 11.25rem;
+
+}
+.help-center{
+  /* display: grid; */
+/* grid-template-columns: repeat(5,1fr); */
+gap: .9375rem;
+margin-bottom: -3.4375rem;
+}
+.help-item{
+  padding: 0;
+  background-color: #fff;
+  /* width: 100%; */
+
+  border-color: #eee;
+  /* transform: translate(); */
+}
