@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
+  FormsModule,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { TopBarComponent } from '../top-bar/top-bar.component';
+import { AuthVendor } from '../services/authVendor.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -18,16 +21,65 @@ import { NavbarComponent } from '../navbar/navbar.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HeaderComponent,
     FooterComponent,
     FormsModule,
     RouterLink,
-    NavbarComponent,
+    TopBarComponent,
+    HttpClientModule,
+    HeaderComponent,
   ],
+  providers: [AuthVendor],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
-  // validations for the login form
-  constructor(private _Router: Router) {}
+export class LoginComponent implements OnInit {
+  // backerror: string = '';
+  // error: string = '';
+  isVendorLogin: boolean = false;
+
+  constructor(
+    private _Router: Router,
+    private http: HttpClient,
+    private AuthService: AuthVendor
+  ) {}
+  ngOnInit(): void {
+    // this.AuthService.vendorData.subscribe({
+    //   next: () => {
+    //     if (this.AuthService.vendorData.getValue() != null) {
+    //       this.isVendorLogin = true;
+    //     } else {
+    //       this.isVendorLogin = false;
+    //     }
+    //   },
+    // });
+  }
+
+  loginform: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.email, Validators.required]),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+  });
+
+  submitlogin() {
+  //   const formdata = new FormData();
+
+  //   formdata.append('email', this.loginform.get('email')?.value);
+  //   formdata.append('password', this.loginform.get('password')?.value);
+
+  //   this.AuthService.login(formdata).subscribe({
+  //     next: (res) => {
+  //       localStorage.setItem('token', res.token);
+  //       this.AuthService.saveVendorData();
+  //       this._Router.navigate(['']);
+  //     },
+  //     error: (err) => console.log(err.error.error),
+  //     complete: () => {},
+  //   });
+  }
 }
+
+
+  // this is fixed for the vendor login for now 
+  // need to adjust it after we get the user login and registration apis

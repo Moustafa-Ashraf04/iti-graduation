@@ -1,6 +1,6 @@
 main {
-  /* background-color: #f6f6fa; */
-  background-color: white;
+  background-color: #f6f6fa;
+  /* background-color: white; */
   margin-bottom: 0;
 }
 .nav-link:hover {
@@ -8,7 +8,7 @@ main {
   color: #ffc107;
 }
 
-.active-link {
+.active_link {
   color: #ffc107;
 }
 

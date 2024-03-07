@@ -42,57 +42,63 @@
     <div class="d-flex flex-column col-sm-5 col-md-3 divvv">
       <h5 class="pb-3">Quick Links</h5>
       <span class="my-1">
-        <a class="text-decoration-none" href="">New Products</a>
+        <a class="text-decoration-none" routerLink="/deals">Hot Deals</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Top Seller</a>
+        <a class="text-decoration-none" routerLink="/category">Categories</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Our Blog</a>
+        <a class="text-decoration-none" routerLink="/login">Login</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">About Our Shop</a>
+        <a class="text-decoration-none" routerLink="/help">Help</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Secure Shopping</a>
+        <a class="text-decoration-none" routerLink="/cart">My Cart</a>
       </span>
     </div>
 
     <div class="d-flex flex-column col-sm-5 col-md-3 divvv">
-      <h5 class="pb-3">Company</h5>
+      <h5 class="pb-3">Get to know us</h5>
       <span class="my-1">
-        <a class="text-decoration-none" href="">New Products</a>
+        <a class="text-decoration-none" [routerLink]="['/help']">Help</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Top Seller</a>
+        <a class="text-decoration-none" [routerLink]="['/vendor']"
+          >Vendor Plans</a
+        >
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Our Blog</a>
+        <a class="text-decoration-none" [routerLink]="['/aboutus']">About us</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">About Our Shop</a>
+        <a class="text-decoration-none" [routerLink]="['/contactus']"
+          >Contact us</a
+        >
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Secure Shopping</a>
+        <a class="text-decoration-none" [routerLink]="['/termsofuse']"
+          >Terms of use</a
+        >
       </span>
     </div>
 
     <div class="d-flex flex-column col-sm-5 col-md-3 divvv">
       <h5 class="pb-3">Information</h5>
       <span class="my-1">
-        <a class="text-decoration-none" href="">New Products</a>
+        <a class="text-decoration-none" routerLink="">New Products</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Top Seller</a>
+        <a class="text-decoration-none" routerLink="">Top Seller</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Our Blog</a>
+        <a class="text-decoration-none" routerLink="">Our Blog</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">About Our Shop</a>
+        <a class="text-decoration-none" routerLink="">About Our Shop</a>
       </span>
       <span class="my-1">
-        <a class="text-decoration-none" href="">Secure Shopping</a>
+        <a class="text-decoration-none" routerLink="">Secure Shopping</a>
       </span>
     </div>
 
@@ -107,9 +113,10 @@
           <input
             type="email"
             class="form-control email"
-            id="exampleInputEmail1"
             aria-describedby="emailHelp"
             required
+            autocomplete="off"
+            id="newsletterEmail"
           />
           <!-- for input error  -->
           <!-- <div class="text-danger m-0 p-0">This field is required</div> -->

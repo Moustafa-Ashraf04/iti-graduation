@@ -1,169 +1,20 @@
 <app-header></app-header>
 <main style="min-height: 90vh; background-color: #f6f6fa" class="container">
   <h2 class="text-center m-5 text-danger">TESTING PAGE</h2>
-  <!-- <button (click)="toggleForms()">Toggle Forms</button>
-  <p>{{ messages[currentIndex] }}</p>
 
-  <button (click)="toggleMessage()">Toggle Message</button>
-
-
-
-
-
- <p>{{ message }}</p>
-
- <button (click)="toggleMessage()">Toggle Message</button>
-
- <button (click)="switchForm(1)">Form 1</button>
-
- <button (click)="switchForm(2)">Form 2</button>
-
-
-  <ng-container *ngIf="activeForm === 1">
-  </ng-container>
-
-
-
-  <ng-container *ngIf="activeForm === 2">
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-
-<div *ngIf="!showForm1">
   <form>
-    <fieldset disabled>
-      <legend>Disabled fieldset example</legend>
-      <div class="mb-3">
-        <label for="disabledTextInput" class="form-label"
-          >Disabled input</label
-        >
+    <div class="row pt-3">
+      <div class="col--3 mb-3">
+        <label for="formfile" class="form-label">Choose File</label>
         <input
-          type="text"
-          id="disabledTextInput"
-          class="form-control"
-          placeholder="Disabled input"
+          type="file"
+          id="formFile"
+          (change)="uploadImage($event)"
+          [(ngModel)]="inputData"
+          [ngModelOptions]="{ standalone: true }"
         />
       </div>
-      <div class="mb-3">
-        <label for="disabledSelect" class="form-label"
-          >Disabled select menu</label
-        >
-        <select id="disabledSelect" class="form-select">
-          <option>Disabled select</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="disabledFieldsetCheck"
-            disabled
-          />
-          <label class="form-check-label" for="disabledFieldsetCheck">
-            Can't check this
-          </label>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </fieldset>
+    </div>
   </form>
-</div>
-  </ng-container> -->
-
-  <div>
-    <!-- Display current message -->
-    <p>{{ message }}</p>
-    <button (click)="toggleMessages()">Toggle Forms</button>
-
-    <!-- Toggle button -->
-    <button (click)="toggleMessage()">Toggle Message</button>
-
-    <!-- Button to switch to form 1 -->
-    <button (click)="switchForm(1)">Form 1</button>
-
-    <!-- Button to switch to form 2 -->
-    <button (click)="switchForm(2)">Form 2</button>
-
-    <!-- Display form based on activeForm -->
-    <ng-container *ngIf="activeForm === 1">
-      <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-          />
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1"
-            >Check me out</label
-          >
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </ng-container>
-
-    <ng-container *ngIf="activeForm === 2">
-      <form>
-        <fieldset disabled>
-          <legend>Disabled fieldset example</legend>
-          <div class="mb-3">
-            <label for="disabledTextInput" class="form-label"
-              >Disabled input</label
-            >
-            <input
-              type="text"
-              id="disabledTextInput"
-              class="form-control"
-              placeholder="Disabled input"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="disabledSelect" class="form-label"
-              >Disabled select menu</label
-            >
-            <select id="disabledSelect" class="form-select">
-              <option>Disabled select</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="disabledFieldsetCheck"
-                disabled
-              />
-              <label class="form-check-label" for="disabledFieldsetCheck">
-                Can't check this
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>
-      </form>
-    </ng-container>
-  </div>
 </main>
 <app-footer></app-footer>

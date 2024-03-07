@@ -1,0 +1,16 @@
+<app-top-bar></app-top-bar>
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<main>
+  <section class="container-fluid col-xl-10 col-lg-12" style="min-height: 70vh">
+    <h2 class="text-left py-5">Current Deals</h2>
+    <div class="p-3 d-flex flex-wrap">
+      <app-product-card
+        *ngFor="let item of items"
+        class="col-lg-3 col-md-4 col-sm-6 p-2"
+      ></app-product-card>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

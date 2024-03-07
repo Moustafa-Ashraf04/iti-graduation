@@ -4,39 +4,41 @@
 </main> -->
 
 <!-- prev 130vh -->
-<section style="background-color: #eee; height: 75rem" class="form-section">
+<section style="background-color: #eee; height: 80rem" class="form-section">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
         <div class="card text-black" style="border-radius: 25px">
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-0">
-                  Sign up as a vendor
+              <div class="col-md-10 col-lg-8 order-2 order-lg-1">
+                <p class="text-center h3 fw-bold mb-4 mx-1 mx-md-4 mt-0 title">
+                  <!-- Sign up as a vendor -->
+                  Join our vendor community and start to grow your business
                 </p>
+
                 <!-- register form  -->
                 <form
                   class="mx-1 mx-md-4"
-                  action=""
-                  (ngSubmit)="submitregistrationVendor(registerformvendor)"
+                  enctype="multipart/form-data"
                   [formGroup]="registerformvendor"
+                  (ngSubmit)="submitregistrationVendor()"
                 >
                   <!-- First name  -->
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0 d-flex">
-                      <div>
-                        <label class="form-label me-2" for="form3Example1c"
+                    <div class="d-flex w-100 name_inputs">
+                      <!-- here make in less 600 px screen to be flex column  -->
+                      <div class="me-2 firstname">
+                        <label class="form-label" for="first_name"
                           >First Name</label
                         >
                         <input
                           type="text"
-                          id="form3Example1c"
-                          class="form-control me-2"
-                          name="first_name"
+                          class="form-control w-100"
                           id="first_name"
                           formControlName="first_name"
+                          autocomplete="off"
                         />
                         <div
                           *ngIf="
@@ -46,7 +48,6 @@
                           class="alert text-danger m-0 p-0"
                         >
                           <p
-                            class=""
                             *ngIf="
                               registerformvendor
                                 .get('first_name')
@@ -56,17 +57,15 @@
                             First name is required
                           </p>
                           <p
-                            class=""
                             *ngIf="
                               registerformvendor
                                 .get('first_name')
                                 ?.getError('minlength')
                             "
                           >
-                            Minimum length is 4
+                            Minimum length is 3
                           </p>
                           <p
-                            class=""
                             *ngIf="
                               registerformvendor
                                 .get('first_name')
@@ -77,59 +76,52 @@
                           </p>
                         </div>
                       </div>
-                    </div>
-                    <!-- Last name  -->
-                    <div>
-                      <label
-                        class="form-label ms-2"
-                        for="form3Example1c last_name"
-                        >Last Name</label
-                      >
-                      <input
-                        type="text"
-                        id="form3Example1c"
-                        class="form-control ms-2"
-                        name="last_name"
-                        id="last_name"
-                        formControlName="last_name"
-                      />
-                      <div
-                        *ngIf="
-                          registerformvendor.get('last_name')?.errors &&
-                          registerformvendor.get('last_name')?.touched
-                        "
-                        class="alert text-danger m-0 p-0 ms-2"
-                      >
-                        <p
-                          class=""
-                          *ngIf="
-                            registerformvendor
-                              .get('last_name')
-                              ?.getError('required')
-                          "
+                      <!-- Last name  -->
+                      <div class="lastname">
+                        <label class="form-label" for="last_name"
+                          >Last Name</label
                         >
-                          Last name is required
-                        </p>
-                        <p
-                          class=""
+                        <input
+                          type="text"
+                          id="last_name"
+                          class="form-control"
+                          formControlName="last_name"
+                        />
+                        <div
                           *ngIf="
-                            registerformvendor
-                              .get('last_name')
-                              ?.getError('minlength')
+                            registerformvendor.get('last_name')?.errors &&
+                            registerformvendor.get('last_name')?.touched
                           "
+                          class="alert text-danger m-0 p-0 ms-2"
                         >
-                          Minimum length is 4
-                        </p>
-                        <p
-                          class=""
-                          *ngIf="
-                            registerformvendor
-                              .get('last_name')
-                              ?.getError('maxlength')
-                          "
-                        >
-                          Maximum length is 15
-                        </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('last_name')
+                                ?.getError('required')
+                            "
+                          >
+                            Last name is required
+                          </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('last_name')
+                                ?.getError('minlength')
+                            "
+                          >
+                            Minimum length is 3
+                          </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('last_name')
+                                ?.getError('maxlength')
+                            "
+                          >
+                            Maximum length is 15
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -138,7 +130,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-briefcase fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="business"
+                      <label class="form-label" for="business_name"
                         >Business / Brand</label
                       >
                       <input
@@ -146,7 +138,6 @@
                         id="business"
                         class="form-control"
                         formControlName="business_name"
-                        name="business_name"
                         id="business_name"
                       />
                       <div
@@ -167,7 +158,6 @@
                           Please Enter your business name
                         </p>
                         <p
-                          class="m-0"
                           *ngIf="
                             registerformvendor
                               .get('business_name')
@@ -177,7 +167,6 @@
                           Minimum length is 4
                         </p>
                         <p
-                          class="m-0"
                           *ngIf="
                             registerformvendor
                               .get('business_name')
@@ -193,16 +182,15 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example3c"
+                      <label class="form-label" for="vendor_email"
                         >Email address</label
                       >
                       <input
                         type="email"
-                        id="form3Example3c"
+                        id="vendor_email"
                         class="form-control"
                         formControlName="email"
-                        name="email"
-                        id="email"
+                        autocomplete="off"
                       />
                       <div
                         *ngIf="
@@ -212,7 +200,6 @@
                         class="alert text-danger m-0 p-0"
                       >
                         <p
-                          class="m-0"
                           *ngIf="
                             registerformvendor
                               .get('email')
@@ -222,7 +209,6 @@
                           Email is required
                         </p>
                         <p
-                          class="m-0"
                           *ngIf="
                             registerformvendor.get('email')?.getError('email')
                           "
@@ -232,95 +218,234 @@
                       </div>
                     </div>
                   </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-solid fa-phone fa-lg me-3 fa-fw mt-4"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="phone_number"
+                        >Phone Number</label
+                      >
+                      <input
+                        type="tel"
+                        id="phone_number"
+                        formControlName="phoneNumber"
+                        class="form-control"
+                      />
+                      <div
+                        *ngIf="
+                          registerformvendor.get('phoneNumber')?.errors &&
+                          registerformvendor.get('phoneNumber')?.touched
+                        "
+                        class="alert text-danger m-0 p-0"
+                      >
+                        <p
+                          *ngIf="
+                            registerformvendor
+                              .get('phoneNumber')
+                              ?.getError('required')
+                          "
+                        >
+                          Phone number is required
+                        </p>
+                        <p
+                          *ngIf="
+                            registerformvendor
+                              .get('phoneNumber')
+                              ?.getError('pattern')
+                          "
+                        >
+                          Invalid phone number
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-                  <!-- password  -->
+                  <!-- password and confirm password -->
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="password">Password</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        formControlName="password"
-                        name="password"
-                        id="password"
-                      />
-                      <div
-                        *ngIf="
-                          registerformvendor.get('password')?.errors &&
-                          registerformvendor.get('password')?.touched
-                        "
-                        class="alert text-danger m-0 p-0"
-                      >
-                        <p
-                          class=""
-                          *ngIf="
-                            registerformvendor
-                              .get('password')
-                              ?.getError('required')
-                          "
+                    <div class="d-flex w-100 passwords">
+                      <div class="me-2 password">
+                        <label class="form-label" for="password"
+                          >Password</label
                         >
-                          Password is required
-                        </p>
-                        <p
-                          class=""
+                        <input
+                          type="password"
+                          class="form-control w-100"
+                          id="password"
+                          formControlName="password"
+                        />
+                        <div
                           *ngIf="
-                            registerformvendor
-                              .get('password')
-                              ?.getError('minlength')
+                            registerformvendor.get('password')?.errors &&
+                            registerformvendor.get('password')?.touched
                           "
+                          class="alert text-danger m-0 p-0"
                         >
-                          Minimum length is 8
-                        </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('password')
+                                ?.getError('required')
+                            "
+                          >
+                            Password is required
+                          </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('password')
+                                ?.getError('minlength')
+                            "
+                          >
+                            Minimum length is 8
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- confirm password  -->
+                      <div class="confirmPassword">
+                        <label class="form-label" for="confirmPassword"
+                          >Confirm your password</label
+                        >
+                        <input
+                          type="password"
+                          id="confirmPassword"
+                          class="form-control"
+                          formControlName="confirmPassword"
+                        />
+                        <div
+                          *ngIf="
+                            registerformvendor.get('confirmPassword')?.errors &&
+                            registerformvendor.get('confirmPassword')?.touched
+                          "
+                          class="alert text-danger m-0 p-0"
+                        >
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('confirmPassword')
+                                ?.getError('required')
+                            "
+                          >
+                            Password is required
+                          </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('confirmPassword')
+                                ?.getError('minlength')
+                            "
+                          >
+                            Minimum length is 8
+                          </p>
+                          <p
+                            *ngIf="
+                              registerformvendor
+                                .get('confirmPassword')
+                                ?.getError('notmatching') !== null
+                            "
+                          >
+                            Password must match
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- confirm password  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="confirmPassword"
-                        >Confirm your password</label
-                      >
+                  <div class="text-center h5 mb-3">
+                    Please upload your id for verification
+                  </div>
+                  <div class="d-flex gap-2 id">
+                    <div class="mb-3 frontid">
+                      <label class="form-label" for="front_id">Front</label>
                       <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        formControlName="confirmPassword"
+                        type="file"
+                        id="front_id"
                         class="form-control"
+                        formControlName="frontid"
+                        accept="image/*"
+                        (change)="addfrontid($event)"
                       />
                       <div
                         *ngIf="
-                          registerformvendor.get('confirmPassword')?.errors &&
-                          registerformvendor.get('confirmPassword')?.touched
+                          registerformvendor.get('frontid')?.errors &&
+                          registerformvendor.get('frontid')?.touched
                         "
-                        class="alert text-danger m-0 p-0"
+                        class="alert text-danger p-0 m-0"
                       >
-                        <p
-                          class=""
-                          *ngIf="
-                            registerformvendor
-                              .get('confirmPassword')
-                              ?.getError('required')
-                          "
-                        >
-                          Password is required
-                        </p>
-                        <p
-                          class=""
-                          *ngIf="
-                            registerformvendor
-                              .get('confirmPassword')
-                              ?.getError('minlength')
-                          "
-                        >
-                          Minimum length is 8
-                        </p>
+                        <p>Front ID is required.</p>
+                      </div>
+                    </div>
+                    <div class="mb-3 backid">
+                      <label class="form-label" for="back_id">Back</label>
+                      <input
+                        type="file"
+                        id="back_id"
+                        class="form-control"
+                        formControlName="backid"
+                        accept="image/*"
+                        (change)="addbackid($event)"
+                      />
+                      <div
+                        *ngIf="
+                          registerformvendor.get('backid')?.errors &&
+                          registerformvendor.get('backid')?.touched
+                        "
+                        class="alert text-danger p-0 m-0"
+                      >
+                        <p>Back ID is required.</p>
                       </div>
                     </div>
                   </div>
-
+                  <div class="d-flex logo_plan">
+                    <div class="mb-3 logo">
+                      <label class="form-label" for="logopic"
+                        >Upload Your Logo</label
+                      >
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="logopic"
+                        formControlName="logopic"
+                        accept="image/*"
+                        (change)="addlogo($event)"
+                      />
+                      <div
+                        *ngIf="
+                          registerformvendor.get('logopic')?.errors &&
+                          registerformvendor.get('logopic')?.touched
+                        "
+                        class="alert text-danger p-0 m-0"
+                      >
+                        <p>Logo is required.</p>
+                      </div>
+                    </div>
+                    <div class="plan ps-3">
+                      <label for="plan" class="form-label"
+                        >Choose your plan</label
+                      >
+                      <select
+                        id="plan"
+                        class="form-control"
+                        formControlName="plan"
+                        name="plan"
+                      >
+                        <option disabled selected>Select a plan</option>
+                        <option value="1">Free</option>
+                        <option value="2">Silver</option>
+                        <option value="3">Gold</option>
+                        <option value="4">Platinum</option>
+                      </select>
+                      <div
+                        *ngIf="
+                          registerformvendor.get('plan')?.errors &&
+                          registerformvendor.get('plan')?.touched
+                        "
+                        class="alert text-danger p-0 m-0"
+                      >
+                        <p>Please choose a plan</p>
+                      </div>
+                    </div>
+                  </div>
                   <!-- terms of service check -->
                   <div
                     class="form-check d-flex justify-content-center mb-5 flex-column"
@@ -329,70 +454,58 @@
                       <input
                         class="form-check-input me-2"
                         type="checkbox"
-                        value=""
-                        id="termsCheckbox"
                         name="termsCheckbox"
-                        formControlName="termsCheckbox"
+                        checked
+                        disabled
                       />
-                      <label class="form-check-label" for="termsCheckbox">
-                        I agree all statements in
+                      <div class="form-check-label">
+                        I agree to all statements in
                         <a routerLink="/termsofservice">Terms of service.</a>
-                      </label>
+                      </div>
                     </div>
                   </div>
 
+                  <!-- for testing  -->
+                  <!-- to display the error coming from the backend  -->
+                  <div class="alert alert-danger" *ngIf="error">
+                    {{ error }}
+                  </div>
                   <div
-                    class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 gap-3 buttons"
+                    class="d-flex mx-4 mb-3 mb-lg-4 gap-3 buttons flex-column align-items-center"
                   >
                     <button
-                      class="btn btn-warning btn-lg"
+                      class="btn btn-warning btn-lg w-50"
                       [disabled]="registerformvendor.invalid"
                       type="submit"
                     >
-                      Register
+                      <!-- Register -->
                       <!-- will check later when we get api  -->
-                      <!-- <span *ngIf="!is_loading">Register</span> -->
-                      <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
+                      <span *ngIf="!is_loading">Register</span>
+                      <i
+                        *ngIf="is_loading"
+                        class="fa-solid fa-spinner fa-spin"
+                      ></i>
                     </button>
-                    <button class="btn btn-primary btn-lg" type="submit">
+                    <div>
+                      <p>
+                        Already registered an account?
+                        <a routerLink="/vendor/login" class="text-danger">
+                          Login</a
+                        >
+                      </p>
+                    </div>
+                    <!-- <button class="btn btn-primary btn-lg w-50" type="submit">
                       Facebook
-                      <!-- will check later when we get api  -->
-                      <!-- <span *ngIf="!is_loading">Register</span> -->
-                      <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
                     </button>
                     <button
-                      class="btn btn-lg btn-danger"
+                      class="btn btn-lg btn-danger w-50"
                       type="submit"
                       style="color: white"
                     >
                       Gmail
-                      <!-- will check later when we get api  -->
-                      <!-- <span *ngIf="!is_loading">Register</span> -->
-                      <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
-                    </button>
+                    </button> -->
                   </div>
                 </form>
-              </div>
-              <div
-                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 flex-column justify-content-center"
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid"
-                  alt="Register form"
-                />
-                <div>
-                  <p>
-                    Already have an account?
-                    <a routerLink="/login" class="text-danger"> Login</a>
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    Register as a customer from
-                    <a routerLink="/register" class="text-danger"> Here</a>
-                  </p>
-                </div>
               </div>
             </div>
           </div>

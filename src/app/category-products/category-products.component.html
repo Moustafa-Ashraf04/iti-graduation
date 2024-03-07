@@ -1,0 +1,86 @@
+<app-top-bar></app-top-bar>
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="category-name mb-0 pb-0 d-flex justify-content-center">
+  <h2 class="text-left py-5 container-fluid col-xl-8 m-0">Products</h2>
+</div>
+<main class="d-flex">
+  <aside
+    class="container-fluid col-lg-2 mt-5 d-flex flex-column align-items-center col-md-3 col-sm-4 col-xs-6 pt-5"
+  >
+    <form
+      action=""
+      class="mt-5"
+      (ngSubmit)="submitFilter(filterForm)"
+      [formGroup]="filterForm"
+    >
+      <div>
+        <label for="" class="mx-2"> Choose a Category</label>
+        <select
+          class="form-select m-2"
+          aria-label="Default select example"
+          id="category"
+          name="category"
+          formControlName="category"
+        >
+          <option selected>All products</option>
+          <option value="phones">Phones</option>
+          <option value="Laptops">Laptops</option>
+          <option value="Mouse">Mouse</option>
+          <option value="Mouse Pad">Mouse Pad</option>
+          <option value="HeadPhones">HeadPhones</option>
+          <option value="Graphic Card">Graphic Card</option>
+          <option value="SSD">SSD</option>
+          <option value="Monitor">Monitor</option>
+          <option value="USB Drive">USB Drive</option>
+          <option value="Clothes">Clothes</option>
+        </select>
+      </div>
+
+      <div class="form-check mx-2 mt-4">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="onsale"
+          id="onsale"
+          name="onsale"
+        />
+        <label class="form-check-label" for="onsale"> On Sale </label>
+      </div>
+
+      <button class="btn btn-warning mt-4" type="submit">Filter</button>
+    </form>
+  </aside>
+  <content>
+    <section class="container-fluid col-xl-11 col-lg-12">
+      <div class="d-flex justify-content-end">
+        <form action="">
+          <label for="" class="mb-2"> Sort by</label>
+          <select class="form-select me-2" aria-label="Default select example">
+            <option selected>Default</option>
+            <option>Price (high > low)</option>
+            <option>Price (low > high)</option>
+            <option>Name (A - Z)</option>
+            <option>Name (Z - A)</option>
+          </select>
+        </form>
+      </div>
+      <div class="py-3 d-flex flex-wrap">
+        <app-product-card
+          *ngFor="let item of items"
+          class="col-lg-3 col-md-4 col-sm-6 p-2"
+        ></app-product-card>
+      </div>
+    </section>
+    <div class="flex justify-content-center py-5 m-4">
+      <p-paginator
+        locale="en-US"
+        (onPageChange)="onPageChange($event)"
+        [rows]="rows"
+        [totalRecords]="1000"
+      ></p-paginator>
+      <!-- get total records from api response  -->
+    </div>
+  </content>
+</main>
+<app-footer></app-footer>

@@ -6,6 +6,8 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 import { FooterComponent } from '../footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { CategoryCardComponent } from '../category-card/category-card.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home-page',
@@ -18,6 +20,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
     RouterModule,
     FooterComponent,
     NavbarComponent,
+    CategoryCardComponent,
+    NgOptimizedImage,
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -25,4 +29,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 export class HomePageComponent {
   items = [1, 2, 3, 4];
   itemss = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+
+  // remove new arrivals and display 20 random products from all categories 
 }

@@ -1,9 +1,16 @@
 <!-- header  -->
+<app-top-bar></app-top-bar>
 <app-header></app-header>
-<app-navbar></app-navbar>
 <section style="background-color: #f6f6fa" class="form-section">
   <div class="container-fluid">
     <div
+      *ngIf="isVendorLogin"
+      class="d-flex justify-content-center align-items-center text-warning logged"
+    >
+      <h3>Your are logged in</h3>
+    </div>
+    <div
+      *ngIf="!isVendorLogin"
       class="row d-flex justify-content-center align-items-center main-container"
       style="min-height: 90vh"
     >
@@ -16,20 +23,30 @@
           <h2 class="mb-5 w-75">Please Log In To Your Account.</h2>
           <!-- login form  -->
           <div class="col-9">
-            <form action="" method="post">
+            <form
+              enctype="multipart/form-data"
+              [formGroup]="loginform"
+              (ngSubmit)="submitlogin()"
+            >
               <input
                 type="email"
-                name="email"
-                id="email"
-                class="form-control-lg mb-4 w-100 border-1"
+                id="loginEmail"
+                autocomplete="off"
                 placeholder="Email Address"
+                class="form-control-lg mb-4 w-100 border-1"
+                formControlName="email"
               />
               <input
                 type="password"
-                id="password"
-                class="form-control-lg mb-4 w-100 border-1"
+                id="loginPassword"
+                autocomplete="off"
                 placeholder="Password"
+                class="form-control-lg mb-4 w-100 border-1"
+                formControlName="password"
               />
+              <!-- <div class="alert alert-danger" *ngIf="backerror">
+                {{ error }}
+              </div> -->
               <div
                 class="d-flex justify-content-between align-items-between w-100 pdiv"
               >
@@ -40,10 +57,17 @@
                   >
                 </p>
                 <p>
-                  <a routerLink="" class="text-danger">Forgot Your password?</a>
+                  <!-- create a page for this and update password there  -->
+                  <a routerLink="/resetpassword" class="text-danger"
+                    >Forgot Your password?</a
+                  >
                 </p>
               </div>
-              <button class="btn btn-warning btn-lg w-100" type="submit">
+              <button
+                class="btn btn-warning btn-lg w-100"
+                type="submit"
+                [disabled]="loginform.invalid"
+              >
                 Login
               </button>
             </form>
@@ -57,6 +81,10 @@
               <p class="my-3">
                 Dont have an account?
                 <a routerLink="/register" class="text-danger">Sign up here.</a>
+              </p>
+              <p class="my-0">
+                Login as
+                <a routerLink="/vendor/login" class="text-danger">Vendor.</a>
               </p>
             </div>
             <span class="d-flex justify-content-center">OR</span>

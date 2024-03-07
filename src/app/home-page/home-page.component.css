@@ -1,5 +1,5 @@
 .carousel-inner {
-  max-height: 730px;
+  max-height: 760px;
 }
 
 .flash-sale-heading::before {
@@ -19,4 +19,11 @@
 }
 body {
   background-color: #f6f6fa;
+}
+
+@media screen and (max-width: 997px) {
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -10,15 +10,14 @@ import {
   FormsModule,
   FormControl,
   ReactiveFormsModule,
+  Validators,
+  AbstractControl,
+  NgModel,
 } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { DropdownModule } from 'primeng/dropdown';
-
-interface Country {
-  name: string;
-  code: string;
-}
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-track-order',
@@ -27,51 +26,50 @@ interface Country {
     RouterLink,
     HeaderComponent,
     FooterComponent,
-    ButtonModule,
-    CalendarModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    DropdownModule,
+    HttpClientModule,
   ],
   templateUrl: './track-order.component.html',
   styleUrl: './track-order.component.css',
 })
 export class TrackOrderComponent {
-  showForm1 = true;
+  inputData: string = '';
+  FileUrl = 'https://api.escuelajs.co/api/v1/files/';
+  uploadFileNames: string[] = [];
+  constructor(private http: HttpClient) {}
+  uploadImage(event: any) {
+    // debugger;
+    const file = event.currentTarget.files[0];
+    // console.log(file);
+    // file to be only image/png and size less than 5 mb
+    if (file.type === 'image/png' && file.size < 5000000) {
+      const formObj = new FormData();
 
-  toggleForms() {
-    this.showForm1 = !this.showForm1; // Toggle the flag to switch between forms
-  }
+      formObj.append('file', file);
+      // debugger;
+      this.http
+        .post('https://api.escuelajs.co/api/v1/files/upload', formObj)
+        .subscribe((res: any) => {
+          // debugger;
+          console.log(res);
 
-  messages: string[] = ['Message 1', 'Message 2'];
-  currentIndex: number = 0;
-
-  toggleMessages(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.messages.length;
-  }
-
-  form1: FormGroup;
-  form2: FormGroup;
-  activeForm: number = 1;
-  message: string = 'Message 1';
-
-  constructor() {
-    this.form1 = new FormGroup({
-      // Define form controls for form 1
-    });
-
-    this.form2 = new FormGroup({
-      // Define form controls for form 2
-    });
-  }
-
-  toggleMessage(): void {
-    this.message = this.activeForm === 1 ? 'Message 2' : 'Message 1';
-  }
-
-  switchForm(formNumber: number): void {
-    this.activeForm = formNumber;
-    this.message = this.activeForm === 1 ? 'Message 1' : 'Message 2';
+          this.uploadFileNames.push(res.fileName);
+        });
+      // to empty the input after uploading
+      this.inputData = '';
+    } else {
+      if (file.size < 5000000) {
+        alert('file size must be less than 2 MB');
+      } else if (file.type !== 'image/png') {
+        alert('only files with png extention');
+      }
+      this.inputData = '';
+    }
   }
 }
+
+
+// i think this will include in the help center 
+// remove everything in the html it was for testing only 

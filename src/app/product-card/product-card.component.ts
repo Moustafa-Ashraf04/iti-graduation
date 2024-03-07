@@ -12,3 +12,6 @@ export class ProductCardComponent {
     event.preventDefault();
   }
 }
+
+
+// need to be adjusted with the right data that will be displayed 

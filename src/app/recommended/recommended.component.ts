@@ -10,3 +10,6 @@ import { Component } from '@angular/core';
 export class RecommendedComponent {
 
 }
+
+
+// will get here the api for the recommended items to display under the products details page 

@@ -1,7 +1,7 @@
+<app-top-bar></app-top-bar>
 <app-header></app-header>
-
 <!-- cart + summary -->
-<section class="bg-light  pt-4">
+<section class="bg-light pt-4">
   <div class="container">
     <div class="row">
       <!-- cart -->
@@ -12,18 +12,22 @@
             <app-cart-item></app-cart-item>
             <!-- item 2 -->
 
-          <app-cart-item></app-cart-item>
+            <app-cart-item></app-cart-item>
             <!-- item 3 -->
 
-          <app-cart-item></app-cart-item>
-
+            <app-cart-item></app-cart-item>
           </div>
 
           <div class="border-top pt-4 mx-4 mb-4">
-            <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
+            <p>
+              <i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within
+              1-2 weeks
+            </p>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip
             </p>
           </div>
         </div>
@@ -37,7 +41,12 @@
               <div class="form-group">
                 <label class="form-label">Have coupon?</label>
                 <div class="input-group">
-                  <input type="text" class="form-control border" name="" placeholder="Coupon code" />
+                  <input
+                    type="text"
+                    class="form-control border"
+                    name=""
+                    placeholder="Coupon code"
+                  />
                   <button class="btn btn-light border">Apply</button>
                 </div>
               </div>
@@ -65,8 +74,16 @@
             </div>
 
             <div class="mt-3">
-              <a href="#" class="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
-              <a href="#" class="btn btn-light w-100 border mt-2"> Back to shop </a>
+              <a href="#" class="btn btn-warning w-100 shadow-0 mb-2">
+                Check out
+              </a>
+              <a
+                [routerLink]="'/deals'"
+                class="btn btn-light w-100 border mt-2"
+              >
+                <!-- Back to shop -->
+                Continue Shopping
+              </a>
             </div>
           </div>
         </div>

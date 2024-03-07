@@ -1,3 +1,4 @@
+import { AuthVendor } from './../services/authVendor.service';
 import { Component, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
@@ -11,20 +12,20 @@ import {
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { PasswordModule } from 'primeng/password';
 import { CalendarModule } from 'primeng/calendar';
-import { AuthServiceService } from '../services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { TopBarComponent } from '../top-bar/top-bar.component';
 
 @Component({
   selector: 'app-registr',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
     HeaderComponent,
     FooterComponent,
-    PasswordModule,
+    NavbarComponent,
+    TopBarComponent,
     FormsModule,
     CalendarModule,
     CommonModule,
@@ -35,7 +36,7 @@ import { RouterModule, Routes } from '@angular/router';
     HttpClientModule,
     RouterModule,
   ],
-  providers: [AuthServiceService],
+  providers: [AuthVendor],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -43,10 +44,7 @@ export class RegisterComponent {
   is_loading: boolean = false;
   date: Date | undefined;
   error: string = '';
-  constructor(
-    private _Router: Router,
-    private AuthService: AuthServiceService
-  ) {}
+  constructor(private _Router: Router) {}
   registerform: FormGroup = new FormGroup({
     first_name: new FormControl(null, [
       Validators.required,
@@ -76,17 +74,21 @@ export class RegisterComponent {
   });
 
   submitregistration(registerform: FormGroup) {
-    this.is_loading = true;
-    this.AuthService.signupUser(registerform.value).subscribe({
-      next: (response) => {
-        this.is_loading = false;
-        if (response.message === 'success') {
-          this._Router.navigate(['/login']);
-        } else {
-          this.error = response.message;
-        }
-      },
-    });
+    // this.is_loading = true;
+    // this.AuthService.signupUser(registerform.value).subscribe({
+    //   next: (response) => {
+    //     this.is_loading = false;
+    //     if (response.message === 'success') {
+    //       this._Router.navigate(['/login']);
+    //     } else {
+    //       this.error = response.message;
+    //     }
+    //   },
+    // });
     console.log(registerform.value);
   }
 }
+
+// this is register for the user not finished yet 
+// pipe for the birthday
+// confirmpassword validation function

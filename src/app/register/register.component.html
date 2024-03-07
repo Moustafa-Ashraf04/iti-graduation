@@ -1,5 +1,5 @@
+<app-top-bar></app-top-bar>
 <app-header></app-header>
-
 <!-- prev 130vh -->
 <section style="background-color: #eee; height: 75rem" class="form-section">
   <div class="container h-100">
@@ -15,7 +15,7 @@
                 <!-- register form  -->
                 <form
                   class="mx-1 mx-md-4"
-                  action=""
+                  enctype="multipart/form-data"
                   (ngSubmit)="submitregistration(registerform)"
                   [formGroup]="registerform"
                 >
@@ -24,16 +24,16 @@
                     <i class="fas fa-user fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-outline flex-fill mb-0 d-flex">
                       <div>
-                        <label class="form-label me-2" for="form3Example1c"
+                        <label class="form-label me-2" for="first_name"
                           >First Name</label
                         >
                         <input
                           type="text"
                           id="form3Example1c"
                           class="form-control me-2"
-                          name="first_name"
                           id="first_name"
                           formControlName="first_name"
+                          autocomplete="off"
                         />
                         <div
                           *ngIf="
@@ -53,7 +53,6 @@
                             First name is required
                           </p>
                           <p
-                            class=""
                             *ngIf="
                               registerform
                                 .get('first_name')
@@ -63,7 +62,6 @@
                             Minimum length is 4
                           </p>
                           <p
-                            class=""
                             *ngIf="
                               registerform
                                 .get('first_name')
@@ -77,18 +75,15 @@
                     </div>
                     <!-- Last name  -->
                     <div>
-                      <label
-                        class="form-label ms-2"
-                        for="form3Example1c last_name"
+                      <label class="form-label ms-2" for="last_name"
                         >Last Name</label
                       >
                       <input
                         type="text"
-                        id="form3Example1c"
                         class="form-control ms-2"
-                        name="last_name"
                         id="last_name"
                         formControlName="last_name"
+                        autocomplete="off"
                       />
                       <div
                         *ngIf="
@@ -98,7 +93,6 @@
                         class="alert text-danger m-0 p-0 ms-2"
                       >
                         <p
-                          class=""
                           *ngIf="
                             registerform.get('last_name')?.getError('required')
                           "
@@ -106,7 +100,6 @@
                           Last name is required
                         </p>
                         <p
-                          class=""
                           *ngIf="
                             registerform.get('last_name')?.getError('minlength')
                           "
@@ -114,7 +107,6 @@
                           Minimum length is 4
                         </p>
                         <p
-                          class=""
                           *ngIf="
                             registerform.get('last_name')?.getError('maxlength')
                           "
@@ -129,16 +121,15 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw mt-4"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="form3Example3c"
+                      <label class="form-label" for="userEmail"
                         >Email address</label
                       >
                       <input
                         type="email"
-                        id="form3Example3c"
+                        id="userEmail"
                         class="form-control"
                         formControlName="email"
-                        name="email"
-                        id="email"
+                        autocomplete="off"
                       />
                       <div
                         *ngIf="
@@ -148,17 +139,13 @@
                         class="alert text-danger m-0 p-0"
                       >
                         <p
-                          class="m-0"
                           *ngIf="
                             registerform.get('email')?.getError('required')
                           "
                         >
                           Email is required
                         </p>
-                        <p
-                          class="m-0"
-                          *ngIf="registerform.get('email')?.getError('email')"
-                        >
+                        <p *ngIf="registerform.get('email')?.getError('email')">
                           Email is not valid
                         </p>
                       </div>
@@ -174,7 +161,6 @@
                         type="password"
                         class="form-control"
                         formControlName="password"
-                        name="password"
                         id="password"
                       />
                       <div
@@ -185,7 +171,6 @@
                         class="alert text-danger m-0 p-0"
                       >
                         <p
-                          class=""
                           *ngIf="
                             registerform.get('password')?.getError('required')
                           "
@@ -193,7 +178,6 @@
                           Password is required
                         </p>
                         <p
-                          class=""
                           *ngIf="
                             registerform.get('password')?.getError('minlength')
                           "
@@ -214,7 +198,6 @@
                       <input
                         type="password"
                         id="confirmPassword"
-                        name="confirmPassword"
                         formControlName="confirmPassword"
                         class="form-control"
                       />
@@ -271,7 +254,6 @@
                         class="alert text-danger m-0 p-0"
                       >
                         <p
-                          class=""
                           *ngIf="
                             registerform
                               .get('phoneNumber')
@@ -281,7 +263,6 @@
                           Phone number is required
                         </p>
                         <p
-                          class=""
                           *ngIf="
                             registerform.get('phoneNumber')?.getError('pattern')
                           "
@@ -295,16 +276,29 @@
                     <label for="birthday">Birthday:</label>
                     <input type="date" id="birthday" name="birthday" />
                   </div> -->
-                  <div class="ms-4 ps-3 py-3">
+                  <div class="py-3 ps-1 d-flex">
+                    <i class="fas fa-calendar-days fa-lg me-3 fa-fw mt-4"></i>
                     <span class="p-float-label">
                       <p-calendar
-                        inputId="birthDate"
                         id="birthDate"
-                        name="birthDate"
                         formControlName="birthDate"
                       ></p-calendar>
                       <label for="birthDate">Birth Date</label>
                     </span>
+                    <!-- <div class="p-field">
+                      <label for="birthDate">Birth Date</label>
+                      <span class="p-float-label">
+                        <p-calendar
+                          id="birthDate"
+                          formControlName="birthDate"
+                          [showIcon]="true"
+                          [monthNavigator]="true"
+                          [yearNavigator]="true"
+                          [yearRange]="'1900:2030'"
+                        ></p-calendar>
+                        <label for="birthDate">Choose Date</label>
+                      </span>
+                    </div> -->
                     <div
                       *ngIf="
                         registerform.get('birthDate')?.errors &&
@@ -313,7 +307,6 @@
                       class="alert text-danger m-0 p-0"
                     >
                       <p
-                        class=""
                         *ngIf="
                           registerform.get('birthDate')?.getError('birthDate')
                         "
@@ -322,7 +315,6 @@
                       </p>
                     </div>
                   </div>
-                  <!-- terms of service check -->
                   <div
                     class="form-check d-flex justify-content-center mb-5 flex-column"
                   >
@@ -330,33 +322,15 @@
                       <input
                         class="form-check-input me-2"
                         type="checkbox"
-                        value=""
-                        id="termsCheckbox"
                         name="termsCheckbox"
-                        formControlName="termsCheckbox"
+                        checked
+                        disabled
                       />
-                      <label class="form-check-label" for="termsCheckbox">
-                        I accept and agree to the
-                        <a routerLink="/termsofservice">Terms of Use.</a>
-                      </label>
+                      <div class="form-check-label">
+                        I agree to all statements in
+                        <a routerLink="/termsofservice">Terms of service.</a>
+                      </div>
                     </div>
-
-                    <!-- validation on the check box will do later  -->
-                    <!-- <div
-                      *ngIf="registerform.get('termsCheckbox')?.errors"
-                      class="alert text-danger m-0 p-0"
-                    >
-                      <p
-                        class=""
-                        *ngIf="
-                          registerform
-                            .get('termsCheckbox')
-                            ?.getError('requiredTrue')
-                        "
-                      >
-                        Please check this box if u want to proceed
-                      </p>
-                    </div> -->
                   </div>
 
                   <div
@@ -375,9 +349,6 @@
                     </button>
                     <button class="btn btn-primary btn-lg" type="submit">
                       Facebook
-                      <!-- will check later when we get api  -->
-                      <!-- <span *ngIf="!is_loading">Register</span> -->
-                      <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
                     </button>
                     <button
                       class="btn btn-lg btn-danger"
@@ -385,9 +356,6 @@
                       style="color: white"
                     >
                       Gmail
-                      <!-- will check later when we get api  -->
-                      <!-- <span *ngIf="!is_loading">Register</span> -->
-                      <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
                     </button>
                   </div>
                 </form>
@@ -409,7 +377,7 @@
                 <div>
                   <p>
                     Register as a vendor from
-                    <a routerLink="/VendorRegister" class="text-danger">
+                    <a routerLink="/vendor/register" class="text-danger">
                       Here</a
                     >
                   </p>

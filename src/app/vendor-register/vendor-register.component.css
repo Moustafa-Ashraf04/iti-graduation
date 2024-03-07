@@ -1,15 +1,52 @@
 .alert p {
-    font-size: 14px;
-    padding: 0px;
-    margin: 0px;
+  font-size: 14px;
+  padding: 0px;
+  margin: 0px;
+}
+button:hover {
+  color: white;
+  background-color: black;
+}
+.firstname,
+.lastname,
+.password,
+.confirmPassword,
+.frontid,
+.backid,
+.logo,
+.plan {
+  width: 50%;
+}
+.title {
+  color: #ffc107;
+}
+@media all and (max-width: 576px) {
+  /* .buttons {
+    flex-direction: column;
+  } */
+  .name_inputs,
+  .passwords,
+  .id,
+  .logo_plan {
+    flex-direction: column;
+    align-items: center;
   }
-  button:hover {
-    color: white;
-    background-color: black;
+  .firstname,
+  .lastname,
+  .password,
+  .confirmPassword {
+    width: 100%;
   }
-  @media all and (max-width: 576px) {
-    .buttons {
-      flex-direction: column;
-    }
+  .frontid,
+  .backid,
+  .logo {
+    width: 80%;
   }
-  
+  .plan {
+    width: 60%;
+    margin-bottom: 20px;
+  }
+  .form-section {
+    height: 95rem;
+  }
+}

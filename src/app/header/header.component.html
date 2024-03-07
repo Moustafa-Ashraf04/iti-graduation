@@ -9,9 +9,11 @@
     >
       <div class="col-9 me-1">
         <form class="d-flex" role="search">
+          <label for="searchEmail"></label>
           <input
             class="form-control text-secondary searchBtn w-md-100"
             type="search"
+            id="searchEmail"
             placeholder="I'm shopping for"
             aria-label="Search"
           />
@@ -38,7 +40,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link ps-2 p-0" routerLink="/help">Help </a>
+        <a class="nav-link ps-2 p-0 help" routerLink="/help">Help </a>
       </li>
       <!-- login/profile icon  -->
       <li>
@@ -48,7 +50,10 @@
               <i class="fa-regular fa-user fa-xl"></i>
             </a>
           </li>
-          <li class="">
+          <!-- if token is for vendor display dashboard vendor and logout -->
+          <!-- if token is user display account settings and logout  -->
+          <!-- if token is admin display dashboard admin and logout  -->
+          <li *ngIf="!isVendorLogin"> 
             <a class="nav-link py-0 login" routerLink="/login">
               <!-- if there is a token then it will be profile and  if not then its login  -->
               <!-- will handle it later  -->
@@ -56,6 +61,14 @@
             </a>
             <a class="nav-link py-0 register" routerLink="/register">
               <span>Register</span>
+            </a>
+          </li>
+          <li
+            class="d-flex justify-content-center align-items-center"
+            *ngIf="isVendorLogin"
+          >
+            <a class="nav-link py-0 logout" (click)="logOut()" routerLink="">
+              Logout
             </a>
           </li>
         </ul>

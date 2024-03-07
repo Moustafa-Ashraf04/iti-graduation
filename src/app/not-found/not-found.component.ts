@@ -14,3 +14,6 @@ import { RouterLink } from '@angular/router';
 export class NotFoundComponent {
 
 }
+
+
+// can be changed and redesigned later 
