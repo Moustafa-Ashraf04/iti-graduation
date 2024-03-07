@@ -1,4 +1,4 @@
- <section class="bg-light p-1">
+ <section class=" p-1"  [ngClass]="{'dark-mood':this._themeservice.isDarkMood}">
   <div class="container my-5">
     <header class="mb-4">
       <h3>Recommended items</h3>
@@ -6,7 +6,8 @@
 
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0 mb-4 mb-lg-0">
+
+        <div class="card p-4 border shadow-0 mb-4 mb-lg-0" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
           <a href="#" class="">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
           </a>
@@ -23,7 +24,7 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0 mb-4 mb-lg-0">
+        <div class="card p-4 border shadow-0 mb-4 mb-lg-0" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
 
           <a href="#" class="">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
@@ -40,7 +41,7 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0">
+        <div class="card p-4 border shadow-0" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
 
           <a href="#" class="">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
@@ -57,7 +58,7 @@
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0">
+        <div class="card p-4 border shadow-0"[ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
           <a href="#" class="">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
           </a>

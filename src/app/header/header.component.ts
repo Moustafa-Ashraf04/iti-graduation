@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthVendor } from '../services/authVendor.service';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../services/theme.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, NgClass],
   providers: [AuthVendor],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
@@ -14,7 +16,14 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent implements OnInit {
   isVendorLogin: boolean = false;
 
-  constructor(private AuthService: AuthVendor) {}
+  constructor(
+    private AuthService: AuthVendor,
+    public _themeServices: ThemeService
+  ) {}
+
+  toggleDarkMood() {
+    this._themeServices.toggleDarkMood();
+  }
 
   ngOnInit(): void {
     this.AuthService.vendorData.subscribe({
@@ -32,6 +41,5 @@ export class HeaderComponent implements OnInit {
     this.AuthService.signOut();
   }
 
-
-  // test this after the help menu and user login 
+  // test this after the help menu and user login
 }

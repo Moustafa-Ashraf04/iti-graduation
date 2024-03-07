@@ -9,7 +9,7 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CalendarModule } from 'primeng/calendar';
@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
+import { ThemeService } from '../services/theme.service';
+
 
 @Component({
   selector: 'app-registr',
@@ -35,6 +37,7 @@ import { TopBarComponent } from '../top-bar/top-bar.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    NgClass
   ],
   providers: [AuthVendor],
   templateUrl: './register.component.html',
@@ -44,7 +47,11 @@ export class RegisterComponent {
   is_loading: boolean = false;
   date: Date | undefined;
   error: string = '';
-  constructor(private _Router: Router) {}
+  constructor(
+    private _Router: Router,
+    private AuthService: AuthServiceService,
+    public _themeservice:ThemeService
+  ) {}
   registerform: FormGroup = new FormGroup({
     first_name: new FormControl(null, [
       Validators.required,

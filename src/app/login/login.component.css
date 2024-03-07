@@ -1,3 +1,10 @@
+/*
+validations for the form
+
+*/
+section{
+  background-color: #f6f6fa
+}
 #rememberme,
 #rememberme-label {
   cursor: pointer;

@@ -1,7 +1,12 @@
 <!-- header  -->
 <app-top-bar></app-top-bar>
 <app-header></app-header>
-<section style="background-color: #f6f6fa" class="form-section">
+<app-navbar></app-navbar>
+
+<section class="form-section">
+<div [ngClass]="{'dark-mood-item':this._themeservice.isDarkMood}">
+
+
   <div class="container-fluid">
     <div
       *ngIf="isVendorLogin"
@@ -114,6 +119,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 <!-- footer  -->

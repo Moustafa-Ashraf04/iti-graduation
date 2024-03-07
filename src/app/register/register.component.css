@@ -1,3 +1,6 @@
+body{
+  background-color: #eee;
+}
 .alert p {
   font-size: 14px;
   padding: 0px;

@@ -7,13 +7,15 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { AuthVendor } from '../services/authVendor.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { ThemeService } from '../services/theme.service';
+
 
 @Component({
   selector: 'app-login',
@@ -27,6 +29,7 @@ import { HttpClient } from '@angular/common/http';
     TopBarComponent,
     HttpClientModule,
     HeaderComponent,
+    NgClass,
   ],
   providers: [AuthVendor],
   templateUrl: './login.component.html',
@@ -40,7 +43,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private _Router: Router,
     private http: HttpClient,
-    private AuthService: AuthVendor
+    private AuthService: AuthVendor,
+    public _themeservice:ThemeService
+
   ) {}
   ngOnInit(): void {
     // this.AuthService.vendorData.subscribe({
@@ -62,6 +67,9 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
+  taggleDarkMood(){
+    this._themeservice.toggleDarkMood()
+  }
   submitlogin() {
   //   const formdata = new FormData();
 
