@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
 import { ProductsService } from '../services/products.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -19,6 +20,7 @@ export class ProductCardComponent {
   constructor(
     public _themeService: ThemeService,
     private _productsService: ProductsService,
+    private _cartService: CartService
   ) {}
 
   preventClick(event: Event): void {
@@ -37,6 +39,9 @@ export class ProductCardComponent {
 
   toggleDarkMood() {
     this._themeService.toggleDarkMood();
+  }
+  addToCart(addedProduct: any) {
+    this._cartService.addToCart(addedProduct);
   }
 }
 
