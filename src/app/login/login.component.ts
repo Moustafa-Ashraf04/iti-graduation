@@ -15,7 +15,7 @@ import { AuthVendor } from '../services/authVendor.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { ThemeService } from '../services/theme.service';
-
+import { AuthUserService } from '../services/auth-user.service';
 
 @Component({
   selector: 'app-login',
@@ -36,26 +36,25 @@ import { ThemeService } from '../services/theme.service';
 })
 export class LoginComponent implements OnInit {
   // backerror: string = '';
-  // error: string = '';
-  isVendorLogin: boolean = false;
+  error: string = '';
+  isuserLogin: boolean = false;
 
   constructor(
     private _Router: Router,
     private http: HttpClient,
-    private AuthService: AuthVendor,
-    public _themeservice:ThemeService
-
+    private AuthService: AuthUserService,
+    public _themeservice: ThemeService
   ) {}
   ngOnInit(): void {
-    // this.AuthService.vendorData.subscribe({
-    //   next: () => {
-    //     if (this.AuthService.vendorData.getValue() != null) {
-    //       this.isVendorLogin = true;
-    //     } else {
-    //       this.isVendorLogin = false;
-    //     }
-    //   },
-    // });
+    this.AuthService.userToken.subscribe({
+      next: () => {
+        if (this.AuthService.userToken.getValue() != null) {
+          this.isuserLogin = true;
+        } else {
+          this.isuserLogin = false;
+        }
+      },
+    });
   }
 
   loginform: FormGroup = new FormGroup({
@@ -66,27 +65,26 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  taggleDarkMood(){
-    this._themeservice.toggleDarkMood()
+  taggleDarkMood() {
+    this._themeservice.toggleDarkMood();
   }
   submitlogin() {
-  //   const formdata = new FormData();
+    const formdata = new FormData();
 
-  //   formdata.append('email', this.loginform.get('email')?.value);
-  //   formdata.append('password', this.loginform.get('password')?.value);
+    formdata.append('email', this.loginform.get('email')?.value);
+    formdata.append('password', this.loginform.get('password')?.value);
 
-  //   this.AuthService.login(formdata).subscribe({
-  //     next: (res) => {
-  //       localStorage.setItem('token', res.token);
-  //       this.AuthService.saveVendorData();
-  //       this._Router.navigate(['']);
-  //     },
-  //     error: (err) => console.log(err.error.error),
-  //     complete: () => {},
-  //   });
+    this.AuthService.loginUser(formdata).subscribe({
+      next: (res) => {
+        localStorage.setItem('userToken', res.token);
+        this.AuthService.saveUserData();
+        this._Router.navigate(['']);
+      },
+      error: (err) => console.log(err.error.error),
+      complete: () => {},
+    });
   }
 }
 
-
-  // this is fixed for the vendor login for now 
-  // need to adjust it after we get the user login and registration apis
+// this is fixed for the vendor login for now
+// need to adjust it after we get the user login and registration apis

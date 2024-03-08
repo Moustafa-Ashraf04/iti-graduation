@@ -28,8 +28,6 @@ import { HttpClient } from '@angular/common/http';
     TopBarComponent,
     HttpClientModule,
   ],
-  providers: [AuthVendor],
-
   templateUrl: './vendor-login.component.html',
   styleUrl: './vendor-login.component.css',
 })

@@ -73,7 +73,7 @@
           <!-- if token is for vendor display dashboard vendor and logout -->
           <!-- if token is user display account settings and logout  -->
           <!-- if token is admin display dashboard admin and logout  -->
-          <li *ngIf="!isVendorLogin">
+          <li *ngIf="!isUserLogin">
             <a class="nav-link py-0 login" routerLink="/login">
               <!-- if there is a token then it will be profile and  if not then its login  -->
               <!-- will handle it later  -->
@@ -85,7 +85,7 @@
           </li>
           <li
             class="d-flex justify-content-center align-items-center"
-            *ngIf="isVendorLogin"
+            *ngIf="!isUserLogin"
           >
             <a class="nav-link py-0 logout" (click)="logOut()" routerLink="">
               Logout

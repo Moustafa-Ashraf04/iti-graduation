@@ -8,6 +8,24 @@ import { Observable } from 'rxjs';
 export class VendorDashboardService {
   constructor(private _http: HttpClient) {}
 
+  getVendorData(vendorToken: string): Observable<any> {
+    // Set up the headers with the authorization token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${vendorToken}`,
+    });
+
+    // Include the headers in the HTTP request options
+    const requestOptions = {
+      headers: headers,
+    };
+
+    // Make the GET request with the provided token in the headers
+    return this._http.get(
+      'http://localhost:8000/vendor/get-data',
+      requestOptions
+    );
+  }
+
   getAllProducts(vendorToken: string): Observable<any> {
     // Set up the headers with the authorization token
     const headers = new HttpHeaders({
@@ -80,6 +98,37 @@ export class VendorDashboardService {
 
     return this._http.post(
       `http://localhost:8000/products`,
+      inputData,
+      requestOptions
+    );
+  }
+
+  getVendorProfileDetails(vendorToken: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${vendorToken}`,
+    });
+    const requestOptions = {
+      headers: headers,
+    };
+    return this._http.get(
+      'http://localhost:8000/vendor/get-vendor-data',
+      requestOptions
+    );
+  }
+
+  updateVendorProfileDetails(
+    inputData: object,
+    vendorToken: string
+  ): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${vendorToken}`,
+    });
+    const requestOptions = {
+      headers: headers,
+    };
+
+    return this._http.patch(
+      `http://localhost:8000/vendor/update-vendor-data`,
       inputData,
       requestOptions
     );
