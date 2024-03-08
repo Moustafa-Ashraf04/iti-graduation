@@ -1,17 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink, RouterModule, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import {
+  RouterLink,
+  RouterModule,
+  Router,
+  ActivatedRoute,
+} from '@angular/router';
 import { TopBarComponent } from '../../top-bar/top-bar.component';
 import { SideBarComponent } from '../side-bar/side-bar.component';
-
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-  FormsModule,
-} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { VendorDashboardService } from '../../services/vendor-dashboard.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-edit-product',
   standalone: true,
@@ -20,27 +19,92 @@ import { HttpClientModule } from '@angular/common/http';
     RouterLink,
     TopBarComponent,
     SideBarComponent,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    FormsModule,
   ],
   templateUrl: './edit-product.component.html',
   styleUrl: './edit-product.component.css',
 })
-export class EditProductComponent {
-  constructor(private _Router: Router) {}
+export class EditProductComponent implements OnInit {
+  productId: any;
+  product: any;
+  // updateProductForm: FormGroup;
 
-  onDelete() {}
+  constructor(
+    private route: ActivatedRoute,
+    private _vendorDashboardService: VendorDashboardService,
+    private _http: HttpClient,
+    private _Router: Router
+  ) {}
 
-  updateProductForm: FormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required]),
-    price: new FormControl(null, [Validators.required]),
-    description: new FormControl(null, [Validators.required]),
-    discount: new FormControl(null, [Validators.required]),
-    first_name: new FormControl(null, [Validators.required]),
-    images: new FormControl(null, [Validators.required]),
-  });
+  ngOnInit(): void {
+    this.productId = this.route.snapshot.paramMap.get('id');
 
-  onEditProduct() {}
+    // console.log(this.productId);
+    // this.fetchProductDetails();
+    // fetchProductDetails() {
+    const vendorToken = localStorage.getItem('vendorToken');
+    // console.log(vendorToken);
+
+    if (vendorToken) {
+      this._vendorDashboardService
+        .getSingleProduct(vendorToken, this.productId)
+        .subscribe(
+          (res) => {
+            this.product = res.product;
+            // console.log(res.product);
+          },
+          (error) => {
+            console.error('Error fetching product details:', error);
+          }
+        );
+      // }
+    }
+  }
+
+  onEditProduct() {
+    const vendorToken = localStorage.getItem('vendorToken');
+    if (vendorToken) {
+      const inputData = {
+        product_name: this.product.product_name,
+        price: this.product.price,
+        discount: this.product.discount,
+        stock: this.product.stock,
+        // description: this.product.description,
+        // to be added later with the onsale true or false
+      };
+      this._vendorDashboardService
+        .editProduct(this.product.id, inputData, vendorToken)
+        .subscribe(
+          (res) => {
+            this._Router.navigate(['/vendor/dashboard/products']);
+            console.log(vendorToken);
+            console.log(inputData);
+          },
+          (error) => {
+            console.error('Error fetching product details: ', error);
+          }
+        );
+    }
+  }
+
+  onDelete() {
+    this.productId = this.route.snapshot.paramMap.get('id');
+    const vendorToken = localStorage.getItem('vendorToken');
+    if (vendorToken) {
+      this._vendorDashboardService
+        .deleteProduct(vendorToken, this.productId)
+        .subscribe(
+          (response) => {
+            this._Router.navigate(['/vendor/dashboard/products']);
+          },
+          (error) => {
+            console.error('Error fetching products:', error);
+          }
+        );
+    } else {
+      console.error('Vendor token not found.');
+    }
+  }
 }
