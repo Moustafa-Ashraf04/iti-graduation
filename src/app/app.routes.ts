@@ -36,19 +36,9 @@ export const routes: Routes = [
     title: 'Register',
   },
   {
-    path: 'details',
+    path: 'product/details/:id',
     component: DetailsComponent,
-    title: 'details',
-  },
-  {
-    path: 'help-page',
-    component: HelpPageComponent,
-    title: 'help-page',
-  },
-  {
-    path: 'details',
-    component: DetailsComponent,
-    title: 'details',
+    title: 'Details',
   },
   {
     path: 'help-page',

@@ -13,6 +13,7 @@ import {
   ReactiveFormsModule,
   FormControl,
 } from '@angular/forms';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-category-products',
@@ -34,11 +35,14 @@ import {
   styleUrl: './category-products.component.css',
 })
 export class CategoryProductsComponent {
-  items = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28,
-  ];
+  constructor(private _productsService: ProductsService) {}
+  products!: any[];
 
+  ngOnInit() {
+    this._productsService.getAllProducts().subscribe((res) => {
+      this.products = res.products;
+    });
+  }
   page: number = 1;
   first: number = 0;
   rows: number = 20;
@@ -62,6 +66,6 @@ export class CategoryProductsComponent {
     console.log(filterForm.value);
   }
 
-  // will do 4 functions for sorting after we get the data from the api 
-  // will see how we want to display the categories name in the side bar 
+  // will do 4 functions for sorting after we get the data from the api
+  // will see how we want to display the categories name in the side bar
 }
