@@ -19,13 +19,9 @@
               >
                 Your shopping cart
               </h4>
-              <app-cart-item></app-cart-item>
-              <!-- item 2 -->
-
-              <app-cart-item></app-cart-item>
-              <!-- item 3 -->
-
-              <app-cart-item></app-cart-item>
+              @for (item of _cartService.getItems(); track item.id) {
+              <app-cart-item [item]="item"></app-cart-item>
+              }
             </div>
 
             <div
@@ -92,7 +88,7 @@
                 [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
               >
                 <div class="d-flex justify-content-between">
-                  <p class="mb-2">Total price:</p>
+                  <p class="mb-2">price:</p>
                   <p class="mb-2">$329.00</p>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -106,7 +102,7 @@
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p class="mb-2 fw-bold">$283.00</p>
+                  <p class="mb-2 fw-bold">${{ _cartService.getTotal() }}</p>
                 </div>
 
                 <div class="mt-3">

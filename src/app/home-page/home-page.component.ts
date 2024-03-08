@@ -36,7 +36,10 @@ export class HomePageComponent implements OnInit {
     public _themeservice: ThemeService,
     private _productsService: ProductsService,
   ) {}
-  products!: any[];
+  // products!: any[];
+
+  products: any[] = [];
+
 
   ngOnInit() {
     console.log('parent');

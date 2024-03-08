@@ -1,95 +1,95 @@
 <!-- dark mood container  -->
 @if (product) {
-  <div class="card">
-    <!-- button  to product details  -->
-    <a href="">
-      <img
-        src="../../assets/images/testproduct.jpg"
-        class="card-img-top"
-        alt="..."
-        style="position: relative"
-      />
-      <p
-        (click)="preventClick($event)"
-        class="text-info bi-cursor-text text-decoration-none onsale bg-danger text-dark rounded p-1"
-      >
-        <!-- if onsale is false display none or we can display the discount percentage -->
-        Sale!
-      </p>
-    </a>
-    <div
-      [ngClass]="{
-        'dark-mood-item': this._themeService.isDarkMood,
-        'dark-mood-text': this._themeService.isDarkMood,
-        'dark-mood a': this._themeService.isDarkMood
-      }"
+<div class="card">
+  <!-- button  to product details  -->
+  <a href="">
+    <img
+      src="../../assets/images/testproduct.jpg"
+      class="card-img-top"
+      alt="..."
+      style="position: relative"
+    />
+    <p
+      (click)="preventClick($event)"
+      class="text-info bi-cursor-text text-decoration-none onsale bg-danger text-dark rounded p-1"
     >
-      <div class="card-body">
-        <h5 class="card-title">{{ product.product_name }}</h5>
-        <span class="text-decoration-line-through">{{ product.price }}</span>
-        <div class="d-flex justify-content-end">
-          <!-- <a href="#" class="btn btn-primary">Details</a>
+      <!-- if onsale is false display none or we can display the discount percentage -->
+      Sale!
+    </p>
+  </a>
+  <div
+    [ngClass]="{
+      'dark-mood-item': this._themeService.isDarkMood,
+      'dark-mood-text': this._themeService.isDarkMood,
+      'dark-mood a': this._themeService.isDarkMood
+    }"
+  >
+    <div class="card-body">
+      <h5 class="card-title">{{ product.product_name }}</h5>
+      <span class="text-decoration-line-through">{{ product.price }}</span>
+      <div class="d-flex justify-content-end">
+        <!-- <a href="#" class="btn btn-primary">Details</a>
       <a href="#" class="btn btn-primary">cart icon</a> -->
-          <div class="cart-icon icon-border" (click)="openDetails()">
-            <i class="fa-solid fa-cart-plus fs-5"></i>
-          </div>
-          <!-- add cart icon and wishlist icon  -->
+        <div class="cart-icon icon-border" (click)="openDetails()">
+          <i class="fa-solid fa-cart-plus fs-5"></i>
         </div>
+        <!-- add cart icon and wishlist icon  -->
       </div>
     </div>
   </div>
+</div>
 
-  <!-- details layer  -->
+<!-- details layer  -->
 
+<div
+  class="layer d-flex justify-content-center align-items-center position-fixed"
+  *ngIf="showDetails"
+  (click)="showDetailsInfo()"
+>
   <div
-    class="layer d-flex justify-content-center align-items-center position-fixed"
-    *ngIf="showDetails"
-    (click)="showDetailsInfo()"
+    [ngClass]="{
+      'dark-mood-item': this._themeService.isDarkMood,
+      'dark-mood-text': this._themeService.isDarkMood,
+      'dark-mood a': this._themeService.isDarkMood
+    }"
   >
     <div
-      [ngClass]="{
-        'dark-mood-item': this._themeService.isDarkMood,
-        'dark-mood-text': this._themeService.isDarkMood,
-        'dark-mood a': this._themeService.isDarkMood
-      }"
+      class="main-div p-2 d-flex justify-content-center align-items-center"
+      (click)="endPropagation($event)"
     >
       <div
-        class="main-div p-2 d-flex justify-content-center align-items-center"
-        (click)="endPropagation($event)"
+        [ngClass]="{
+          'dark-mood-item': this._themeService.isDarkMood,
+          'dark-mood-text': this._themeService.isDarkMood,
+          'dark-mood a': this._themeService.isDarkMood
+        }"
       >
-        <div
-          [ngClass]="{
-            'dark-mood-item': this._themeService.isDarkMood,
-            'dark-mood-text': this._themeService.isDarkMood,
-            'dark-mood a': this._themeService.isDarkMood
-          }"
-        >
-          <div class="row">
-            <div class="x-mark position-relative" (click)="showDetailsInfo()">
-              <i
-                class="fa-solid fa-xmark position-absolute top-0 fs-3 border-1 rounded-1 p-2 text-muted"
-              ></i>
+        <div class="row">
+          <div class="x-mark position-relative" (click)="showDetailsInfo()">
+            <i
+              class="fa-solid fa-xmark position-absolute top-0 fs-3 border-1 rounded-1 p-2 text-muted"
+            ></i>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="w-100 h-100"
+              src="../../assets/images/testproduct.jpg"
+              alt=""
+            />
+          </div>
+          <div class="col-md-6">
+            <h6 class="h4 display-5 mb-3">card title</h6>
+            <div class="rate d-flex mb-4">
+              <i class="fa-solid fa-star p-1"></i>
+              <i class="fa-solid fa-star p-1"></i>
+              <i class="fa-solid fa-star p-1"></i>
+              <i class="fa-solid fa-star p-1"></i>
             </div>
-            <div class="col-md-6">
-              <img
-                class="w-100 h-100"
-                src="../../assets/images/testproduct.jpg"
-                alt=""
-              />
+            <div class="price">
+              <h4 class="h3 fw-bold">{{ product.price }}</h4>
             </div>
-            <div class="col-md-6">
-              <h6 class="h4 display-5 mb-3">card title</h6>
-              <div class="rate d-flex mb-4">
-                <i class="fa-solid fa-star p-1"></i>
-                <i class="fa-solid fa-star p-1"></i>
-                <i class="fa-solid fa-star p-1"></i>
-                <i class="fa-solid fa-star p-1"></i>
-              </div>
-              <div class="price">
-                <h4 class="h3 fw-bold">{{ product.price }}</h4>
-              </div>
-              <hr />
-              <div class="color">
+            <hr />
+            <!-- <div class="color">
                 <h6 class="h4">Color</h6>
                 <ul class="d-flex">
                   <li class="color-item border-1 p-3 m-2"></li>
@@ -97,8 +97,8 @@
                   <li class="color-item border-1 p-3 m-2"></li>
                   <li class="color-item border-1 p-3 m-2"></li>
                 </ul>
-              </div>
-              <div class="size mb-5">
+              </div> -->
+            <!-- <div class="size mb-5">
                 <h6 class="h4">Size</h6>
                 <ul class="d-flex justify-content-evenly">
                   <li class="size-info">S</li>
@@ -106,24 +106,27 @@
                   <li class="size-info">L</li>
                   <li class="size-info">XL</li>
                 </ul>
+              </div> -->
+            <div class="row card-btns d-flex my-5">
+              <button
+                (click)="addToCart(product)"
+                class="col-md-9 btn btn-dark py-3 px-4 mr-2"
+              >
+                Add to cart
+              </button>
+              <div
+                class="col-md-2 d-flex justify-content-center border-1 cursor-pointer rounded-2 align-items-center"
+              >
+                <i class="fa-regular fa-heart fs-3"></i>
               </div>
-              <div class="row card-btns d-flex my-5">
-                <button class="col-md-9 btn btn-dark py-3 px-4 mr-2">
-                  Add to cart
-                </button>
-                <div
-                  class="col-md-2 d-flex justify-content-center border-1 cursor-pointer rounded-2 align-items-center"
-                >
-                  <i class="fa-regular fa-heart fs-3"></i>
-                </div>
-              </div>
-              <a routerLink="product/details/{{ product.id }}"
-                >View More Details
-              </a>
             </div>
+            <a routerLink="product/details/{{ product.id }}"
+              >View More Details
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 }

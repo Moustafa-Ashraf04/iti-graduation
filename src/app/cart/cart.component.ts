@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { RecommendedComponent } from '../recommended/recommended.component';
@@ -7,6 +7,7 @@ import { TopBarComponent } from '../top-bar/top-bar.component';
 import { Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
 import { NgClass } from '@angular/common';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -24,9 +25,12 @@ import { NgClass } from '@angular/common';
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
+  _cartService = inject(CartService);
+
   constructor(public _themeservice: ThemeService) {
     // this.taggleDarkMood()
   }
+
   taggleDarkMood() {
     this._themeservice.toggleDarkMood();
     // this.darkMoodBody()
