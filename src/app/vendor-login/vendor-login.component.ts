@@ -42,12 +42,13 @@ export class VendorLoginComponent {
     private _Router: Router,
     private http: HttpClient,
     private AuthService: AuthVendor,
-    public _themeservice:ThemeService
+    public _themeservice: ThemeService
   ) {}
+  
   ngOnInit(): void {
-    this._AuthVendor.vendorData.subscribe({
+    this.AuthService.vendorData.subscribe({
       next: () => {
-        if (this._AuthVendor.vendorData.getValue() != null) {
+        if (this.AuthService.vendorData.getValue() != null) {
           this.isVendorLogin = true;
         } else {
           this.isVendorLogin = false;
@@ -70,7 +71,7 @@ export class VendorLoginComponent {
     formdata.append('email', this.loginform.get('email')?.value);
     formdata.append('password', this.loginform.get('password')?.value);
 
-    this._AuthVendor.login(formdata).subscribe({
+    this.AuthService.login(formdata).subscribe({
       next: (res) => {
         localStorage.setItem('vendorToken', res.token);
         // this._AuthVendor.saveVendorData();
@@ -84,6 +85,5 @@ export class VendorLoginComponent {
     });
   }
 }
-
 
 // no errors to display if the Credentials are incorrect check api response for that

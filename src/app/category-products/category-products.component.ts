@@ -13,11 +13,8 @@ import {
   ReactiveFormsModule,
   FormControl,
 } from '@angular/forms';
-<<<<<<< HEAD
 import { ThemeService } from '../services/theme.service';
-=======
 import { ProductsService } from '../services/products.service';
->>>>>>> d49c3b40b794222af23d32ae752c3d9428f27632
 
 @Component({
   selector: 'app-category-products',
@@ -40,8 +37,10 @@ import { ProductsService } from '../services/products.service';
   styleUrl: './category-products.component.css',
 })
 export class CategoryProductsComponent {
-
-  constructor(public _themeService:ThemeService,private _productsService: ProductsService){}
+  constructor(
+    public _themeService: ThemeService,
+    private _productsService: ProductsService
+  ) {}
 
   products!: any[];
 
@@ -50,10 +49,6 @@ export class CategoryProductsComponent {
       this.products = res.products;
     });
   }
-
-
-
-
 
   page: number = 1;
   first: number = 0;

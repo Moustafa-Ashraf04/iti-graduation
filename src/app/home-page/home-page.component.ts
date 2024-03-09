@@ -42,7 +42,7 @@ export class HomePageComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log('parent');
+    // console.log('parent');
 
     this._productsService.getAllProducts().subscribe((res) => {
       this.products = res.products;
