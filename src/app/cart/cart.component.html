@@ -19,18 +19,19 @@
               >
                 Your shopping cart
               </h4>
-              <app-cart-item></app-cart-item>
-              <!-- item 2 -->
-
-              <app-cart-item></app-cart-item>
-              <!-- item 3 -->
-
-              <app-cart-item></app-cart-item>
+              @for (item of _cartService.getItems(); track item.id) {
+              <app-cart-item [item]="item"></app-cart-item>
+              }
             </div>
 
             <div
+<<<<<<< HEAD
               class="border-top p-4 mx-4 mb-4"
               [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+=======
+              class="border-top pt-4 mx-4 mb-4"
+              [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
+>>>>>>> d49c3b40b794222af23d32ae752c3d9428f27632
             >
               <p
                 [ngClass]="{ 'dark-mood-icone': this._themeservice.isDarkMood }"
@@ -66,8 +67,13 @@
           <!-- summary -->
           <div class="col-lg-3">
             <div
+<<<<<<< HEAD
             class="card mb-3 border shadow-0"
             [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+=======
+              class="card mb-3 border shadow-0"
+              [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
+>>>>>>> d49c3b40b794222af23d32ae752c3d9428f27632
             >
               <div class="card-body">
                 <form>
@@ -89,10 +95,15 @@
             <div class="card shadow-0 border">
               <div
                 class="card-body"
-                [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+                [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
               >
+<<<<<<< HEAD
                 <div class="d-flex justify-content-between" >
                   <p class="mb-2" [ngClass]="{'dark-mood-text': this._themeservice.isDarkMood}">Total price:</p>
+=======
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">price:</p>
+>>>>>>> d49c3b40b794222af23d32ae752c3d9428f27632
                   <p class="mb-2">$329.00</p>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -106,7 +117,7 @@
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p class="mb-2 fw-bold">$283.00</p>
+                  <p class="mb-2 fw-bold">${{ _cartService.getTotal() }}</p>
                 </div>
 
                 <div class="mt-3">
