@@ -1,1 +1,117 @@
-<h1>THIS IS DASHBOARD PAGE</h1>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid">
+  <div class="col main p-lg-4 p-md-3 p-sm-1">
+    @if (data) {
+    <div
+      class="col-lg-12 d-flex justify-content-around align-items-center flex-wrap p-5"
+    >
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Plans</h5>
+              <i class="fa-solid fa-bookmark fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfPlans }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Transactions</h5>
+              <i class="fa-solid fa-dollar-sign fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfTranscations }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Orders</h5>
+              <i class="fa-solid fa-list-ul fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfOrders }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Vendors</h5>
+              <i class="fa-solid fa-star fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfVendors }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Users</h5>
+              <i class="fa-solid fa-user fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfUsers }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Categories</h5>
+              <i class="fa-solid fa-layer-group fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfCategories }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Products</h5>
+              <i class="fa-brands fa-product-hunt fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfProducts }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 my-5 d-flex justify-content-center">
+        <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card-body justify-content-between d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="card-title">Promo Codes</h5>
+              <i class="fa-solid fa-percent fa-xl mb-2"></i>
+            </div>
+            <div>
+              <h3 class="text-primary">{{ data.numberOfPromoCodes }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

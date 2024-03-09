@@ -1,1 +1,52 @@
-<p>promo-codes works!</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="container-fluid col-lg-5 col-md-8 mt-5">
+  <h2 class="text-center">Add New Promo Code</h2>
+  <form (ngSubmit)="addPromoCode()" [formGroup]="formdata">
+    <div class="mb-3">
+      <label for="code" class="form-label">Promo Code</label>
+      <input
+        type="text"
+        class="form-control"
+        id="code"
+        name="code"
+        formControlName="code"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="percentage" class="form-label">Percentage</label>
+      <input
+        type="number"
+        class="form-control"
+        id="percentage"
+        name="percentage"
+        formControlName="percentage"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Promo Code</button>
+  </form>
+
+  <h2 class="mt-5">Promo Codes</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Percentage</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let promo of promoCodes">
+        <td>{{ promo.code }}</td>
+        <td>{{ promo.percentage }}%</td>
+        <td>
+          <button class="btn btn-danger" (click)="deletePromo(promo.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,1 +1,26 @@
-<p>reviews works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid col-lg-10">
+  <h2 class="text-center m-4">All Reviews</h2>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let review of reviews">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">{{ review.userId }}</h5>
+            <div class="d-flex gap-3">
+              <p class="card-text">{{ review.product }}</p>
+              <p class="card-text">
+                {{ review.rate }}/5
+                <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+              </p>
+            </div>
+          </div>
+          <p class="card-text">{{ review.review }}</p>
+          <button class="btn btn-danger" (click)="deleteReview(review.id)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

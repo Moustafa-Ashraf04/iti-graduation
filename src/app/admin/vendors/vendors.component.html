@@ -1,1 +1,43 @@
-<p>vendors works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid col-md-10">
+  <h2 class="text-center m-3">Vendors</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Business Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Plan id</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vendor of vendors">
+        <td>{{ vendor.fname }}</td>
+        <td>{{ vendor.lname }}</td>
+        <td>{{ vendor.business_name }}</td>
+        <td>{{ vendor.email }}</td>
+        <td>{{ vendor.phone_number }}</td>
+        <td>{{ vendor.plan_id }}</td>
+        <td>
+          <button
+            *ngIf="vendor.is_active === 1"
+            class="btn btn-warning me-2"
+            (click)="suspendVendor(vendor.id)"
+          >
+            Suspend
+          </button>
+          <button
+            *ngIf="vendor.is_active === 0"
+            class="btn btn-success me-2"
+            (click)="activateVendor(vendor.id)"
+          >
+            Activate
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

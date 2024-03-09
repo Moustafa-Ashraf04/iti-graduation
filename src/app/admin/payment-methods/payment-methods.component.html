@@ -1,1 +1,43 @@
-<p>payment-methods works!</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="container-fluid col-lg-5 col-md-7 mt-5">
+  <h2 class="text-center">Add payment method</h2>
+  <form
+    (ngSubmit)="addPaymentMethod()"
+    [formGroup]="formdata"
+    class="justify-content-center d-flex flex-column align-items-center"
+  >
+    <div class="mb-3 col-8">
+      <label for="code" class="form-label">Payment Method</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        formControlName="name"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary w-25">Add</button>
+  </form>
+
+  <h2 class="mt-5">Current Payment methods</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">payment</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of payments">
+        <td>{{ payment.name }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="deletePayment(payment.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

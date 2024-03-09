@@ -50,7 +50,7 @@ export class LoginAdminComponent {
 
     this.AuthService.loginAdmin(formdata).subscribe({
       next: (res) => {
-        localStorage.setItem('adminToken', res.token);
+        sessionStorage.setItem('adminToken', res.token);
         // this._AuthVendor.saveVendorData();
         // console.log(res.token);
         this._Router.navigate(['admin/dashboard']);

@@ -17,5 +17,4 @@ export class RatingsComponent {
 
 
 
-  // here we will display the array of reviews for that vendor
 }

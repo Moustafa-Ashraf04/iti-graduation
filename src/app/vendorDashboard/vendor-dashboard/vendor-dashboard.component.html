@@ -25,48 +25,6 @@
             </div>
           </div>
         </div>
-        <!-- Total Sales this Month  -->
-        <!-- <div class="col-lg-4 mb-4 d-flex justify-content-center">
-          <div class="card shadow" style="height: 12rem; width: 17rem">
-            <div class="card-body justify-content-between d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Total Sales This Month</h5>
-                <i class="fa-solid fa-dollar-sign fa-xl mb-2"></i>
-              </div>
-              <div>
-                <h3 class="text-primary">$5000</h3>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- Earnings -->
-        <!-- <div class="col-lg-4 mb-4 d-flex justify-content-center">
-          <div class="card shadow" style="height: 12rem; width: 17rem">
-            <div class="card-body justify-content-between d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Earnings</h5>
-                <i class="fa-solid fa-hand-holding-dollar fa-xl mb-2"></i>
-              </div>
-              <div>
-                <h3 class="text-primary">$3500</h3>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- ORDERS  -->
-        <!-- <div class="col-lg-4 mb-4 d-flex justify-content-center">
-          <div class="card shadow" style="height: 12rem; width: 17rem">
-            <div class="card-body justify-content-between d-flex flex-column">
-              <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">Orders</h5>
-                <i class="fa-solid fa-list-ul fa-xl mb-2"></i>
-              </div>
-              <div>
-                <h3 class="text-primary">36</h3>
-              </div>
-            </div>
-          </div>
-        </div> -->
         <!-- Products  -->
         <div class="col-lg-4 my-5 d-flex justify-content-center">
           <div class="card shadow" style="height: 12rem; width: 17rem">
@@ -104,7 +62,7 @@
               <div>
                 @if ( data.accountStatus === "Suspended") {
                 <h3 class="text-danger">{{ data.accountStatus }}</h3>
-                } @if ( data.accountStatus === "Activated") {
+                } @if ( data.accountStatus === "Verified") {
                 <h3 class="text-success">{{ data.accountStatus }}</h3>
                 }
               </div>

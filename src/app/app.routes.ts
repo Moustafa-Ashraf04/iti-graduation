@@ -17,7 +17,6 @@ import { VendorOrdersComponent } from './vendorDashboard/vendor-orders/vendor-or
 import { VendorProductsComponent } from './vendorDashboard/vendor-products/vendor-products.component';
 import { AccountSettingsComponent } from './vendorDashboard/account-settings/account-settings.component';
 import { RatingsComponent } from './vendorDashboard/ratings/ratings.component';
-import { PromocodesComponent } from './vendorDashboard/promocodes/promocodes.component';
 import { AddProductComponent } from './vendorDashboard/add-product/add-product.component';
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { EditProductComponent } from './vendorDashboard/edit-product/edit-product.component';
@@ -105,13 +104,13 @@ export const routes: Routes = [
     component: CartComponent,
     title: 'cart',
   },
-  {
-    path: 'vendor/dashboard/orders',
+  // {
+  //   path: 'vendor/dashboard/orders',
 
-    component: VendorOrdersComponent,
-    canActivate: [vendorAuthGuard],
-    title: 'Orders',
-  },
+  //   component: VendorOrdersComponent,
+  //   canActivate: [vendorAuthGuard],
+  //   title: 'Orders',
+  // },
   {
     path: 'vendor/dashboard/accountsettings',
     component: AccountSettingsComponent,
@@ -124,12 +123,12 @@ export const routes: Routes = [
     canActivate: [vendorAuthGuard],
     title: 'Ratings and Reviews',
   },
-  {
-    path: 'vendor/dashboard/promocodes',
-    component: PromocodesComponent,
-    canActivate: [vendorAuthGuard],
-    title: 'Promo Codes',
-  },
+  // {
+  //   path: 'vendor/dashboard/promocodes',
+  //   component: PromocodesComponent,
+  //   canActivate: [vendorAuthGuard],
+  //   title: 'Promo Codes',
+  // },
   {
     path: 'vendor/dashboard/products/addproduct',
     component: AddProductComponent,
@@ -203,26 +202,26 @@ export const routes: Routes = [
     canActivate: [adminAuthGuard],
     title: 'Admin Categories',
   },
-  // {
-  //   path: 'admin/dashboard/vendors',
-  //   component: VendorsComponent,
-  //   title: 'Admin vendors',
-  // },
-  // {
-  //   path: 'admin/dashboard/reviews',
-  //   component: VendorsComponent,
-  //   title: 'Admin Reviews',
-  // },
-  // {
-  //   path: 'admin/dashboard/paymentmethods',
-  //   component: PaymentMethodsComponent,
-  //   title: 'Admin Users Payments Methods',
-  // },
-  // {
-  //   path: 'admin/dashboard/promocodes',
-  //   component: PaymentMethodsComponent,
-  //   title: 'Admin Promocodes',
-  // },
+  {
+    path: 'admin/dashboard/vendors',
+    component: VendorsComponent,
+    title: ' vendors Page',
+  },
+  {
+    path: 'admin/dashboard/reviews',
+    component: ReviewsComponent,
+    title: 'Admin Reviews',
+  },
+  {
+    path: 'admin/dashboard/paymentmethods',
+    component: PaymentMethodsComponent,
+    title: 'Payments Methods',
+  },
+  {
+    path: 'admin/dashboard/promocodes',
+    component: PromoCodesComponent,
+    title: 'Admin Promocodes',
+  },
   // {
   //   path: 'admin',
   //   component: LoginAdminComponent,

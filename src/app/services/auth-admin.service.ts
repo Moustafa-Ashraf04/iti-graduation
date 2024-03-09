@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthAdminService {
   constructor(private _http: HttpClient, private _router: Router) {
-    if (localStorage.getItem('adminToken') != null) {
+    if (sessionStorage.getItem('adminToken') != null) {
       this.adminData;
     }
   }
@@ -16,7 +16,7 @@ export class AuthAdminService {
   adminData: any = new BehaviorSubject(null);
 
   saveVendorData() {
-    const adminToken = localStorage.getItem('adminToken');
+    const adminToken = sessionStorage.getItem('adminToken');
     this.adminData.next(adminToken);
 
     console.log(adminToken);
@@ -27,8 +27,8 @@ export class AuthAdminService {
   }
 
   signOutAdmin() {
-    localStorage.removeItem('adminToken');
+    sessionStorage.removeItem('adminToken');
     this.adminData.next(null);
-    this._router.navigate(['/admin/login']);
+    this._router.navigate(['']);
   }
 }

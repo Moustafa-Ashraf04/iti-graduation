@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class VendorDashboardService {
   constructor(private _http: HttpClient) {}
-
   getVendorData(vendorToken: string): Observable<any> {
     // Set up the headers with the authorization token
     const headers = new HttpHeaders({
