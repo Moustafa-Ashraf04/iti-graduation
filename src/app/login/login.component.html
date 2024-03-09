@@ -6,13 +6,13 @@
   <div [ngClass]="{ 'dark-mood-item': this._themeservice.isDarkMood }">
     <div class="container-fluid">
       <div
-        *ngIf="isVendorLogin"
+        *ngIf="isuserLogin"
         class="d-flex justify-content-center align-items-center text-warning logged"
       >
         <h3>Your are logged in</h3>
       </div>
       <div
-        *ngIf="!isVendorLogin"
+        *ngIf="!isuserLogin"
         class="row d-flex justify-content-center align-items-center main-container"
         style="min-height: 90vh"
       >

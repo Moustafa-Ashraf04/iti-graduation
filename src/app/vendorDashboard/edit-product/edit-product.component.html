@@ -13,112 +13,131 @@
       <div
         class="col-lg-12 d-flex justify-content-around align-items-center flex-column flex-wrap p-5"
       >
-        <form
-          [formGroup]="updateProductForm"
-          (ngSubmit)="onEditProduct()"
-          class="col-lg-6"
-        >
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              formControlName="name"
-              autocomplete="off"
-            />
+        <form (ngSubmit)="onEditProduct()" class="col-lg-6">
+          <div *ngIf="!product" class="h3 m-5 pb-5 text-center">
+            Product not found
           </div>
-          <div class="mb-3">
-            <!-- only show the category canot edit it  -->
-            <label for="category" class="form-label">Category</label>
-            <input type="text" id="category" class="form-control" readonly />
-          </div>
-          <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input
-              type="number"
-              class="form-control"
-              id="price"
-              formControlName="price"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea
-              class="form-control"
-              id="description"
-              rows="3"
-              formControlName="description"
-            ></textarea>
-          </div>
-          <div class="mb-5">
-            <label for="discount" class="form-label">Discount</label>
-            <input
-              type="number"
-              class="form-control"
-              id="discount"
-              formControlName="discount"
-            />
-          </div>
-          <!-- onsale or not  -->
-          <!-- <div class="mb-3">
-            <div class="form-check">
+          <div *ngIf="product">
+            <div class="mb-3">
+              <label for="name" class="form-label">Product Name</label>
               <input
-                class="form-check-input"
-                type="radio"
-                name="isOnSale"
-                id="isOnSaleYes"
-                value="true"
-                formControlName="isOnSale"
+                type="text"
+                class="form-control"
+                id="name"
+                autocomplete="off"
+                [(ngModel)]="product.product_name"
+                [ngModelOptions]="{ standalone: true }"
+                required
               />
-              <label class="form-check-label" for="isOnSaleYes">
-                On Sale
-              </label>
             </div>
-            <div class="form-check">
+            <div class="mb-3">
+              <!-- only show the category canot edit it  -->
+              <label for="category" class="form-label">Category</label>
               <input
-                class="form-check-input"
-                type="radio"
-                name="isOnSale"
-                id="isOnSaleNo"
-                value="false"
-                formControlName="isOnSale"
+                type="text"
+                id="category"
+                class="form-control"
+                [(ngModel)]="product.category_id"
+                [ngModelOptions]="{ standalone: true }"
+                required
+                readonly
               />
-              <label class="form-check-label" for="isOnSaleNo">
-                Not On Sale
-              </label>
             </div>
-          </div> -->
-          <div class="mb-3">
-            <label for="images" class="form-label"
-              >Upload Images (up to 4 images)</label
-            >
-            <input
-              type="file"
-              class="form-control"
-              id="images"
-              formControlName="images"
-              multiple
-            />
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                required
+                [(ngModel)]="product.price"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+            <div class="mb-5">
+              <label for="discount" class="form-label">Discount</label>
+              <input
+                type="number"
+                class="form-control"
+                id="discount"
+                [(ngModel)]="product.discount"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </div>
+            <div class="mb-5">
+              <label for="stock" class="form-label">Stock</label>
+              <input
+                type="number"
+                class="form-control"
+                id="stock"
+                [(ngModel)]="product.stock"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                rows="3"
+                [(ngModel)]="product.description"
+                [ngModelOptions]="{ standalone: true }"
+                required
+              ></textarea>
+            </div>
+
+            <!-- onsale or not  -->
+            <div class="mb-3 d-flex gap-5">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="isOnSaleYes"
+                  name="onSale"
+                  value="true"
+                  [checked]="product?.is_on_sale === 1"
+                />
+                <label class="form-check-label" for="isOnSaleYes">
+                  On Sale
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  id="isOnSaleNo"
+                  name="onSale"
+                  value="false"
+                  [checked]="product?.is_on_sale === 0"
+                />
+                <label class="form-check-label" for="isOnSaleNo">
+                  Not On Sale
+                </label>
+              </div>
+            </div>
           </div>
-          <div class="d-flex justify-content-around">
+          <div class="d-flex justify-content-around flex-fill">
             <button type="submit" class="btn btn-primary w-25">Update</button>
-            <button
-              type="button"
-              class="btn btn-danger w-25"
-              (click)="onDelete()"
-            >
-              Delete
-            </button>
           </div>
         </form>
-        <a
-          type="button"
-          class="btn btn-secondary mt-3 w-25"
-          routerLink="/vendor/dashboard/products"
-        >
-          Back to Products List
-        </a>
+        <div class="row">
+          <button
+            type="submit"
+            class="btn btn-danger mt-3"
+            (click)="onDelete()"
+          >
+            Delete
+          </button>
+          <a
+            type="button"
+            class="btn btn-secondary mt-3 backToList"
+            routerLink="/vendor/dashboard/products"
+          >
+            Back to Products List
+          </a>
+        </div>
       </div>
     </div>
   </div>

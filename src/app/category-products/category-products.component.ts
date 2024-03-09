@@ -40,22 +40,21 @@ import { ProductsService } from '../services/products.service';
   styleUrl: './category-products.component.css',
 })
 export class CategoryProductsComponent {
-<<<<<<< HEAD
-  constructor(public _themeService:ThemeService){}
-  items = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28,
-  ];
-=======
-  constructor(private _productsService: ProductsService) {}
+
+  constructor(public _themeService:ThemeService,private _productsService: ProductsService){}
+
   products!: any[];
->>>>>>> d49c3b40b794222af23d32ae752c3d9428f27632
 
   ngOnInit() {
     this._productsService.getAllProducts().subscribe((res) => {
       this.products = res.products;
     });
   }
+
+
+
+
+
   page: number = 1;
   first: number = 0;
   rows: number = 20;
@@ -79,13 +78,6 @@ export class CategoryProductsComponent {
     console.log(filterForm.value);
   }
 
-<<<<<<< HEAD
-  taggleDarkMood(){
-    this._themeService.toggleDarkMood()
-  }
-
-=======
->>>>>>> d49c3b40b794222af23d32ae752c3d9428f27632
   // will do 4 functions for sorting after we get the data from the api
   // will see how we want to display the categories name in the side bar
 }

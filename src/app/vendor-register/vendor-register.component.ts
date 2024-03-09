@@ -186,6 +186,5 @@ public _themeservice:ThemeService
   }
 }
 
-
 // doesnt show if there is an error with the data requested
 // confirmpassword function is working but not showing the error in the page

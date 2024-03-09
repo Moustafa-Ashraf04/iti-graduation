@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { HeaderComponent } from './../header/header.component';
 import { CommonModule, NgClass } from '@angular/common';
@@ -10,8 +10,7 @@ import { CategoryCardComponent } from '../category-card/category-card.component'
 import { NgOptimizedImage } from '@angular/common';
 import { DetailsComponent } from '../details/details.component';
 import { ThemeService } from '../services/theme.service';
-
-
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-home-page',
@@ -28,22 +27,30 @@ import { ThemeService } from '../services/theme.service';
     CategoryCardComponent,
     NgOptimizedImage,
     NgClass,
-
-
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
 })
-export class HomePageComponent {
-constructor(public _themeservice:ThemeService){}
-  items = [1, 2, 3, 4];
-  itemss = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+export class HomePageComponent implements OnInit {
+  constructor(
+    public _themeservice: ThemeService,
+    private _productsService: ProductsService,
+  ) {}
+  // products!: any[];
+
+  products: any[] = [];
 
 
-  // remove new arrivals and display 20 random products from all categories 
+  ngOnInit() {
+    console.log('parent');
 
-toggleDarkMood(){
-  this._themeservice.toggleDarkMood()
-}
+    this._productsService.getAllProducts().subscribe((res) => {
+      this.products = res.products;
+    });
+  }
+  // remove new arrivals and display 20 random products from all categories
 
+  toggleDarkMood() {
+    this._themeservice.toggleDarkMood();
+  }
 }

@@ -22,6 +22,9 @@
               @for (item of _cartService.getItems(); track item.id) {
               <app-cart-item [item]="item"></app-cart-item>
               }
+              @for (item of _cartService.getItems(); track item.id) {
+              <app-cart-item [item]="item"></app-cart-item>
+              }
             </div>
 
             <div
@@ -96,6 +99,7 @@
               <div
                 class="card-body"
                 [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
+                [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
               >
 <<<<<<< HEAD
                 <div class="d-flex justify-content-between" >
@@ -117,6 +121,7 @@
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
+                  <p class="mb-2 fw-bold">${{ _cartService.getTotal() }}</p>
                   <p class="mb-2 fw-bold">${{ _cartService.getTotal() }}</p>
                 </div>
 

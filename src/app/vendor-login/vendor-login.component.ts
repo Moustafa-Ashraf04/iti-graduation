@@ -30,8 +30,6 @@ import { ThemeService } from '../services/theme.service';
     TopBarComponent,
     HttpClientModule,
   ],
-  providers: [AuthVendor],
-
   templateUrl: './vendor-login.component.html',
   styleUrl: './vendor-login.component.css',
 })
@@ -47,9 +45,9 @@ export class VendorLoginComponent {
     public _themeservice:ThemeService
   ) {}
   ngOnInit(): void {
-    this.AuthService.vendorData.subscribe({
+    this._AuthVendor.vendorData.subscribe({
       next: () => {
-        if (this.AuthService.vendorData.getValue() != null) {
+        if (this._AuthVendor.vendorData.getValue() != null) {
           this.isVendorLogin = true;
         } else {
           this.isVendorLogin = false;
@@ -72,13 +70,16 @@ export class VendorLoginComponent {
     formdata.append('email', this.loginform.get('email')?.value);
     formdata.append('password', this.loginform.get('password')?.value);
 
-    this.AuthService.login(formdata).subscribe({
+    this._AuthVendor.login(formdata).subscribe({
       next: (res) => {
-        localStorage.setItem('token', res.token);
-        this.AuthService.saveVendorData();
+        localStorage.setItem('vendorToken', res.token);
+        // this._AuthVendor.saveVendorData();
+        // console.log(res.token);
         this._Router.navigate(['/vendor/dashboard']);
+        // console.log(res.user);
       },
       error: (err) => console.log(err.error.error),
+
       complete: () => {},
     });
   }

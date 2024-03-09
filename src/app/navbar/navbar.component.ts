@@ -4,31 +4,32 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
 import { NgClass } from '@angular/common';
+import { AuthUserService } from '../services/auth-user.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
 
   imports: [RouterLink, RouterLinkActive, RouterModule, CommonModule, NgClass],
-  providers: [AuthVendor],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
-  isVendorLogin: boolean = false;
+  isUserLogin: boolean = false;
 
   constructor(
-    private AuthService: AuthVendor,
+    private AuthService: AuthUserService,
     public _themeservice: ThemeService
   ) {}
 
   ngOnInit(): void {
-    this.AuthService.vendorData.subscribe({
+    this.AuthService.userToken.subscribe({
       next: () => {
-        if (this.AuthService.vendorData.getValue() != null) {
-          this.isVendorLogin = true;
+        if (this.AuthService.userToken.getValue() != null) {
+          this.isUserLogin = true;
+          console.log(this.isUserLogin);
         } else {
-          this.isVendorLogin = false;
+          this.isUserLogin = false;
         }
       },
     });

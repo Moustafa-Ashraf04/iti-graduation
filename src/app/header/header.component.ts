@@ -4,6 +4,7 @@ import { AuthVendor } from '../services/authVendor.service';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../services/theme.service';
 import { NgClass } from '@angular/common';
+import { AuthUserService } from '../services/auth-user.service';
 
 @Component({
   selector: 'app-header',
@@ -14,10 +15,10 @@ import { NgClass } from '@angular/common';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit {
-  isVendorLogin: boolean = false;
+  isUserLogin: boolean = false;
 
   constructor(
-    private AuthService: AuthVendor,
+    private AuthService: AuthUserService,
     public _themeServices: ThemeService
   ) {}
 
@@ -26,19 +27,19 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.AuthService.vendorData.subscribe({
+    this.AuthService.userToken.subscribe({
       next: () => {
-        if (this.AuthService.vendorData.getValue() != null) {
-          this.isVendorLogin = true;
+        if (this.AuthService.userToken.getValue() != null) {
+          this.isUserLogin = true;
         } else {
-          this.isVendorLogin = false;
+          this.isUserLogin = false;
         }
       },
     });
   }
 
   logOut() {
-    this.AuthService.signOut();
+    this.AuthService.signOutUser();
   }
 
   // test this after the help menu and user login
