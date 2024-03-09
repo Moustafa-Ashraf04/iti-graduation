@@ -21,6 +21,16 @@
 .cart-icon i{
   font-size: 15px;
 }
+button{
+  transition: all 0.5e;
+
+}
+button:hover ,i:hover{
+  transform: scale(1.03);
+}
+i:hover{
+  color: #FFC609;
+}
 .layer{
   background-color: rgba(0, 0,0, 0.5);
   width: 100vw;
@@ -32,7 +42,7 @@
 }
 .main-div{
   /* transform: translate(0%,0%); */
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   height: 40rem;
   width: 80rem;
 
@@ -60,5 +70,10 @@ ul li:hover{
 
 .x-mark i{
   right: .9375rem;
+
+}
+
+.btn-card{
+  background-color: #FFC609;
 
 }

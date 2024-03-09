@@ -45,9 +45,9 @@
 
 
       <div class="x-mark position-relative"  (click)="showDetailsInfo()">
-        <i class="fa-solid fa-xmark position-absolute top-0  fs-3 border-1 rounded-1 p-2 text-muted"></i>
+        <i class="fa-solid fa-xmark position-absolute top-0  fs-3 border-1 rounded-1 p-2 text-muted "></i>
       </div>
-      <div class="col-md-6 ">
+      <div class="col-md-6 pl-5 pr-3">
         <img class="w-100 h-100" src="../../assets/images/testproduct.jpg" alt="">
       </div>
       <div class="col-md-6">
@@ -82,7 +82,7 @@
      </div>
      <div class="row card-btns d-flex my-5">
 
-     <button class="col-md-9 btn btn-dark py-3 px-4 mr-2">Add to card</button>
+     <button class="col-md-9 btn btn-dark py-3 px-4 mr-2" [ngClass]="{'btn-card':this._themeService.isDarkMood}">Add to card</button>
      <div class="col-md-2 d-flex justify-content-center border-1 cursor-pointer rounded-2 align-items-center">
 
        <i class="fa-regular fa-heart  fs-3 "></i>

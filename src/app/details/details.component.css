@@ -7,7 +7,10 @@
 .img-mini-center{
   flex-direction: column;
 
-  align-items: space-evenly;
+  /* align-items: space-evenly; */
+}
+.img-mini-center img{
+  height: 100%;
 }
 ul {
   list-style: none;
@@ -28,4 +31,50 @@ ul li:hover{
   width: 20px;
   height: 20px;
   border-radius: 50%;
+}
+.icon-border{
+  border: 0.5px solid black;
+  padding: .2188rem .5rem;
+  border-radius: .640rem;
+  cursor: pointer;
+  transition: all 0.5e;
+}
+.icon-border:hover{
+  transform: scale(1.2);
+}
+.cart-icon i{
+  font-size: 15px;
+}
+.card-btns{
+  transition: all 0.5e;
+
+}
+.card-btns button:hover ,i:hover{
+  transform: scale(1.03);
+}
+i:hover,a:hover{
+  color: #FFC609;
+}
+
+.btn-card{
+  background-color: #FFC609;
+
+}
+
+.main-div{
+  /* transform: translate(0%,0%); */
+  /* background-color: antiquewhite; */
+  height: 40rem;
+  width: 80rem;
+
+}
+ul {
+  list-style: none;
+}
+ul li,.x-mark {
+  cursor: pointer;
+
+}
+ul li:hover{
+  transform: scale(1.2);
 }

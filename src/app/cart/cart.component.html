@@ -9,8 +9,8 @@
         <!-- cart -->
         <div class="col-lg-9">
           <div
+          [ngClass]="{ 'dark-mood-item': this._themeservice.isDarkMood }"
             class="card border shadow-0"
-            [ngClass]="{ 'dark-mood-item': this._themeservice.isDarkMood }"
           >
             <div class="m-4">
               <h4
@@ -29,7 +29,7 @@
             </div>
 
             <div
-              class="border-top pt-4 mx-4 mb-4"
+              class="border-top p-4 mx-4 mb-4"
               [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
             >
               <p
@@ -61,13 +61,13 @@
               </div>
             </div>
           </div>
-
+</div>
           <!-- cart -->
           <!-- summary -->
           <div class="col-lg-3">
             <div
-              class="card mb-3 border shadow-0"
-              [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
+            class="card mb-3 border shadow-0"
+            [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
             >
               <div class="card-body">
                 <form>
@@ -91,8 +91,8 @@
                 class="card-body"
                 [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood,}"
               >
-                <div class="d-flex justify-content-between">
-                  <p class="mb-2">Total price:</p>
+                <div class="d-flex justify-content-between" >
+                  <p class="mb-2" [ngClass]="{'dark-mood-text': this._themeservice.isDarkMood}">Total price:</p>
                   <p class="mb-2">$329.00</p>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -132,7 +132,7 @@
           <!-- </div> -->
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </section>
 </div>
 <!-- Recommended items -->

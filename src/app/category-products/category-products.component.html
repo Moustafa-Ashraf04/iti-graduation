@@ -1,20 +1,30 @@
 <app-top-bar></app-top-bar>
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="category-name mb-0 pb-0 d-flex justify-content-center">
-  <h2 class="text-left py-5 container-fluid col-xl-8 m-0">Products</h2>
+<div
+[ngClass]="{'dark-mood': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood}"
+>
+
+
+<div class="category-name mb-0 pb-0 d-flex justify-content-center"
+>
+  <h2 class="text-left py-5 container-fluid col-xl-8 m-0"
+
+  >Products</h2>
 </div>
 <main class="d-flex">
   <aside
-    class="container-fluid col-lg-2 mt-5 d-flex flex-column align-items-center col-md-3 col-sm-4 col-xs-6 pt-5"
+  class="container-fluid col-lg-2  d-flex flex-column align-items-center col-md-3 col-sm-4 col-xs-6 pt-5"
+  [ngClass]="{'dark-mood': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood}"
   >
-    <form
-      action=""
-      class="mt-5"
-      (ngSubmit)="submitFilter(filterForm)"
-      [formGroup]="filterForm"
-    >
-      <div>
+  <form
+  action=""
+  class="mt-5"
+  (ngSubmit)="submitFilter(filterForm)"
+  [formGroup]="filterForm"
+  >
+  <div>
+        <!-- <div> -->
         <label for="" class="mx-2"> Choose a Category</label>
         <select
           class="form-select m-2"
@@ -51,7 +61,9 @@
       <button class="btn btn-warning mt-4" type="submit">Filter</button>
     </form>
   </aside>
-  <content>
+  <content
+[ngClass]="{'dark-mood': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood}"
+>
     <section class="container-fluid col-xl-11 col-lg-12">
       <div class="d-flex justify-content-end">
         <form action="">
@@ -83,4 +95,5 @@
     </div>
   </content>
 </main>
+</div>
 <app-footer></app-footer>

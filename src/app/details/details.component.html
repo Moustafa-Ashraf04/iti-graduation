@@ -2,12 +2,12 @@
 <app-top-bar></app-top-bar>
 <app-header class="bg-white"></app-header>
 <app-navbar></app-navbar>
-<div [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
 
 
 <div
-  class="container p-2 my-5 d-flex justify-content-center align-items-center"
+class="container p-2 my-5 d-flex justify-content-center align-items-center w-75 border shadow-0 mb-4 mb-lg-0 rounded-4"
 >
+<div [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
   <div class="row">
     <div class="col-md-1 img-mini-center d-flex justify-content-evenly">
       <div class="img-mini mb-3">
@@ -23,14 +23,14 @@
         <img class="w-100" src="../../assets/images/testproduct.jpg" alt="" />
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 py-5">
       <img
         class="w-100 h-100"
         src="../../assets/images/testproduct.jpg"
         alt=""
       />
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 p-5">
       <h6 class="h4 display-5 mb-3">card title</h6>
       <div class="rate d-flex mb-4">
         <i class="fa-solid fa-star p-1"></i>
@@ -67,7 +67,7 @@
         </ul>
       </div>
       <div class="row card-btns d-flex my-5">
-        <button class="col-md-9 btn btn-dark py-3 px-4 mr-2">
+        <button class="col-md-9 btn btn-dark py-3 px-4 mr-2" [ngClass]="{'btn-card':this._themeService.isDarkMood}">
           Add to card
         </button>
         <div
@@ -77,7 +77,8 @@
         </div>
       </div>
       <a routerLink="">Back to list</a>
-      <div class="shiping-info mt-5 rounded-2 p-3 shadow-lg p-3 mb-5 bg-light rounded ">
+      <div class="shiping-info mt-5 rounded-2  shadow-lg  mb-5 bg-light rounded " >
+        <div [ngClass]="{'dark-mood-mini': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood}" class="p-3 rounded-3">
         <div class="shipping-header d-flex ">
           <i class="fa-solid fa-truck-fast mr-3"></i>
           <h6>Free Shipping</h6>
@@ -99,6 +100,7 @@
           <h6>Shopping Security</h6>
         </div>
 
+      </div>
       </div>
     </div>
   </div>
