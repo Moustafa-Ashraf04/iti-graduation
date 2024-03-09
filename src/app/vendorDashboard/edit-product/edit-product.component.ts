@@ -4,6 +4,9 @@ import { RouterLink, RouterModule, Router } from '@angular/router';
 import { TopBarComponent } from '../../top-bar/top-bar.component';
 import { SideBarComponent } from '../side-bar/side-bar.component';
 
+import { ThemeService } from '../../services/theme.service';
+import { NgClass } from '@angular/common';
+
 import {
   FormControl,
   FormGroup,
@@ -18,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     RouterLink,
+    NgClass,
     TopBarComponent,
     SideBarComponent,
     FormsModule,
@@ -29,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './edit-product.component.css',
 })
 export class EditProductComponent {
-  constructor(private _Router: Router) {}
+  constructor(private _Router: Router,public _themeservice:ThemeService) {}
+
 
   onDelete() {}
 

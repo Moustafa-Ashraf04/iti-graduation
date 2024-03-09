@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand p-0">
   <div class="container-fluid px-0">
     <a class="navbar-brand p-0 me-5" routerLink=""
-      ><img src="../../assets/images/logo.jpg" alt="logo" id="navbar-logo"
+      ><img src="../../assets/images/logo.png" alt="logo" id="navbar-logo"
     /></a>
     <div
       class="d-flex justify-content-start search"
@@ -39,16 +39,19 @@
           <p class="badge bg-warning p-1 m-0">0</p>
         </a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item d-flex">
         <a
-          class="nav-link dropdown-toggle"
-          href="#"
+          class="nav-link "
+          routerLink="/user-profile"
           id="navbarDropdown"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Help
+
+          <i class="fa-regular fa-user pr-2"></i>
+
+          Profile
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <!-- <li><a class="dropdown-item" routerLink="help-page">Help Center</a></li> -->

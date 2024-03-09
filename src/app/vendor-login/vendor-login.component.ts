@@ -7,13 +7,14 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { AuthVendor } from '../services/authVendor.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-vendor-login',
@@ -21,6 +22,7 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NgClass,
     HeaderComponent,
     FooterComponent,
     FormsModule,
@@ -41,7 +43,8 @@ export class VendorLoginComponent {
   constructor(
     private _Router: Router,
     private http: HttpClient,
-    private AuthService: AuthVendor
+    private AuthService: AuthVendor,
+    public _themeservice:ThemeService
   ) {}
   ngOnInit(): void {
     this.AuthService.vendorData.subscribe({
@@ -82,4 +85,4 @@ export class VendorLoginComponent {
 }
 
 
-// no errors to display if the Credentials are incorrect check api response for that 
+// no errors to display if the Credentials are incorrect check api response for that

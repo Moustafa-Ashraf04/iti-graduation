@@ -17,7 +17,7 @@
     Sale!
   </p>
 </a>
-<div [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
+<div class="main-card " [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <span class="text-decoration-line-through">100$</span>
@@ -36,12 +36,12 @@
 
  <!-- details layer  -->
 
-<div class="layer d-flex justify-content-center align-items-center position-fixed"  *ngIf="showDetails" (click)="showDetailsInfo()">
+<div class="layer d-flex justify-content-center  align-items-center position-fixed"  *ngIf="showDetails" (click)="showDetailsInfo()">
   <div  [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
 
-  <div class="main-div p-2  d-flex  justify-content-center align-items-center "  (click)="endPropagation($event)">
-    <div  [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
-    <div class="row">
+  <div class="main-div m-2 light-mood d-flex  justify-content-center align-items-center"  (click)="endPropagation($event)">
+    <div class="light-mood"  [ngClass]="{'dark-mood-item': this._themeService.isDarkMood,'dark-mood-text':this._themeService.isDarkMood,'dark-mood a':this._themeService.isDarkMood}">
+    <div class="row" >
 
 
       <div class="x-mark position-relative"  (click)="showDetailsInfo()">

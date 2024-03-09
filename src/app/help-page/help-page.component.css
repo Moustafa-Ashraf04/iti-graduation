@@ -17,3 +17,10 @@ margin-bottom: -3.4375rem;
   border-color: #eee;
   /* transform: translate(); */
 }
+.dark-text
+{
+  color: black;
+}
+.help-slider{
+  flex-direction: column;
+}

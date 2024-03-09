@@ -22,6 +22,10 @@ import { AddProductComponent } from './vendorDashboard/add-product/add-product.c
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { EditProductComponent } from './vendorDashboard/edit-product/edit-product.component';
 import { AuthGuard } from './guards/vendor-auth-guard.guard';
+import { PaymentComponent } from './help-page/payment/payment.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileOrdersComponent } from './user-profile-orders/user-profile-orders.component';
 
 export const routes: Routes = [
   {
@@ -42,7 +46,29 @@ export const routes: Routes = [
   {
     path: 'help-page',
     component: HelpPageComponent,
-    title: 'help-page',
+    title: 'help-page', children: [
+      { path: 'payment', component: PaymentComponent ,  title: 'help payment'}]
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
+    title: 'help payment',
+  },
+  {
+    path: 'user-profile/update-profile',
+    component: UpdateProfileComponent,
+    title: 'update profile',
+  },
+  {
+    path: 'orders',
+    component: UserProfileOrdersComponent,
+    title: 'user profile orders',
+  },
+
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+    title: 'user profile',
   },
   {
     path: 'details',

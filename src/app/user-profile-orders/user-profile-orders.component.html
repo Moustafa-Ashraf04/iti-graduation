@@ -1,0 +1,149 @@
+<app-top-bar></app-top-bar>
+<app-header class="bg-white"></app-header>
+<app-navbar></app-navbar>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey border-1 rounded-3 my-5">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+
+              </a>
+              <h1>Camila Smith</h1>
+              <p>deydeytheEmail.com</p>
+          </div>
+
+          <ul class=" ">
+            <li  class=" my-4">
+
+                <a routerLink="/user-profile" class="nav-link px-0"> <i class="fa fa-user"></i>
+                <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
+                  >Profile</span
+                >
+              </a>
+            </li>
+            <li  class=" my-4">
+
+                <a routerLink="orders" class="nav-link px-0"> <i class="fa fa-calendar"></i>
+                <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
+                  >Orders</span
+                >
+              </a>
+              <!-- <a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a> -->
+            </li>
+            <li  class=" my-4">
+
+                <a routerLink="/user-profile/update-profile" class="nav-link px-0"> <i class="fa fa-edit"></i>
+                <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
+                  >Edit profile</span
+                >
+              </a>
+
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+
+      <div class="panel">
+
+          <!-- <div class="panel-body bio-graph-info">
+              <h1>Your profile</h1>
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>First Name </span>: Camila</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Last Name </span>: Smith</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Country </span>: Australia</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Birthday</span>: 13 July 1983</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Occupation </span>: UI Designer</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>: jsmithflatlab.com</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mobile </span>: (12) 03 4567890</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Phone </span>: 88 (02) 123456</p>
+                  </div>
+              </div>
+          </div> -->
+      </div>
+      <div>
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="panel">
+                      <div class="panel-body">
+
+<div class="card rounded-3 mb-4">
+  <div [ngClass]="{'dark-mood-mini': this._themeService.isDarkMood}">
+  <div class="card-body ">
+    <div class="row d-flex justify-content- align-items-center">
+      <div class="col-md-4 col-lg-2 col-xl-2">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+          class="img-fluid rounded-3 " alt="Cotton T-shirt">
+      </div>
+      <div class="col-md-4 col-lg-3 col-xl-3">
+        <p class="lead fw-normal mb-2">Basic T-shirt</p>
+        <!-- <p><span class="text-muted"ngClass="{'yellow-item':this._themeservice.isDarkMood}"  >Size: </span>M <span class="text-muted">Color: </span>Grey</p> -->
+      </div>
+      <div class="col-md-4 col-lg-2 col-xl-2 offset-lg-1">
+        <h5 class="mb-0">$500.00</h5>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-8">
+                <div class="panel">
+                    <div class="panel-body">
+
+<div class="card rounded-3 mb-4">
+<div [ngClass]="{'dark-mood-mini': this._themeService.isDarkMood}">
+<div class="card-body ">
+  <div class="row d-flex justify-content- align-items-center">
+    <div class="col-md-4 col-lg-2 col-xl-2">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+        class="img-fluid rounded-3 " alt="Cotton T-shirt">
+    </div>
+    <div class="col-md-4 col-lg-3 col-xl-3">
+      <p class="lead fw-normal mb-2">Basic T-shirt</p>
+      <!-- <p><span class="text-muted"ngClass="{'yellow-item':this._themeservice.isDarkMood}"  >Size: </span>M <span class="text-muted">Color: </span>Grey</p> -->
+    </div>
+    <div class="col-md-4 col-lg-2 col-xl-2 offset-lg-1">
+      <h5 class="mb-0">$500.00</h5>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+<app-footer></app-footer>
+

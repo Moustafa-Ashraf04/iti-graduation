@@ -3,6 +3,7 @@
 <app-navbar></app-navbar>
 
 <main>
+  <div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}">
   <section class="container-fluid col-xl-10 col-lg-12" style="min-height: 70vh">
     <h2 class="text-left py-5">Current Deals</h2>
     <div class="p-3 d-flex flex-wrap">
@@ -12,5 +13,6 @@
       ></app-product-card>
     </div>
   </section>
+</div>
 </main>
 <app-footer></app-footer>

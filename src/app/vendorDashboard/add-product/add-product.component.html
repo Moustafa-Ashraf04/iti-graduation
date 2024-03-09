@@ -1,7 +1,8 @@
 <app-top-bar></app-top-bar>
+<div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}">
 
 <main class="container-fluid col-lg-6 col-md-8 col-sm-10 col-xs-12 mt-5">
-  <form (ngSubmit)="onSubmit($event)">
+  <form (ngSubmit)="onSubmit($event)" >
     <div class="mb-3">
       <label for="productName" class="form-label">Product Name</label>
       <input
@@ -75,8 +76,9 @@
     </div>
     <button type="submit" class="btn btn-success">Add Product</button>
   </form>
-  <a routerLink="/vendor/dashboard/products" 
+  <a routerLink="/vendor/dashboard/products"
   class="btn btn-primary my-3">
     Back to products list</a
   >
 </main>
+</div>
