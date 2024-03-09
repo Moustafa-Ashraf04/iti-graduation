@@ -24,7 +24,7 @@ import { AddProductComponent } from './vendorDashboard/add-product/add-product.c
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { EditProductComponent } from './vendorDashboard/edit-product/edit-product.component';
 <<<<<<< HEAD
-import { AuthGuard } from './guards/vendor-auth-guard.guard';
+
 import { PaymentComponent } from './help-page/payment/payment.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
