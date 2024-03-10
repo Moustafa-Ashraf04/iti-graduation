@@ -1,83 +1,84 @@
 <app-top-bar></app-top-bar>
 <app-header class="bg-white"></app-header>
 <app-navbar></app-navbar>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
 <div class="container bootstrap snippets bootdey border-1 rounded-3 my-5">
-<div class="row">
-  <div class="profile-nav col-md-3">
+  <div class="row">
+    <div class="profile-nav col-md-3">
+      @if (userData) {
       <div class="panel">
-          <div class="user-heading round">
-              <a href="#">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+        <div class="user-heading round">
+          <a href="#">
+            <img
+              src="https://bootdey.com/img/Content/avatar/avatar7.png"
+              alt="Maxwell Admin"
+            />
+          </a>
+          <h1>{{ userData.fname }}</h1>
+          <p>{{ userData.email }}</p>
+        </div>
 
-              </a>
-              <h1>{{userData.fname}}</h1>
-              <p>{{userData.email}}</p>
-          </div>
-
-          <ul class="my-5 ">
-            <li class=" my-4">
-
-                <a routerLink="/user-profile" class="nav-link px-0"> <i class="fa fa-user"></i>
-                <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
-                  >Profile</span
-                >
-              </a>
-            </li>
-            <li  class=" my-4">
-
-                <a routerLink="/orders" class="nav-link px-0"> <i class="fa fa-calendar"></i>
-                <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
-                  >Orders</span
-                >
-              </a>
-              <!-- <a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a> -->
-            </li>
-            <li  class=" my-4">
-
-                <!-- <a routerLink="update-profile" class="nav-link px-0"> <i class="fa fa-edit"></i>
+        <ul class="my-5">
+          <li class="my-4">
+            <a routerLink="/user-profile" class="nav-link px-0">
+              <i class="fa fa-user"></i>
+              <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
+                >Profile</span
+              >
+            </a>
+          </li>
+          <li class="my-4">
+            <a routerLink="/orders" class="nav-link px-0">
+              <i class="fa fa-calendar"></i>
+              <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
+                >Orders</span
+              >
+            </a>
+            <!-- <a href="#"> <i class="fa fa-calendar"></i> Recent Activity <span class="label label-warning pull-right r-activity">9</span></a> -->
+          </li>
+          <li class="my-4">
+            <!-- <a routerLink="update-profile" class="nav-link px-0"> <i class="fa fa-edit"></i>
                 <span class="ms-1 d-none d-sm-inline" routerLinkActive="active"
                   >Edit profile</span
                 >
               </a> -->
-
-          </ul>
+          </li>
+        </ul>
       </div>
-  </div>
-  <div class="profile-info col-md-9">
-
+      }
+    </div>
+    <div class="profile-info col-md-9">
       <div class="panel">
+        <div class="panel-body bio-graph-info">
+          <h1>Your profile</h1>
+          <div class="row">
+            <div class="bio-row">
+              <p><span>First Name </span>: {{ userData.fname }}</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Last Name </span>: {{ userData.lname }}</p>
+            </div>
 
-          <div class="panel-body bio-graph-info">
-              <h1>Your profile</h1>
-              <div class="row">
-                  <div class="bio-row">
-                      <p><span>First Name </span>: {{userData.fname}}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Last Name </span>: {{userData.lname}}</p>
-                  </div>
-                 
-                  
-            
-                  <div class="bio-row">
-                      <p><span>Email </span>: {{userData.email}}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Mobile </span>: {{userData.phone_number}}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>BirthDate </span>: {{userData.birth_date}}</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Address </span>:{{userData.address}}</p>
-                  </div>
-                 
-              </div>
+            <div class="bio-row">
+              <p><span>Email </span>: {{ userData.email }}</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Mobile </span>: {{ userData.phone_number }}</p>
+            </div>
+            <div class="bio-row">
+              <p><span>BirthDate </span>: {{ userData.birth_date }}</p>
+            </div>
+            <div class="bio-row">
+              <p><span>Address </span>:{{ userData.address }}</p>
+            </div>
           </div>
+        </div>
       </div>
       <div>
-          <!-- <div class="row">
+        <!-- <div class="row">
               <div class="col-md-6">
                   <div class="panel">
                       <div class="panel-body">
@@ -136,8 +137,8 @@
               </div>
           </div> -->
       </div>
+    </div>
   </div>
-</div>
 </div>
 
 <app-footer></app-footer>

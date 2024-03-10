@@ -33,6 +33,8 @@ import { VendorsComponent } from './admin/vendors/vendors.component';
 import { PaymentMethodsComponent } from './admin/payment-methods/payment-methods.component';
 import { ReviewsComponent } from './admin/reviews/reviews.component';
 import { PromoCodesComponent } from './admin/promo-codes/promo-codes.component';
+import { userAuthGuard } from './guards/userauth.guard';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 export const routes: Routes = [
   {
@@ -66,17 +68,20 @@ export const routes: Routes = [
   {
     path: 'user-profile/update-profile',
     component: UpdateProfileComponent,
+    canActivate: [userAuthGuard],
     title: 'update profile',
   },
   {
     path: 'orders',
     component: UserProfileOrdersComponent,
+    canActivate: [userAuthGuard],
     title: 'user profile orders',
   },
 
   {
     path: 'user-profile',
     component: UserProfileComponent,
+    canActivate: [userAuthGuard],
     title: 'user profile',
   },
   {
@@ -97,11 +102,13 @@ export const routes: Routes = [
   {
     path: 'trackorder',
     component: TrackOrderComponent,
+    canActivate: [userAuthGuard],
     title: 'Track your order',
   },
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [userAuthGuard],
     title: 'cart',
   },
   // {
@@ -160,6 +167,11 @@ export const routes: Routes = [
     title: 'Vendor Plans',
   },
   {
+    path: 'search',
+    component: SearchResultsComponent,
+    title: 'Search Results',
+  },
+  {
     path: 'vendor/login',
     component: VendorLoginComponent,
     title: 'Vendor Login',
@@ -205,62 +217,27 @@ export const routes: Routes = [
   {
     path: 'admin/dashboard/vendors',
     component: VendorsComponent,
+    canActivate: [adminAuthGuard],
     title: ' vendors Page',
   },
   {
     path: 'admin/dashboard/reviews',
     component: ReviewsComponent,
+    canActivate: [adminAuthGuard],
     title: 'Admin Reviews',
   },
   {
     path: 'admin/dashboard/paymentmethods',
     component: PaymentMethodsComponent,
+    canActivate: [adminAuthGuard],
     title: 'Payments Methods',
   },
   {
     path: 'admin/dashboard/promocodes',
     component: PromoCodesComponent,
+    canActivate: [adminAuthGuard],
     title: 'Admin Promocodes',
   },
-  // {
-  //   path: 'admin',
-  //   component: LoginAdminComponent,
-  //   children: [
-  //     {
-  //       path: 'dashboard',
-  //       component: AdminDashboardComponent,
-  //       canActivate: [adminAuthGuard],
-  //       children: [
-  //         {
-  //           path: 'categories',
-  //           component: CategoriesComponent,
-  //           title: 'Admin Categories',
-  //         },
-  //         {
-  //           path: 'vendors',
-  //           component: VendorsComponent,
-  //           title: 'Admin Vendors',
-  //         },
-  //         {
-  //           path: 'reviews',
-  //           component: ReviewsComponent,
-  //           title: 'Admin Reviews',
-  //         },
-  //         {
-  //           path: 'paymentmethods',
-  //           component: PaymentMethodsComponent,
-  //           title: 'Admin Payment Methods',
-  //         },
-  //         {
-  //           path: 'promocodes',
-  //           component: PromoCodesComponent,
-  //           title: 'Admin Promo Codes',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-
   {
     path: '**',
     component: NotFoundComponent,

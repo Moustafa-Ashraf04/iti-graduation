@@ -15,15 +15,17 @@
   >
     <div class="row">
       <div class="col-md-1 img-mini-center d-flex justify-content-evenly">
-        @for (image of data.images; track $index) {
-        <div class="img-mini mb-3">
-          <img class="w-100" [src]="image" alt="" />
-        </div>
-        }
+        <img src="../../assets/images/product 2.png " alt="" />
+        <img src="../../assets/images/product 3.png " alt="" />
+        <img src="../../assets/images/product 4.png " alt="" />
       </div>
 
       <div class="col-md-5">
-        <img class="w-100 h-100" [src]="data.images[0]" alt="" />
+        <img
+          class="w-100 h-100"
+          src="../../assets/images/product 1.png"
+          alt=""
+        />
       </div>
       <div class="col-md-6">
         <h6 class="h4 display-5 mb-3">{{ data.product.product_name }}</h6>
@@ -34,44 +36,21 @@
           <i class="fa-solid fa-star p-1"></i>
         </div>
         <div class="description mb-3">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus,
-          numquam aliquid corrupti quasi iure, inventore autem deleniti
-          molestiae ratione temporibus eos in illo dolor repellendus mollitia
-          laboriosam omnis nostrum assumenda.
+          {{ data.product.descreption }}
         </div>
         <div class="price">
           <h4 class="h3 fw-bold">{{ data.product.price }}</h4>
         </div>
         <hr />
-        <!-- <div class="color">
-            <h6 class="h4">Color</h6>
-            <ul class="d-flex">
-              <li class="color-item border-1 p-3 m-2"></li>
-              <li class="color-item border-1 p-3 m-2"></li>
-              <li class="color-item border-1 p-3 m-2"></li>
-              <li class="color-item border-1 p-3 m-2"></li>
-            </ul>
-          </div> -->
-        <!-- <div class="size mb-5">
-            <h6 class="h4">Size</h6>
-            <ul class="d-flex justify-content-evenly">
-              <li class="size-info">S</li>
-              <li class="size-info">M</li>
-              <li class="size-info">L</li>
-              <li class="size-info">XL</li>
-            </ul>
-          </div> -->
         <div class="row card-btns d-flex my-5">
-          <button class="col-md-9 btn btn-dark py-3 px-4 mr-2">
+          <button
+            class="col-md-9 btn btn-dark py-3 px-4 mr-2"
+            (click)="addToCart(data.product)"
+          >
             Add to cart
           </button>
-          <div
-            class="col-md-2 d-flex justify-content-center border-1 cursor-pointer rounded-2 align-items-center"
-          >
-            <i class="fa-regular fa-heart fs-3"></i>
-          </div>
         </div>
-        <a routerLink="">Back to list</a>
+        <a routerLink="" class="btn btn-primary">Back to list</a>
         <div
           class="shiping-info mt-5 rounded-2 p-3 shadow-lg p-3 mb-5 bg-light rounded"
         >

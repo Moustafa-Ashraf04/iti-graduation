@@ -70,14 +70,14 @@
               class="fa-solid fa-xmark position-absolute top-0 fs-3 border-1 rounded-1 p-2 text-muted"
             ></i>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 bg-secondary">
             <img
               class="w-100 h-100"
               src="../../assets/images/testproduct.jpg"
               alt=""
             />
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 bg-secondary">
             <h6 class="h4 display-5 mb-3">card title</h6>
             <div class="rate d-flex mb-4">
               <i class="fa-solid fa-star p-1"></i>
@@ -89,24 +89,6 @@
               <h4 class="h3 fw-bold">{{ product.price }}</h4>
             </div>
             <hr />
-            <!-- <div class="color">
-                <h6 class="h4">Color</h6>
-                <ul class="d-flex">
-                  <li class="color-item border-1 p-3 m-2"></li>
-                  <li class="color-item border-1 p-3 m-2"></li>
-                  <li class="color-item border-1 p-3 m-2"></li>
-                  <li class="color-item border-1 p-3 m-2"></li>
-                </ul>
-              </div> -->
-            <!-- <div class="size mb-5">
-                <h6 class="h4">Size</h6>
-                <ul class="d-flex justify-content-evenly">
-                  <li class="size-info">S</li>
-                  <li class="size-info">M</li>
-                  <li class="size-info">L</li>
-                  <li class="size-info">XL</li>
-                </ul>
-              </div> -->
             <div class="row card-btns d-flex my-5">
               <button
                 (click)="addToCart(product)"

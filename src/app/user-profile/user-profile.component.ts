@@ -11,35 +11,29 @@ import { UserService } from '../user-service.service';
   selector: 'app-user-profile',
   standalone: true,
   imports: [
-    HeaderComponent, FooterComponent, NavbarComponent, TopBarComponent, NgClass, RouterLink
+    HeaderComponent,
+    FooterComponent,
+    NavbarComponent,
+    TopBarComponent,
+    NgClass,
+    RouterLink,
   ],
   templateUrl: './user-profile.component.html',
-  styleUrl: './user-profile.component.css'
+  styleUrl: './user-profile.component.css',
 })
 export class UserProfileComponent {
   userData: any;
   authToken: any;
-  constructor(public _themeService: ThemeService, private _userService: UserService) {
-
-  }
-  // ngOnInit(): void {
-  //   this.userData = this._userService.getUserData(this.authToken!).subscribe(((res) => {
-  //     this.userData = res;
-  //     console.log(this.userData);
-
-  //   }));
-  // }
+  constructor(
+    public _themeService: ThemeService,
+    private _userService: UserService
+  ) {}
   ngOnInit(): void {
     const userToken = localStorage.getItem('userToken');
-    console.log(userToken);
     if (userToken) {
-      this._userService
-        .getUserData(userToken).subscribe(
-          (res) => {
-            this.userData = res.user;
-            console.log(res);
-          }
-        );
+      this._userService.getUserData(userToken).subscribe((res) => {
+        this.userData = res.user;
+      });
     }
   }
 }

@@ -39,7 +39,7 @@ export class CartService {
     return this.http.post(
       'http://127.0.0.1:8000/user/cart',
       { products: formattedCartItems },
-      { headers },
+      { headers }
     );
   }
   //update cart db
@@ -75,7 +75,7 @@ export class CartService {
 
     if (itemsId.includes(item.id)) {
       const existingItemIndex = this.items.findIndex(
-        (existingItem) => existingItem.id === item.id,
+        (existingItem) => existingItem.id === item.id
       );
       console.log(this.items[existingItemIndex]);
 
@@ -125,6 +125,7 @@ export class CartService {
     this.deleteFromDb(deletedItem).subscribe({
       next: (res: any) => {
         console.log(res);
+        location.reload();
       },
       error: (error) => {
         console.log(error, 'errors');

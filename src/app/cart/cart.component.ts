@@ -47,13 +47,14 @@ export class CartComponent {
       console.log('recommended', res);
       this.recommendedProducts = res;
     });
+    
   }
   handleItemDeleted(deletedItem: any) {
     console.log(deletedItem);
     console.log(this.items);
 
     const index = this.items['products'].findIndex(
-      (item) => item.id === deletedItem.id,
+      (item) => item.id === deletedItem.id
     );
     if (index !== -1) {
       this.items['products'].splice(index, 1);

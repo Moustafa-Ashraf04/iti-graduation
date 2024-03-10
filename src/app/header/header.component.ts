@@ -20,18 +20,13 @@ export class HeaderComponent implements OnInit {
   _cartService = inject(CartService);
   constructor(
     private AuthService: AuthUserService,
-<<<<<<< HEAD
     public _themeServices: ThemeService
-  ) { }
-=======
-    public _themeServices: ThemeService,
   ) {}
->>>>>>> 7c4284a61ffb87d4d0cfe017747489ec9a1cd3cd
 
   toggleDarkMood() {
     this._themeServices.toggleDarkMood();
   }
-  
+
   ngOnInit(): void {
     this.isUserLogin = localStorage.getItem('userToken') ? true : false;
   }

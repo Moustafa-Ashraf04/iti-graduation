@@ -8,6 +8,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { ThemeService } from '../services/theme.service';
 import { ProductsService } from '../services/products.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-details',
@@ -29,9 +30,11 @@ export class DetailsComponent {
     public _themeService: ThemeService,
     private _activatedRoute: ActivatedRoute,
     private _productService: ProductsService,
+    private _cartService: CartService
   ) {}
   data: any;
   id!: number;
+
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.params['id'];
     console.log(this.id);
@@ -41,5 +44,9 @@ export class DetailsComponent {
   }
   toggleDarkMood() {
     this._themeService.toggleDarkMood();
+  }
+
+  addToCart(addedProduct: any) {
+    this._cartService.addToCart(addedProduct);
   }
 }
