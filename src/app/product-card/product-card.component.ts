@@ -16,7 +16,6 @@ import { CartService } from '../services/cart.service';
 })
 export class ProductCardComponent {
   @Input() product!: any;
-
   constructor(
     public _themeService: ThemeService,
     private _productsService: ProductsService,

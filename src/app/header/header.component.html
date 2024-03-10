@@ -3,26 +3,32 @@
     <a class="navbar-brand p-0 me-5" routerLink=""
       ><img src="../../assets/images/logo.png" alt="logo" id="navbar-logo"
     /></a>
+  @if(!isSearchPage){
     <div
-      class="d-flex justify-content-start search"
-      id="navbarSupportedContent"
-    >
-      <div class="col-9 me-1">
-        <form class="d-flex" role="search">
-          <label for="searchEmail"></label>
-          <input
-            class="form-control text-secondary searchBtn w-md-100"
-            type="search"
-            id="searchEmail"
-            placeholder="I'm shopping for"
-            aria-label="Search"
-          />
-        </form>
-      </div>
+    class="d-flex justify-content-start search"
+    id="navbarSupportedContent"
+  >
+    <div class="col-9 me-1">
+    
+        <label for="searchEmail"></label>
+     <div class="d-flex">
+      <input
+      [(ngModel)]="queryParam"
+        class="form-control text-secondary searchBtn w-md-100"
+        type="search"
+        id="searchEmail"
+        placeholder="I'm shopping for"
+        aria-label="Search"
+      />
       <div class="col-2">
-        <button class="btn custom-btn" type="submit">Search</button>
+        <button class="btn custom-btn" type="submit" (click)="goToOtherPage()">Search</button>
       </div>
+     </div>
+   
     </div>
+  
+  </div>
+  }
     <ul
       class="navbar-nav mb-2 mb-lg-0 align-items-center justify-content-around col-3"
     >

@@ -1,7 +1,20 @@
 <app-top-bar></app-top-bar>
-<app-header></app-header>
-<main class="container">
-  <h3 class="text-center">Search results</h3>
-  <app-product-card></app-product-card>
-</main>
+<app-header [isSearchPage]="isSearchPage"></app-header>
+
+
+
+  <main class="container-fluid col-xl-10 col-lg-10">
+    <h3 class="text-center">Search results</h3>
+    <section class="py-4">
+      <div class="p-3 d-flex flex-wrap">
+        @for (product of products; track $index) {
+          <app-product-card [product]="product"  class="col-lg-3 col-md-4 col-sm-6 p-2"></app-product-card>
+        }
+      </div>
+    </section>
+  </main>
+ 
+ 
+
+
 <app-footer></app-footer>
