@@ -40,7 +40,8 @@
         </a>
       </li>
       <li class="nav-item d-flex">
-        <a
+        @if(isUserLogin){
+          <a
           class="nav-link"
           routerLink="/user-profile"
           id="navbarDropdown"
@@ -48,10 +49,9 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <i class="fa-regular fa-user pr-2"></i>
-
-          Profile
+          Profile 
         </a>
+        }
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <!-- <li><a class="dropdown-item" routerLink="help-page">Help Center</a></li> -->
           <li><a class="dropdown-item" routerLink="#">Another action</a></li>
@@ -77,8 +77,7 @@
           <!-- if token is admin display dashboard admin and logout  -->
           <li *ngIf="!isUserLogin">
             <a class="nav-link py-0 login" routerLink="/login">
-              <!-- if there is a token then it will be profile and  if not then its login  -->
-              <!-- will handle it later  -->
+     
               <span>Login</span>
             </a>
             <a class="nav-link py-0 register" routerLink="/register">
@@ -87,7 +86,7 @@
           </li>
           <li
             class="d-flex justify-content-center align-items-center"
-            *ngIf="!isUserLogin"
+            *ngIf="isUserLogin"
           >
             <a class="nav-link py-0 logout" (click)="logOut()" routerLink="">
               Logout

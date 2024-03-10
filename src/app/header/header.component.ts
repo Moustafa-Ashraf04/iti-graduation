@@ -20,22 +20,14 @@ export class HeaderComponent implements OnInit {
   constructor(
     private AuthService: AuthUserService,
     public _themeServices: ThemeService
-  ) {}
+  ) { }
 
   toggleDarkMood() {
     this._themeServices.toggleDarkMood();
   }
-
+  
   ngOnInit(): void {
-    this.AuthService.userToken.subscribe({
-      next: () => {
-        if (this.AuthService.userToken.getValue() != null) {
-          this.isUserLogin = true;
-        } else {
-          this.isUserLogin = false;
-        }
-      },
-    });
+    this.isUserLogin = localStorage.getItem('userToken') ? true : false;
   }
 
   logOut() {
