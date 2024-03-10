@@ -1,75 +1,29 @@
- <section class=" p-1"  [ngClass]="{'dark-mood':this._themeservice.isDarkMood}">
-  <div class="container my-5">
-    <header class="mb-4">
-      <h3>Recommended items</h3>
-    </header>
-
-    <div class="row">
+<section class="p-1" [ngClass]="{ 'dark-mood': this._themeservice.isDarkMood }">
+  <div class="container my-5 d-flex flex-wrap">
+    <div class="col">
       <div class="col-lg-3 col-md-6 col-sm-6">
-
-        <div class="card p-4 border shadow-0 mb-4 mb-lg-0" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
+        <div
+          class="card p-4 border shadow-0 mb-4 mb-lg-0"
+          [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
+        >
           <a href="#" class="">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+              class="card-img-top rounded-2"
+            />
           </a>
           <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Gaming Headset with Mic</a>
+            <a href="#" class="nav-link">{{ product.product_name }}</a>
             <div class="price-wrap mb-2">
-              <strong class="">$18.95</strong>
-              <del class="">$24.99</del>
+              <strong class="">${{ product.price }}</strong>
             </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-warning w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0 mb-4 mb-lg-0" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
 
-          <a href="#" class="">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Card title </a>
-            <div class="price-wrap mb-2">
-              <strong class="">$100.00</strong>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-warning w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0" [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
-
-          <a href="#" class="">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Card title</a>
-            <div class="price-wrap mb-2">
-              <strong class="">$100.00</strong>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-warning w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card p-4 border shadow-0"[ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}">
-          <a href="#" class="">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Card title </a>
-            <div class="price-wrap mb-2">
-              <strong class="">$100.00</strong>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-warning w-100">Add to cart</a>
-            </div>
+            <button
+              (click)="addToCart(product)"
+              class="btn btn-outline-warning w-100"
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

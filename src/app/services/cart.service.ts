@@ -6,12 +6,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CartService {
-  private items: any[] = JSON.parse(localStorage.getItem('cartItems') || '[]');
+  //get it from database
+  cart!: any;
+  private items: any[] = [];
+
+  setItems(items: any) {
+    this.items = items;
+  }
+
+  setCart(cart) {
+    this.cart = cart;
+  }
+
   cartItems: any[] = [];
   constructor(private http: HttpClient) {}
+
+  //add cart to database
   addCartToDb(cartItems: any): Observable<any> {
-    const token =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvdXNlci9sb2dpbiIsImlhdCI6MTcwOTkyNTQ1NywiZXhwIjoxNzA5OTI5MDU3LCJuYmYiOjE3MDk5MjU0NTcsImp0aSI6ImhIQkNRN0JJS0RBenk1R1AiLCJzdWIiOiI2IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.qqeV4YnjboaQneg4KEDvj6SwgC3BQk7zeDuaVCFyoAE'; // Replace this with your token
+    const token = localStorage.getItem('userToken') || '';
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
@@ -26,15 +39,43 @@ export class CartService {
     return this.http.post(
       'http://127.0.0.1:8000/user/cart',
       { products: formattedCartItems },
-      { headers }
+      { headers },
     );
   }
+  //update cart db
+  updateCartToDb(newCart): Observable<any> {
+    const token = localStorage.getItem('userToken') || '';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.put('http://127.0.0.1:8000/user/cart/1', newCart, {
+      headers,
+    });
+  }
+
+  //delete from db
+
+  deleteFromDb(deletedItem) {
+    const token = localStorage.getItem('userToken') || '';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.delete(`http://127.0.0.1:8000/user/cart/${this.cart.id}`, {
+      headers,
+      body: deletedItem,
+    });
+  }
+
   addToCart(item: any) {
     let itemsId = this.items.map((existingItem) => existingItem.id);
 
     if (itemsId.includes(item.id)) {
       const existingItemIndex = this.items.findIndex(
-        (existingItem) => existingItem.id === item.id
+        (existingItem) => existingItem.id === item.id,
       );
       console.log(this.items[existingItemIndex]);
 
@@ -43,7 +84,6 @@ export class CartService {
       this.items.push({ ...item, quantity: 1 });
     }
     if (item) {
-      console.log(this.items);
       this.cartItems = [];
       this.items.forEach((item) => {
         this.cartItems.push({
@@ -63,31 +103,80 @@ export class CartService {
       });
     }
   }
+  getCartFromDb(): Observable<any> {
+    const token = localStorage.getItem('userToken') || '';
 
-  getItems() {
-    return this.items;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.get<any>('http://localhost:8000/user/cart', { headers });
   }
+
+  // getItems() {
+  //   return this.items;
+  // }
+
+  //delete from db
   delete(item: any) {
-    this.items = this.items.filter((i) => i.id !== item.id);
-    localStorage.setItem('cartItems', JSON.stringify(this.items));
+    let deletedItem = {
+      products: [{ productId: item.id }],
+    };
+    this.deleteFromDb(deletedItem).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (error) => {
+        console.log(error, 'errors');
+      },
+    });
   }
   incrementQuantity(id: number) {
     let item = this.items.find((i) => i.id === id);
+
+    let transaction = {
+      operation: 'add',
+      products: [{ productId: id }],
+    };
+
+    this.updateCartToDb(transaction).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (error) => {
+        console.log(error, 'errors');
+      },
+    });
     if (item) {
       item.quantity++;
     }
-    localStorage.setItem('cartItems', JSON.stringify(this.items));
+    //increment in db
   }
   decrementQuantity(id: number) {
     let item = this.items.find((i) => i.id === id);
+    let transaction = {
+      operation: 'subtract',
+      products: [{ productId: id }],
+    };
+
+    this.updateCartToDb(transaction).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (error) => {
+        console.log(error, 'errors');
+      },
+    });
     if (item) {
       item.quantity--;
     }
-    localStorage.setItem('cartItems', JSON.stringify(this.items));
+    //decrement from db
   }
   getTotal() {
     return this.items.reduce((acc, item) => {
-      return acc + item.price * item.quantity;
+      if (item.discount > 0) {
+        return acc + item.price * item.quantity * item.discount;
+      } else return acc + item.price * item.quantity;
     }, 0);
   }
 }

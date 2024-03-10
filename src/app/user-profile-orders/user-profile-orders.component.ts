@@ -39,7 +39,6 @@ export class UserProfileOrdersComponent {
       this._userService.getUserData(userToken).subscribe(
         (res) => {
           this.userData = res.user;
-      
         }
       );
      

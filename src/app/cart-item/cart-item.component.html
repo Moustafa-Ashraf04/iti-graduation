@@ -1,52 +1,60 @@
 @if (item) {
-<div class="card rounded-3 mb-4">
-  <div [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }">
-    <div class="card-body p-4">
-      <div class="row d-flex justify-content-between align-items-center">
-        <div class="col-md-2 col-lg-2 col-xl-2">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-            class="img-fluid rounded-3"
-            alt="Cotton T-shirt"
-          />
-        </div>
-        <div class="col-md-3 col-lg-3 col-xl-3">
-          <p class="lead fw-normal mb-2">{{ item.product_name }}</p>
-          <p>
-            <span
-              class="text-muted"
-              ngClass="{'yellow-item':this._themeservice.isDarkMood}"
-              >Size: </span
-            >M <span class="text-muted">Color: </span>Grey
-          </p>
-        </div>
-        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-          <button
-            class="btn btn-link px-2"
-            (click)="_cartService.decrementQuantity(item.id)"
-          >
-            <i class="fas fa-minus"></i>
-          </button>
-
-          <div>{{ item.quantity }}</div>
-
-          <button
-            class="btn btn-link px-2"
-            (click)="_cartService.incrementQuantity(item.id)"
-          >
-            <i class="fas fa-plus"></i>
-          </button>
-        </div>
-        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-          <h5 class="mb-0">${{ item.price }}</h5>
-        </div>
-        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-          <a class="text-danger" (click)="deleteFromCart(item)"
-            ><i class="fas fa-trash fa-lg"></i
-          ></a>
+  <div class="card rounded-3 mb-4">
+    <div [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }">
+      <div class="card-body p-4">
+        <div class="row d-flex justify-content-between align-items-center">
+          <div class="col-md-2 col-lg-2 col-xl-2">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+              class="img-fluid rounded-3"
+              alt="Cotton T-shirt"
+            />
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <p class="lead fw-normal mb-2">{{ item.productName }}</p>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+            @if (item.quantity > 1) {
+              <button
+                class="btn btn-link px-2"
+                (click)="_cartService.decrementQuantity(item.id)"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+            } @else {
+              <button class="btn btn-link px-2">
+                <i class="fas fa-minus"></i>
+              </button>
+            }
+            <div class="d-flex align-items-center">{{ item.quantity }}</div>
+            @if (item.quantity < item.stock) {
+              <button
+                class="btn btn-link px-2"
+                (click)="_cartService.incrementQuantity(item.id)"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+            }
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 d-flex gap-2">
+            @if (item.discount > 0) {
+              <h5 class="mb-0 text-decoration-line-through">
+                ${{ item.price * item.quantity }}
+              </h5>
+              <h5 class="mb-0">
+                ${{ item.price * item.quantity * item.discount }}
+              </h5>
+            } @else {
+              <h5 class="mb-0">${{ item.price * item.quantity }}</h5>
+            }
+          </div>
+          <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+            <a class="text-danger" (click)="deleteFromCart(item)"
+              ><i class="fas fa-trash fa-lg" style="cursor: pointer"></i
+            ></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 }
