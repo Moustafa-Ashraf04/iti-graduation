@@ -132,4 +132,18 @@ export class VendorDashboardService {
       requestOptions
     );
   }
+
+
+  getReviews(vendorToken: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${vendorToken}`,
+    });
+    const requestOptions = {
+      headers: headers,
+    };
+    return this._http.get(
+      `http://localhost:8000/vendor/ratings`,
+      requestOptions
+    );
+  }
 }
