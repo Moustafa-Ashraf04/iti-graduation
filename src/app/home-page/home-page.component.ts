@@ -40,7 +40,6 @@ export class HomePageComponent implements OnInit {
 
   products: any[] = [];
 
-
   ngOnInit() {
     console.log('parent');
 
