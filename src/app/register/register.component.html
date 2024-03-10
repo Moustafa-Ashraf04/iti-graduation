@@ -1,295 +1,361 @@
 <app-top-bar></app-top-bar>
 <app-header></app-header>
 <!-- prev 130vh -->
-<div [ngClass]="{'dark-mood-item':this._themeservice.isDarkMood}">
-<section style="height: 75rem" class="form-section">
-
-  <div class="container h-100">
-
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px">
-          <div [ngClass]="{'dark-mood-mini':this._themeservice.isDarkMood}" class="rounded-4">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-0">
-                  Sign up
-                </p>
-                <!-- register form  -->
-                <form
-                  class="mx-1 mx-md-4"
-                  enctype="multipart/form-data"
-                  (ngSubmit)="submitregistration(registerform)"
-                  [formGroup]="registerform"
-                >
-                  <!-- First name  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0 d-flex">
-                      <div>
-                        <label class="form-label me-2" for="first_name"
-                          >First Name</label
-                        >
-                        <input
-                          type="text"
-                          id="form3Example1c"
-                          class="form-control me-2"
-                          id="first_name"
-                          formControlName="first_name"
-                          autocomplete="off"
-                        />
-                        <div
-                          *ngIf="
-                            registerform.get('first_name')?.errors &&
-                            registerform.get('first_name')?.touched
-                          "
-                          class="alert text-danger m-0 p-0"
-                        >
-                          <p
-                            class=""
-                            *ngIf="
-                              registerform
-                                .get('first_name')
-                                ?.getError('required')
-                            "
+<div [ngClass]="{ 'dark-mood-item': this._themeservice.isDarkMood }">
+  <section style="height: 75rem" class="form-section">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px">
+            <div
+              [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
+              class="rounded-4"
+            >
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-0">
+                      Sign up
+                    </p>
+                    <!-- register form  -->
+                    <form
+                      class="mx-1 mx-md-4"
+                      enctype="multipart/form-data"
+                      (ngSubmit)="submitregistration(registerform)"
+                      [formGroup]="registerform"
+                    >
+                      <!-- First name  -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw mt-4"></i>
+                        <div class="form-outline flex-fill mb-0 d-flex">
+                          <div>
+                            <label class="form-label me-2" for="first_name"
+                              >First Name</label
+                            >
+                            <input
+                              type="text"
+                              id="form3Example1c"
+                              class="form-control me-2"
+                              id="first_name"
+                              formControlName="first_name"
+                              autocomplete="off"
+                            />
+                            <div
+                              *ngIf="
+                                registerform.get('first_name')?.errors &&
+                                registerform.get('first_name')?.touched
+                              "
+                              class="alert text-danger m-0 p-0"
+                            >
+                              <p
+                                class=""
+                                *ngIf="
+                                  registerform
+                                    .get('first_name')
+                                    ?.getError('required')
+                                "
+                              >
+                                First name is required
+                              </p>
+                              <p
+                                *ngIf="
+                                  registerform
+                                    .get('first_name')
+                                    ?.getError('minlength')
+                                "
+                              >
+                                Minimum length is 4
+                              </p>
+                              <p
+                                *ngIf="
+                                  registerform
+                                    .get('first_name')
+                                    ?.getError('maxlength')
+                                "
+                              >
+                                Maximum length is 15
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Last name  -->
+                        <div>
+                          <label class="form-label ms-2" for="last_name"
+                            >Last Name</label
                           >
-                            First name is required
-                          </p>
-                          <p
+                          <input
+                            type="text"
+                            class="form-control ms-2"
+                            id="last_name"
+                            formControlName="last_name"
+                            autocomplete="off"
+                          />
+                          <div
                             *ngIf="
-                              registerform
-                                .get('first_name')
-                                ?.getError('minlength')
+                              registerform.get('last_name')?.errors &&
+                              registerform.get('last_name')?.touched
                             "
+                            class="alert text-danger m-0 p-0 ms-2"
                           >
-                            Minimum length is 4
-                          </p>
-                          <p
-                            *ngIf="
-                              registerform
-                                .get('first_name')
-                                ?.getError('maxlength')
-                            "
-                          >
-                            Maximum length is 15
-                          </p>
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('last_name')
+                                  ?.getError('required')
+                              "
+                            >
+                              Last name is required
+                            </p>
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('last_name')
+                                  ?.getError('minlength')
+                              "
+                            >
+                              Minimum length is 4
+                            </p>
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('last_name')
+                                  ?.getError('maxlength')
+                              "
+                            >
+                              Maximum length is 15
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <!-- Last name  -->
-                    <div>
-                      <label class="form-label ms-2" for="last_name"
-                        >Last Name</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control ms-2"
-                        id="last_name"
-                        formControlName="last_name"
-                        autocomplete="off"
-                      />
-                      <div
-                        *ngIf="
-                          registerform.get('last_name')?.errors &&
-                          registerform.get('last_name')?.touched
-                        "
-                        class="alert text-danger m-0 p-0 ms-2"
-                      >
-                        <p
-                          *ngIf="
-                            registerform.get('last_name')?.getError('required')
-                          "
-                        >
-                          Last name is required
-                        </p>
-                        <p
-                          *ngIf="
-                            registerform.get('last_name')?.getError('minlength')
-                          "
-                        >
-                          Minimum length is 4
-                        </p>
-                        <p
-                          *ngIf="
-                            registerform.get('last_name')?.getError('maxlength')
-                          "
-                        >
-                          Maximum length is 15
-                        </p>
-                      </div>
-                    </div>
-                  </div>
 
-                  <!-- email input  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="userEmail"
-                        >Email address</label
-                      >
-                      <input
-                        type="email"
-                        id="userEmail"
-                        class="form-control"
-                        formControlName="email"
-                        autocomplete="off"
-                      />
-                      <div
-                        *ngIf="
-                          registerform.get('email')?.errors &&
-                          registerform.get('email')?.touched
-                        "
-                        class="alert text-danger m-0 p-0"
-                      >
-                        <p
-                          *ngIf="
-                            registerform.get('email')?.getError('required')
-                          "
-                        >
-                          Email is required
-                        </p>
-                        <p *ngIf="registerform.get('email')?.getError('email')">
-                          Email is not valid
-                        </p>
+                      <!-- email input  -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-envelope fa-lg me-3 fa-fw mt-4"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="userEmail"
+                            >Email address</label
+                          >
+                          <input
+                            type="email"
+                            id="userEmail"
+                            class="form-control"
+                            formControlName="email"
+                            autocomplete="off"
+                          />
+                          <div
+                            *ngIf="
+                              registerform.get('email')?.errors &&
+                              registerform.get('email')?.touched
+                            "
+                            class="alert text-danger m-0 p-0"
+                          >
+                            <p
+                              *ngIf="
+                                registerform.get('email')?.getError('required')
+                              "
+                            >
+                              Email is required
+                            </p>
+                            <p
+                              *ngIf="
+                                registerform.get('email')?.getError('email')
+                              "
+                            >
+                              Email is not valid
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
 
-                  <!-- password  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="password">Password</label>
-                      <input
-                        type="password"
-                        class="form-control"
-                        formControlName="password"
-                        id="password"
-                      />
-                      <div
-                        *ngIf="
-                          registerform.get('password')?.errors &&
-                          registerform.get('password')?.touched
-                        "
-                        class="alert text-danger m-0 p-0"
-                      >
-                        <p
-                          *ngIf="
-                            registerform.get('password')?.getError('required')
-                          "
-                        >
-                          Password is required
-                        </p>
-                        <p
-                          *ngIf="
-                            registerform.get('password')?.getError('minlength')
-                          "
-                        >
-                          Minimum length is 8
-                        </p>
+                      <!-- password  -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-lock fa-lg me-3 fa-fw mt-4"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="password"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            formControlName="password"
+                            id="password"
+                          />
+                          <div
+                            *ngIf="
+                              registerform.get('password')?.errors &&
+                              registerform.get('password')?.touched
+                            "
+                            class="alert text-danger m-0 p-0"
+                          >
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('password')
+                                  ?.getError('required')
+                              "
+                            >
+                              Password is required
+                            </p>
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('password')
+                                  ?.getError('minlength')
+                              "
+                            >
+                              Minimum length is 8
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
 
-                  <!-- confirm password  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw mt-4"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="confirmPassword"
-                        >Confirm your password</label
-                      >
-                      <input
-                        type="password"
-                        id="confirmPassword"
-                        formControlName="confirmPassword"
-                        class="form-control"
-                      />
-                      <div
-                        *ngIf="
-                          registerform.get('confirmPassword')?.errors &&
-                          registerform.get('confirmPassword')?.touched
-                        "
-                        class="alert text-danger m-0 p-0"
-                      >
-                        <p
-                          class=""
-                          *ngIf="
-                            registerform
-                              .get('confirmPassword')
-                              ?.getError('required')
-                          "
-                        >
-                          Password is required
-                        </p>
-                        <p
-                          class=""
-                          *ngIf="
-                            registerform
-                              .get('confirmPassword')
-                              ?.getError('minlength')
-                          "
-                        >
-                          Minimum length is 8
-                        </p>
+                      <!-- confirm password  -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-key fa-lg me-3 fa-fw mt-4"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="confirmPassword"
+                            >Confirm your password</label
+                          >
+                          <input
+                            type="password"
+                            id="confirmPassword"
+                            formControlName="confirmPassword"
+                            class="form-control"
+                          />
+                          <div
+                            *ngIf="
+                              registerform.get('confirmPassword')?.errors &&
+                              registerform.get('confirmPassword')?.touched
+                            "
+                            class="alert text-danger m-0 p-0"
+                          >
+                            <p
+                              class=""
+                              *ngIf="
+                                registerform
+                                  .get('confirmPassword')
+                                  ?.getError('required')
+                              "
+                            >
+                              confirm Password is required
+                            </p>
+                            <p
+                              class=""
+                              *ngIf="
+                                registerform
+                                  .get('confirmPassword')
+                                  ?.getError('minlength')
+                              "
+                            >
+                              Minimum length is 8
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <!-- phone number  -->
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-solid fa-phone fa-lg me-3 fa-fw mt-4"></i>
+                      <!-- phone number  -->
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i
+                          class="fas fa-solid fa-phone fa-lg me-3 fa-fw mt-4"
+                        ></i>
 
-                    <div class="form-outline flex-fill mb-0">
-                      <label class="form-label" for="phoneNumber"
-                        >Phone number</label
-                      >
-                      <input
-                        type="tel"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        formControlName="phoneNumber"
-                        class="form-control"
-                      />
-                      <div
-                        *ngIf="
-                          registerform.get('phoneNumber')?.errors &&
-                          registerform.get('phoneNumber')?.touched
-                        "
-                        class="alert text-danger m-0 p-0"
-                      >
-                        <p
-                          *ngIf="
-                            registerform
-                              .get('phoneNumber')
-                              ?.getError('required')
-                          "
-                        >
-                          Phone number is required
-                        </p>
-                        <p
-                          *ngIf="
-                            registerform.get('phoneNumber')?.getError('pattern')
-                          "
-                        >
-                          Invalid phone number
-                        </p>
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="phoneNumber"
+                            >Phone number</label
+                          >
+                          <input
+                            type="tel"
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            formControlName="phoneNumber"
+                            class="form-control"
+                          />
+                          <div
+                            *ngIf="
+                              registerform.get('phoneNumber')?.errors &&
+                              registerform.get('phoneNumber')?.touched
+                            "
+                            class="alert text-danger m-0 p-0"
+                          >
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('phoneNumber')
+                                  ?.getError('required')
+                              "
+                            >
+                              Phone number is required
+                            </p>
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('phoneNumber')
+                                  ?.getError('pattern')
+                              "
+                            >
+                              Invalid phone number
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <!-- <div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fa-solid fa-house fa-lg me-3 fa-fw mt-4"></i>
+
+                        <div class="form-outline flex-fill mb-0">
+                          <label class="form-label" for="address"
+                            >Address
+                          </label>
+                          <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            formControlName="address"
+                            class="form-control"
+                          />
+                          <div
+                            *ngIf="
+                              registerform.get('address')?.errors &&
+                              registerform.get('address')?.touched
+                            "
+                            class="alert text-danger m-0 p-0"
+                          >
+                            <p
+                              *ngIf="
+                                registerform
+                                  .get('address')
+                                  ?.getError('required')
+                              "
+                            >
+                              Address is required
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div>
                     <label for="birthday">Birthday:</label>
                     <input type="date" id="birthday" name="birthday" />
                   </div> -->
-                  <div class="py-3 ps-1 d-flex">
-                    <i class="fas fa-calendar-days fa-lg me-3 fa-fw mt-4"></i>
-                    <span class="p-float-label">
-                      <p-calendar
-                        id="birthDate"
-                        formControlName="birthDate"
-                      ></p-calendar>
-                      <label for="birthDate">Birth Date</label>
-                    </span>
-                    <!-- <div class="p-field">
+                      <div class="py-3 ps-1 d-flex">
+                        <i
+                          class="fas fa-calendar-days fa-lg me-3 fa-fw mt-4 pt-3"
+                        ></i>
+                        <div class="">
+                          <!-- <p-calendar
+                            id="birthDate"
+                            formControlName="birthDate"
+                          ></p-calendar> -->
+                          <p class="m-0">format: 'MM/dd/yyyy'</p>
+
+                          <input
+                            type="text"
+                            name="birthDate"
+                            id="birthDate"
+                            formControlName="birthDate"
+                            class="form-control"
+                          />
+                          <label for="birthDate">Birth Date</label>
+                        </div>
+                        <!-- <div class="p-field">
                       <label for="birthDate">Birth Date</label>
                       <span class="p-float-label">
                         <p-calendar
@@ -303,88 +369,97 @@
                         <label for="birthDate">Choose Date</label>
                       </span>
                     </div> -->
-                    <div
-                      *ngIf="
-                        registerform.get('birthDate')?.errors &&
-                        registerform.get('birthDate')?.touched
-                      "
-                      class="alert text-danger m-0 p-0"
-                    >
-                      <p
-                        *ngIf="
-                          registerform.get('birthDate')?.getError('birthDate')
-                        "
+                        <div
+                          *ngIf="
+                            registerform.get('birthDate')?.errors &&
+                            registerform.get('birthDate')?.touched
+                          "
+                          class="alert text-danger m-0 p-0"
+                        >
+                          <p
+                            *ngIf="
+                              registerform
+                                .get('birthDate')
+                                ?.getError('birthDate')
+                            "
+                          >
+                            Please select your birthday
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="form-check d-flex justify-content-center mb-5 flex-column"
                       >
-                        Please select your birthday
+                        <div>
+                          <input
+                            class="form-check-input me-2"
+                            type="checkbox"
+                            name="termsCheckbox"
+                            checked
+                            disabled
+                          />
+                          <div class="form-check-label">
+                            I agree to all statements in
+                            <a routerLink="/termsofservice"
+                              >Terms of service.</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 gap-3 buttons"
+                      >
+                        <button
+                          class="btn btn-warning btn-lg"
+                          [disabled]="registerform.invalid"
+                          type="submit"
+                        >
+                          <span *ngIf="!is_loading">Register</span>
+                          <i
+                            *ngIf="is_loading"
+                            class="fas fa-spinner fa-spin"
+                          ></i>
+                          <!-- will check later when we get api  -->
+                          <!-- <span *ngIf="!is_loading">Register</span> -->
+                          <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
+                        </button>
+                        <button class="btn btn-primary btn-lg" type="submit">
+                          Facebook
+                        </button>
+                        <button
+                          class="btn btn-lg btn-danger"
+                          type="submit"
+                          style="color: white"
+                        >
+                          Gmail
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div
+                    class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 flex-column justify-content-center"
+                  >
+                    <img
+                      src="../../assets/images/regist.png"
+                      class="img-fluid"
+                      alt="Register form"
+                    />
+                    <div>
+                      <p>
+                        Already have an account?
+                        <a routerLink="/login" class="text-danger"> Login</a>
+                      </p>
+                    </div>
+                    <div>
+                      <p>
+                        Register as a vendor from
+                        <a routerLink="/vendor/register" class="text-danger">
+                          Here</a
+                        >
                       </p>
                     </div>
                   </div>
-                  <div
-                    class="form-check d-flex justify-content-center mb-5 flex-column"
-                  >
-                    <div>
-                      <input
-                        class="form-check-input me-2"
-                        type="checkbox"
-                        name="termsCheckbox"
-                        checked
-                        disabled
-                      />
-                      <div class="form-check-label">
-                        I agree to all statements in
-                        <a routerLink="/termsofservice">Terms of service.</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 gap-3 buttons"
-                  >
-                    <button
-                      class="btn btn-warning btn-lg"
-                      [disabled]="registerform.invalid"
-                      type="submit"
-                    >
-                      <span *ngIf="!is_loading">Register</span>
-                      <i *ngIf="is_loading" class="fas fa-spinner fa-spin"></i>
-                      <!-- will check later when we get api  -->
-                      <!-- <span *ngIf="!is_loading">Register</span> -->
-                      <!-- <i *ngIf="is_loading" class="fa-solid fa-spinner"></i> -->
-                    </button>
-                    <button class="btn btn-primary btn-lg" type="submit">
-                      Facebook
-                    </button>
-                    <button
-                      class="btn btn-lg btn-danger"
-                      type="submit"
-                      style="color: white"
-                    >
-                      Gmail
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div
-                class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 flex-column justify-content-center"
-              >
-                <img
-                  src="../../assets/images/regist.png"
-                  class="img-fluid"
-                  alt="Register form"
-                />
-                <div>
-                  <p>
-                    Already have an account?
-                    <a routerLink="/login" class="text-danger"> Login</a>
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    Register as a vendor from
-                    <a routerLink="/vendor/register" class="text-danger">
-                      Here</a
-                    >
-                  </p>
                 </div>
               </div>
             </div>
@@ -392,8 +467,6 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
-</section>
+  </section>
 </div>
 <app-footer></app-footer>
