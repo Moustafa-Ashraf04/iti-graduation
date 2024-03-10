@@ -20,10 +20,10 @@
                 Your shopping cart
               </h4>
               @for (item of items["products"]; track item.id) {
-                <app-cart-item
-                  [item]="item"
-                  (itemDeleted)="handleItemDeleted($event)"
-                ></app-cart-item>
+              <app-cart-item
+                [item]="item"
+                (itemDeleted)="handleItemDeleted($event)"
+              ></app-cart-item>
               }
             </div>
 
@@ -140,7 +140,7 @@
   <h3>Recommended items</h3>
 </header>
 @for (product of recommendedProducts; track $index) {
-  <app-recommended [product]="product"></app-recommended>
+<app-recommended [product]="product"></app-recommended>
 }
 <!-- Footer -->
 <app-footer></app-footer>
