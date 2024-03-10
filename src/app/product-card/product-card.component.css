@@ -8,83 +8,82 @@
 .card:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
-.icon-border{
+.icon-border {
   border: 0.5px solid black;
-  padding: .2188rem .5rem;
-  border-radius: .640rem;
+  padding: 0.2188rem 0.5rem;
+  border-radius: 0.64rem;
   cursor: pointer;
   transition: all 0.5e;
 }
-.icon-border:hover{
+.icon-border:hover {
   transform: scale(1.2);
 }
-.cart-icon i{
+.cart-icon i {
   font-size: 15px;
 }
-button{
+button {
   transition: all 0.5e;
-
 }
-button:hover ,i:hover{
+button:hover,
+i:hover {
   transform: scale(1.03);
 }
-i:hover{
-  color: #FFC609;
+i:hover {
+  color: #ffc609;
 }
-.layer{
-  background-color: rgba(0, 0,0, 0.5);
+.layer {
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
   top: 0;
-  left:0 ;
+  left: 0;
   z-index: 999;
-
 }
-.main-div{
+.main-div {
   /* transform: translate(0%,0%); */
   /* background-color: antiquewhite; */
   height: 40rem;
   width: 80rem;
-
 }
 ul {
   list-style: none;
 }
-ul li,.x-mark {
+ul li,
+.x-mark {
   cursor: pointer;
-
 }
-ul li:hover{
+ul li:hover {
   transform: scale(1.2);
 }
-.size ul li{
-  border: 1px solid black ;
+.size ul li {
+  border: 1px solid black;
   padding: 5px 18px;
   border-radius: 15px;
 }
-.color-item{
+.color-item {
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
 
-.x-mark i{
-  right: .9375rem;
-
+.x-mark i {
+  right: 0.9375rem;
 }
-.light-mood{
+.light-mood {
   background-color: #eee;
 }
-.btn-card{
-  background-color: #FFC609;
-
+.btn-card {
+  background-color: #ffc609;
 }
-.main-card:hover{
+.main-card:hover {
   /* background-color:#eee */
   box-shadow: 0px 0px 30px 1px rgba(226, 196, 6, 0.3);
-
 }
-.card-body:hover{
+.card-body:hover {
   /* transform: scale(0.98); */
   border-radius: 18px;
+}
+
+a {
+  cursor: pointer;
 }

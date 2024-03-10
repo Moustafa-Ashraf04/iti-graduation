@@ -2,7 +2,7 @@
 @if (product) {
 <div class="card">
   <!-- button  to product details  -->
-  <a href="">
+  <a (click)="openDetails()">
     <img
       src="../../assets/images/testproduct.jpg"
       class="card-img-top"
@@ -26,13 +26,13 @@
   >
     <div class="card-body">
       <h5 class="card-title">{{ product.product_name }}</h5>
-      <span class="text-decoration-line-through">{{ product.price }}</span>
+      <span class="">{{ product.price }}</span>
       <div class="d-flex justify-content-end">
         <!-- <a href="#" class="btn btn-primary">Details</a>
       <a href="#" class="btn btn-primary">cart icon</a> -->
-        <div class="cart-icon icon-border" (click)="openDetails()">
+        <!-- <div class="cart-icon icon-border" >
           <i class="fa-solid fa-cart-plus fs-5"></i>
-        </div>
+        </div> -->
         <!-- add cart icon and wishlist icon  -->
       </div>
     </div>
@@ -89,22 +89,20 @@
               <h4 class="h3 fw-bold">{{ product.price }}</h4>
             </div>
             <hr />
-            <div class="row card-btns d-flex my-5">
+            <div class="col card-btns d-flex my-5">
               <button
                 (click)="addToCart(product)"
                 class="col-md-9 btn btn-dark py-3 px-4 mr-2"
               >
                 Add to cart
               </button>
-              <div
-                class="col-md-2 d-flex justify-content-center border-1 cursor-pointer rounded-2 align-items-center"
-              >
-                <i class="fa-regular fa-heart fs-3"></i>
-              </div>
+
+              <a
+                routerLink="product/details/{{ product.id }}"
+                class="btn btn-dark"
+                >View More Details
+              </a>
             </div>
-            <a routerLink="product/details/{{ product.id }}"
-              >View More Details
-            </a>
           </div>
         </div>
       </div>
