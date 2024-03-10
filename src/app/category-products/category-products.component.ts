@@ -4,7 +4,7 @@ import { HeaderComponent } from '../header/header.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { PaginatorModule } from 'primeng/paginator';
 import {
@@ -13,6 +13,7 @@ import {
   ReactiveFormsModule,
   FormControl,
 } from '@angular/forms';
+import { ThemeService } from '../services/theme.service';
 import { ProductsService } from '../services/products.service';
 
 @Component({
@@ -21,6 +22,7 @@ import { ProductsService } from '../services/products.service';
   imports: [
     TopBarComponent,
     NavbarComponent,
+    NgClass,
     HeaderComponent,
     FooterComponent,
     ProductCardComponent,
@@ -35,7 +37,11 @@ import { ProductsService } from '../services/products.service';
   styleUrl: './category-products.component.css',
 })
 export class CategoryProductsComponent {
-  constructor(private _productsService: ProductsService) {}
+  constructor(
+    public _themeService: ThemeService,
+    private _productsService: ProductsService
+  ) {}
+
   products!: any[];
 
   ngOnInit() {
@@ -43,6 +49,7 @@ export class CategoryProductsComponent {
       this.products = res.products;
     });
   }
+
   page: number = 1;
   first: number = 0;
   rows: number = 20;

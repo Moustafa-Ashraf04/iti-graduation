@@ -1,94 +1,97 @@
 <!-- header  -->
 <app-top-bar></app-top-bar>
 <app-header></app-header>
-<section style="background-color: #f6f6fa" class="form-section">
-  <div class="container-fluid">
-    <div
-      *ngIf="isVendorLogin"
-      class="d-flex justify-content-center align-items-center text-warning logged"
-    >
-      <h3>Your are logged in</h3>
-    </div>
-    <div
-      *ngIf="!isVendorLogin"
-      class="row d-flex justify-content-center align-items-center main-container"
-      style="min-height: 90vh"
-    >
-      <div class="d-flex p-5 form-container justify-content-evenly">
-        <!-- left half (login) -->
-        <div
-          class="col-lg-6 col-xs-12 d-flex justify-content-center align-items-center px-5 flex-column py-5 rounded border border-3 border-dark"
-          style="background-color: white"
-        >
-          <h2 class="mb-2 w-75">Welcome Back.</h2>
-          <h2 class="mb-5 w-75">Log In To Your Vendor Account.</h2>
-          <!-- login form  -->
-          <div class="col-9">
-            <form
-              enctype="multipart/form-data"
-              [formGroup]="loginform"
-              (ngSubmit)="submitlogin()"
-            >
-              <input
-                type="email"
-                id="loginEmail"
-                autocomplete="off"
-                placeholder="Email Address"
-                class="form-control-lg mb-4 w-100 border-1"
-                formControlName="email"
-              />
-              <input
-                type="password"
-                id="loginPassword"
-                autocomplete="off"
-                placeholder="Password"
-                class="form-control-lg mb-4 w-100 border-1"
-                formControlName="password"
-              />
-              <div class="alert alert-danger" *ngIf="backerror">
-                {{ error }}
-              </div>
-              <div
-                class="d-flex justify-content-between align-items-between w-100 pdiv"
-              >
-                <p>
-                  <input type="checkbox" class="me-3" id="rememberme" />
-                  <label for="rememberme" id="rememberme-label">
-                    Remember me</label
-                  >
-                </p>
-                <p>
-                  <!-- create a page for this and update password there  -->
-                  <a routerLink="/resetpassword" class="text-danger"
-                    >Forgot Your password?</a
-                  >
-                </p>
-              </div>
-              <button
-                class="btn btn-warning btn-lg w-100"
-                type="submit"
-                [disabled]="loginform.invalid"
-              >
-                Login
-              </button>
-            </form>
-          </div>
 
-          <!-- register and login with other platforms  -->
-          <div class="w-75">
-            <div
-              class="d-flex justify-content-start my-3 mb-3 mb-lg-4 buttons flex-column"
-            >
-              <p class="my-3">
-                Dont have an account?
-                <a routerLink="/vendor/register" class="text-danger"
-                  >Register Here</a
+<section style="background-color: #f6f6fa" class="form-section">
+  <div [ngClass]="{ 'dark-mood': this._themeservice.isDarkMood }">
+    <div class="container-fluid">
+      <div
+        *ngIf="isVendorLogin"
+        class="d-flex justify-content-center align-items-center text-warning logged"
+      >
+        <h3>Your are logged in</h3>
+      </div>
+      <div
+        *ngIf="!isVendorLogin"
+        class="row d-flex justify-content-center align-items-center main-container"
+        style="min-height: 90vh"
+      >
+        <div class="d-flex p-5 form-container justify-content-evenly">
+          <!-- left half (login) -->
+          <div
+            class="col-lg-6 col-xs-12 d-flex justify-content-center align-items-center px-5 flex-column py-5 rounded-3 border border-3 border-dark"
+            [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
+          >
+            <h2 class="mb-2 w-75">Welcome Back.</h2>
+            <h2 class="mb-5 w-75">Log In To Your Vendor Account.</h2>
+            <!-- login form  -->
+            <div class="col-9">
+              <form
+                enctype="multipart/form-data"
+                [formGroup]="loginform"
+                (ngSubmit)="submitlogin()"
+              >
+                <input
+                  type="email"
+                  id="loginEmail"
+                  autocomplete="off"
+                  placeholder="Email Address"
+                  class="form-control-lg mb-4 w-100 border-1"
+                  formControlName="email"
+                />
+                <input
+                  type="password"
+                  id="loginPassword"
+                  autocomplete="off"
+                  placeholder="Password"
+                  class="form-control-lg mb-4 w-100 border-1"
+                  formControlName="password"
+                />
+                <div class="alert alert-danger" *ngIf="backerror">
+                  {{ error }}
+                </div>
+                <div
+                  class="d-flex justify-content-between align-items-between w-100 pdiv"
                 >
-              </p>
-              <p class="my-0">
-                Login as
-                <a routerLink="/login" class="text-danger">User.</a>
-              </p>
+                  <p>
+                    <input type="checkbox" class="me-3" id="rememberme" />
+                    <label for="rememberme" id="rememberme-label">
+                      Remember me</label
+                    >
+                  </p>
+                  <p>
+                    <!-- create a page for this and update password there  -->
+                    <a routerLink="/resetpassword" class="text-danger"
+                      >Forgot Your password?</a
+                    >
+                  </p>
+                </div>
+                <button
+                  class="btn btn-warning btn-lg w-100"
+                  type="submit"
+                  [disabled]="loginform.invalid"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+
+            <!-- register and login with other platforms  -->
+            <div class="w-75">
+              <div
+                class="d-flex justify-content-start my-3 mb-3 mb-lg-4 buttons flex-column"
+              >
+                <p class="my-3">
+                  Dont have an account?
+                  <a routerLink="/vendor/register" class="text-danger"
+                    >Register Here</a
+                  >
+                </p>
+                <p class="my-0">
+                  Login as
+                  <a routerLink="/login" class="text-danger">User.</a>
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -18,12 +17,6 @@ export class AuthVendor {
   vendorData: any = new BehaviorSubject(null);
 
   saveVendorData() {
-    // let encodedToken = JSON.stringify(localStorage.getItem('token'));
-    // let decodedToken = jwtDecode(encodedToken);
-    // to set the value
-    // this.vendorData.next(decodedToken);
-    // console.log(this.userData);
-
     const vendorToken = localStorage.getItem('vendorToken');
     this.vendorData.next(vendorToken);
     console.log(vendorToken);

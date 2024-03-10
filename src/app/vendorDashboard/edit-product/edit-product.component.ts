@@ -8,6 +8,9 @@ import {
 } from '@angular/router';
 import { TopBarComponent } from '../../top-bar/top-bar.component';
 import { SideBarComponent } from '../side-bar/side-bar.component';
+
+import { ThemeService } from '../../services/theme.service';
+import { NgClass } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { VendorDashboardService } from '../../services/vendor-dashboard.service';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +20,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterLink,
+    NgClass,
     TopBarComponent,
     SideBarComponent,
     HttpClientModule,
@@ -32,7 +36,8 @@ export class EditProductComponent implements OnInit {
   // updateProductForm: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
+    ,public _themeservice:ThemeService,
     private _vendorDashboardService: VendorDashboardService,
     private _http: HttpClient,
     private _Router: Router

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TopBarComponent } from '../../top-bar/top-bar.component';
 import { SideBarComponent } from '../side-bar/side-bar.component';
-import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
+import { NgClass } from '@angular/common';
+import { HeaderComponent } from '../../header/header.component';import { CommonModule } from '@angular/common';
 import {
   RouterLink,
   RouterModule,
@@ -22,8 +24,10 @@ import { FormsModule } from '@angular/forms';
     RouterLink,
     HttpClientModule,
     RouterModule,
-    FormsModule,
-  ],
+    FormsModule
+  ,NgClass,
+HeaderComponent
+],
   templateUrl: './account-settings.component.html',
   styleUrl: './account-settings.component.css',
 })
@@ -37,7 +41,8 @@ export class AccountSettingsComponent implements OnInit {
     private route: ActivatedRoute,
     private _vendorDashboardService: VendorDashboardService,
     private _http: HttpClient,
-    private _Router: Router
+    private _Router: Router,
+    public _themeservice:ThemeService
   ) {}
 
   ngOnInit(): void {

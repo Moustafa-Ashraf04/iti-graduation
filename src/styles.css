@@ -34,7 +34,7 @@ body {
   color: #fff;
 }
 .dark-mood-item{
-  background-color: #1D2A35;
+  background-color: #1D2A35 !important;
 
   color: #fff !important;
 

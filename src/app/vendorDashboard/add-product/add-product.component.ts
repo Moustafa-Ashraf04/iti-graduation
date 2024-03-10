@@ -13,6 +13,9 @@ import {
 import { VendorDashboardService } from '../../services/vendor-dashboard.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
+import { HeaderComponent } from '../../header/header.component';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-add-product',
@@ -26,6 +29,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HttpClientModule,
     TopBarComponent,
+    NgClass
   ],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css',
@@ -35,6 +39,7 @@ export class AddProductComponent {
     private router: Router,
     private _vendorDashboardService: VendorDashboardService,
     private _http: HttpClient
+    ,public _themeservice:ThemeService
   ) {}
 
   error: string = '';

@@ -1,6 +1,8 @@
 <app-top-bar></app-top-bar>
 @if (products) {
 <main class="container-fluid">
+<div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}">
+
   <div class="row flex-nowrap">
     <div
       class="col-auto col-md-2 col-xl-1 px-sm-2 px-0 bg-dark d-flex justify-content-center pt-5"
@@ -18,7 +20,9 @@
           class="col-lg-3 mb-4 d-flex justify-content-center"
           *ngFor="let item of items"
         >
-          <div class="card shadow" style="height: 12rem; width: 17rem">
+          <div class="card shadow"
+          [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}"
+           style="height: 12rem; width: 17rem">
             <div class="card-body justify-content-between d-flex flex-column">
               <div class="d-flex justify-content-between align-items-center">
                 <h5 class="card-title">165 Hz Gaming Monitor</h5>
@@ -65,6 +69,7 @@
         Add New Product</a
       >
     </div>
+  </div>
   </div>
 </main>
 }

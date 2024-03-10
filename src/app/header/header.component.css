@@ -19,7 +19,8 @@
 .login:hover,
 .register:hover,
 .help:hover,
-.logout:hover {
+.logout:hover,
+ .nav-link:hover{
   color: #ffc107;
 }
 

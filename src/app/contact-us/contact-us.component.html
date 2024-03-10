@@ -1,9 +1,12 @@
 <app-header></app-header>
 <main>
+
   <section class="bg-light py-3 py-md-5">
+    <div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}">
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6"
+        >
           <h2 class="mb-4 display-5 text-center">
             Contact Us (might change it later)
           </h2>
@@ -18,9 +21,9 @@
     </div>
 
     <div class="container">
-      <div class="row justify-content-lg-center">
-        <div class="col-12 col-lg-9">
-          <div class="bg-white border rounded shadow-sm overflow-hidden">
+      <div class="row justify-content-lg-center" >
+        <div class="col-12 col-lg-9"  [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
+          <div class=" border rounded shadow-sm overflow-hidden">
             <form action="#!">
               <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                 <div class="col-12">
@@ -116,6 +119,7 @@
         </div>
       </div>
     </div>
+  </div>
   </section>
 </main>
 <app-footer></app-footer>

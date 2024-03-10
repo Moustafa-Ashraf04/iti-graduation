@@ -6,87 +6,60 @@
     <h2 class="h4">Help Center</h2>
     <h3 class="h3 fw-bolder pb-5">Hi, how can we help you?</h3>
     <div class="help-center">
+
+<section>
 <div class="row ">
 
-<div class="col-lg-3 col-md-6 col-sm-6">
-  <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between  mb-5 rounded-3 border-1">
-    <p class="align-self-center pl-5">Place an Order</p>
+<div class="col-lg-4 col-md-6 col-sm-6">
+  <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between cursor-pointer  mb-5 rounded-4 border-1">
+    <p class="align-self-center pl-5"  [ngClass]="{'dark-text': this._themeservice.isDarkMood}">Place an Order</p>
     <img src="../../assets/images/how-to-place-order-d.png"  alt="">
   </div>
 </div>
 
-<div class="col-lg-3 col-md-6 col-sm-6">
-  <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between  mb-5 rounded-3 border-1">
-    <p class="align-self-center pl-5">Pay For Your Order</p>
+<div class="col-lg-4 col-md-6 col-sm-6">
+  <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between cursor-pointer mb-5 rounded-4 border-1">
+    <p class="align-self-center pl-5" [ngClass]="{'dark-text': this._themeservice.isDarkMood}">Pay For Your Order</p>
     <img src="../../assets/images/how-to-pay-for-order-d.png"  alt="">
   </div>
 </div>
 
-<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="col-lg-4 col-md-6 col-sm-6">
 
-      <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between  mb-5 rounded-3 border-1">
-        <p class="align-self-center pl-5">Track Your Order</p>
+      <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between cursor-pointer mb-5 rounded-4 border-1">
+        <p class="align-self-center pl-5" [ngClass]="{'dark-text': this._themeservice.isDarkMood}">Track Your Order</p>
         <img src="../../assets/images/how-to-track-order-d.png"  alt="">
       </div>
 </div>
-<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="col-lg-4 col-md-6 col-sm-6 m-auto">
+  <div [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
 
-      <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between  mb-5 rounded-3 border-1">
-        <p class="align-self-center pl-5">Cancel an Order</p>
+      <div class="help-item d-flex  p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-center cursor-pointer mb-5 rounded-4 border-1" >
+        <p class="align-self-center pl-5" [ngClass]="{'dark-text': this._themeservice.isDarkMood}">Cancel an Order</p>
         <img src="../../assets/images/how-to-cancel-order-d.png"  alt="">
       </div>
+      </div>
 </div>
-<div class="col-lg-3 col-md-6 col-sm-6 m-auto">
+<div class="col-lg-4 col-md-6 col-sm-6 m-auto">
 
-      <div class="help-item d-flex p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-between  mb-5 rounded-3 border-1">
-        <p class="align-self-center pl-5">Create a Return</p>
+      <div class="help-item d-flex p-1 pt-5 fs-5 shadow-lg fw-bold justify-content-center cursor-pointer mb-5 rounded-4 border-1">
+        <p class="align-self-center pl-5" [ngClass]="{'dark-text': this._themeservice.isDarkMood}">Create a Return</p>
         <img src="../../assets/images/how-to-request-return-d.png"  alt="">
       </div>
       </div>
 </div>
-    </div>
-  </div>
+</section>
+
+<!-- <button r>click</button>
+ -->
+ <!-- </main> -->
 </div>
 <br>
- <!-- <div class="according-section container">
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Accordion Item #1
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Accordion Item #2
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Accordion Item #3
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
-  </div>
- </div> -->
-
-<app-footer></app-footer>
+<a routerLink="/payment"> click</a>
+<div class="col-md-9">
+  <<router-outlet></router-outlet>
+</div>
+<app-sidebar-help></app-sidebar-help>
+</div>
+<!-- <router-outlet></router-outlet> -->
+</div>

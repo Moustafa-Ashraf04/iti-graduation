@@ -8,6 +8,8 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { ThemeService } from '../../services/theme.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-promocodes',
@@ -17,6 +19,7 @@ import {
     SideBarComponent,
     CommonModule,
     ReactiveFormsModule,
+    NgClass,
   ],
   templateUrl: './promocodes.component.html',
   styleUrl: './promocodes.component.css',
@@ -25,7 +28,7 @@ export class PromocodesComponent implements OnInit {
   promoCodeForm: FormGroup;
   promoCodes: { code: string; percentage: string }[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,public _themeservice:ThemeService) {
     this.promoCodeForm = this.fb.group({
       promoCode: ['', Validators.required],
       discountAmount: ['', [Validators.required, Validators.min(1)]],

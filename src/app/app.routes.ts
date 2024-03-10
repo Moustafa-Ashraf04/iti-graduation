@@ -1,4 +1,3 @@
-import { AuthVendor } from './services/authVendor.service';
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -22,7 +21,19 @@ import { PromocodesComponent } from './vendorDashboard/promocodes/promocodes.com
 import { AddProductComponent } from './vendorDashboard/add-product/add-product.component';
 import { VendorLoginComponent } from './vendor-login/vendor-login.component';
 import { EditProductComponent } from './vendorDashboard/edit-product/edit-product.component';
+import { PaymentComponent } from './help-page/payment/payment.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileOrdersComponent } from './user-profile-orders/user-profile-orders.component';
 import { vendorAuthGuard } from './guards/vendor-auth.guard';
+import { adminAuthGuard } from './guards/admin-auth.guard';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
+import { CategoriesComponent } from './admin/categories/categories.component';
+import { VendorsComponent } from './admin/vendors/vendors.component';
+import { PaymentMethodsComponent } from './admin/payment-methods/payment-methods.component';
+import { ReviewsComponent } from './admin/reviews/reviews.component';
+import { PromoCodesComponent } from './admin/promo-codes/promo-codes.component';
 
 export const routes: Routes = [
   {
@@ -38,7 +49,41 @@ export const routes: Routes = [
   {
     path: 'product/details/:id',
     component: DetailsComponent,
-    title: 'Details',
+    title: 'details',
+  },
+  {
+    path: 'help-page',
+    component: HelpPageComponent,
+    title: 'help-page',
+    children: [
+      { path: 'payment', component: PaymentComponent, title: 'help payment' },
+    ],
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent,
+    title: 'help payment',
+  },
+  {
+    path: 'user-profile/update-profile',
+    component: UpdateProfileComponent,
+    title: 'update profile',
+  },
+  {
+    path: 'orders',
+    component: UserProfileOrdersComponent,
+    title: 'user profile orders',
+  },
+
+  {
+    path: 'user-profile',
+    component: UserProfileComponent,
+    title: 'user profile',
+  },
+  {
+    path: 'details',
+    component: DetailsComponent,
+    title: 'details',
   },
   {
     path: 'help-page',
@@ -141,6 +186,82 @@ export const routes: Routes = [
     component: CategoryProductsComponent,
     title: 'Category Products',
   },
+  {
+    path: 'admin',
+    component: LoginAdminComponent,
+    title: 'Admin Login',
+  },
+  {
+    path: 'admin/dashboard',
+    component: AdminDashboardComponent,
+    canActivate: [adminAuthGuard],
+    title: 'Admin Dashboard',
+  },
+  {
+    path: 'admin/dashboard/categories',
+    component: CategoriesComponent,
+    canActivate: [adminAuthGuard],
+    title: 'Admin Categories',
+  },
+  // {
+  //   path: 'admin/dashboard/vendors',
+  //   component: VendorsComponent,
+  //   title: 'Admin vendors',
+  // },
+  // {
+  //   path: 'admin/dashboard/reviews',
+  //   component: VendorsComponent,
+  //   title: 'Admin Reviews',
+  // },
+  // {
+  //   path: 'admin/dashboard/paymentmethods',
+  //   component: PaymentMethodsComponent,
+  //   title: 'Admin Users Payments Methods',
+  // },
+  // {
+  //   path: 'admin/dashboard/promocodes',
+  //   component: PaymentMethodsComponent,
+  //   title: 'Admin Promocodes',
+  // },
+  // {
+  //   path: 'admin',
+  //   component: LoginAdminComponent,
+  //   children: [
+  //     {
+  //       path: 'dashboard',
+  //       component: AdminDashboardComponent,
+  //       canActivate: [adminAuthGuard],
+  //       children: [
+  //         {
+  //           path: 'categories',
+  //           component: CategoriesComponent,
+  //           title: 'Admin Categories',
+  //         },
+  //         {
+  //           path: 'vendors',
+  //           component: VendorsComponent,
+  //           title: 'Admin Vendors',
+  //         },
+  //         {
+  //           path: 'reviews',
+  //           component: ReviewsComponent,
+  //           title: 'Admin Reviews',
+  //         },
+  //         {
+  //           path: 'paymentmethods',
+  //           component: PaymentMethodsComponent,
+  //           title: 'Admin Payment Methods',
+  //         },
+  //         {
+  //           path: 'promocodes',
+  //           component: PromoCodesComponent,
+  //           title: 'Admin Promo Codes',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+
   {
     path: '**',
     component: NotFoundComponent,

@@ -1,8 +1,8 @@
-<div [ngClass]="{ 'dark-mood': _themeservice.isDarkMood }">
+
   <main>
     <hr class="m-0 p-0 bg-secondary" />
-    <nav class="navbar navbar-expand-lg bg-body-tertiary py-2">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg  py-2" [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
+      <div class="container-fluid " [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-5">
           <li class="nav-item d-flex align-items-center justify-content-center">
             <a
@@ -89,4 +89,4 @@
       </div>
     </nav>
   </main>
-</div>
+<!-- </div> -->

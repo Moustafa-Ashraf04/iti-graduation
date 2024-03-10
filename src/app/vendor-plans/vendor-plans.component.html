@@ -1,7 +1,9 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <!-- <p>vendor-plans works!</p> -->
-<main class="py-5">
+<main class="my-5">
+  <div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}">
+
   <div class="container-fluid col-xl-10 col-lg-12">
     <section class="d-flex align-items-center flex-column p-3">
       <h1 class="" style="color: #e0a902">
@@ -17,14 +19,19 @@
         and join us in shaping the future of commerce in the region.
       </h5>
     </section>
+
+
     <section class="pb-5">
       <h2 style="color: #e0a902" class="my-3 text-center pt-5">
         Why choose us
       </h2>
       <ul
-        class="d-flex gap-5 flex-wrap justify-content-center align-items-center my-5 p-0"
+      class="d-flex gap-5 flex-wrap justify-content-center align-items-center my-5 p-0"
       >
-        <div class="card border-5" style="width: 23rem">
+
+        <div class="card border-5" style="width: 23rem" [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
+
+
           <img
             src="../../assets/images/reach millions.png"
             class="card-img-top px-5"
@@ -38,7 +45,7 @@
             </p>
           </div>
         </div>
-        <div class="card border-5" style="width: 23rem">
+        <div class="card border-5" style="width: 23rem" [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
           <img
             src="../../assets/images/why choose us 2.png"
             class="card-img-top px-5"
@@ -54,7 +61,7 @@
             </p>
           </div>
         </div>
-        <div class="card border-5" style="width: 23rem">
+        <div class="card border-5" style="width: 23rem" [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
           <img
             src="../../assets/images/why choose us 3.png"
             class="card-img-top px-5"
@@ -68,7 +75,7 @@
             </p>
           </div>
         </div>
-        <div class="card border-5" style="width: 23rem">
+        <div class="card border-5" style="width: 23rem" [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
           <img
             src="../../assets/images/why choose us 4.png"
             class="card-img-top px-5"
@@ -82,7 +89,7 @@
             </p>
           </div>
         </div>
-        <div class="card border-5" style="width: 23rem">
+        <div class="card border-5" style="width: 23rem" [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}">
           <img
             src="../../assets/images/why choose us 5.png"
             class="card-img-top px-5"
@@ -97,6 +104,7 @@
           </div>
         </div>
       </ul>
+
     </section>
     <section class="mt-5 pt-5">
       <h1 class="text-center">
@@ -112,6 +120,7 @@
         <div
           class="card border-5 border-danger hover-shadow"
           style="width: 18rem; height: 36rem"
+          [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}"
         >
           <div class="h-25 d-flex justify-content-center align-items-center">
             <h2>FREE</h2>
@@ -138,6 +147,7 @@
         <div
           class="card border-5 border-secondary hover-shadow"
           style="width: 18rem; height: 36rem"
+          [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}"
         >
           <div class="h-25 d-flex justify-content-center align-items-center">
             <h2>SILVER</h2>
@@ -164,6 +174,7 @@
         <div
           class="card border-5 border-primary hover-shadow"
           style="width: 18rem; height: 36rem"
+          [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}"
         >
           <div class="h-25 d-flex justify-content-center align-items-center">
             <h2>GOLD</h2>
@@ -190,6 +201,7 @@
         <div
           class="card border-5 border-success hover-shadow"
           style="width: 18rem; height: 36rem"
+          [ngClass]="{'dark-mood-mini': this._themeservice.isDarkMood}"
         >
           <div class="h-25 d-flex justify-content-center align-items-center">
             <h2>PLATINUM</h2>
@@ -216,6 +228,7 @@
         </div>
       </ul>
     </section>
+  </div>
   </div>
 </main>
 <app-footer></app-footer>

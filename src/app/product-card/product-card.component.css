@@ -21,6 +21,16 @@
 .cart-icon i{
   font-size: 15px;
 }
+button{
+  transition: all 0.5e;
+
+}
+button:hover ,i:hover{
+  transform: scale(1.03);
+}
+i:hover{
+  color: #FFC609;
+}
 .layer{
   background-color: rgba(0, 0,0, 0.5);
   width: 100vw;
@@ -32,7 +42,7 @@
 }
 .main-div{
   /* transform: translate(0%,0%); */
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   height: 40rem;
   width: 80rem;
 
@@ -61,4 +71,20 @@ ul li:hover{
 .x-mark i{
   right: .9375rem;
 
+}
+.light-mood{
+  background-color: #eee;
+}
+.btn-card{
+  background-color: #FFC609;
+
+}
+.main-card:hover{
+  /* background-color:#eee */
+  box-shadow: 0px 0px 30px 1px rgba(226, 196, 6, 0.3);
+
+}
+.card-body:hover{
+  /* transform: scale(0.98); */
+  border-radius: 18px;
 }

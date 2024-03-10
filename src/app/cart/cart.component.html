@@ -9,8 +9,8 @@
         <!-- cart -->
         <div class="d-flex gap-5 col-lg-9">
           <div
-            class="card border shadow-0"
             [ngClass]="{ 'dark-mood-item': this._themeservice.isDarkMood }"
+            class="card border shadow-0"
           >
             <div class="m-4">
               <h4
@@ -28,6 +28,8 @@
             </div>
 
             <div
+              class="border-top p-4 mx-4 mb-4"
+              [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
               class="border-top pt-4 mx-4 mb-4"
               [ngClass]="{ 'dark-mood-mini': this._themeservice.isDarkMood }"
             >
@@ -81,6 +83,7 @@
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
+
                   <p class="mb-2 fw-bold">${{ _cartService.getTotal() }}</p>
                 </div>
                 <div class="mb-3 w-25">
@@ -129,6 +132,7 @@
         </div>
       </div>
     </div>
+    <!-- </div> -->
   </section>
 </div>
 <!-- Recommended items -->

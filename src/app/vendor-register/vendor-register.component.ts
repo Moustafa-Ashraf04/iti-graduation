@@ -17,6 +17,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Password } from 'primeng/password';
+import { ThemeService } from '../services/theme.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-vendor-register',
@@ -47,7 +49,9 @@ export class VendorRegisterComponent {
   constructor(
     private _Router: Router,
     private http: HttpClient,
-    private AuthService: AuthVendor
+    private AuthService: AuthVendor,
+public _themeservice:ThemeService
+
   ) {}
 
   passwordMatchValidator(control: AbstractControl) {

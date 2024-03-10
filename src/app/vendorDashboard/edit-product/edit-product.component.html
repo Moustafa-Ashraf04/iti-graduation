@@ -1,5 +1,7 @@
 <app-top-bar></app-top-bar>
 <div class="container-fluid">
+<div [ngClass]="{'dark-mood': this._themeservice.isDarkMood}">
+
   <div class="row flex-nowrap">
     <div
       class="col-auto col-md-2 col-xl-1 px-sm-2 px-0 bg-dark d-flex justify-content-center pt-5"
@@ -138,5 +140,6 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>

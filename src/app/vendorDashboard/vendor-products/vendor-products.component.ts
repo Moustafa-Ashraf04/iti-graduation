@@ -4,11 +4,13 @@ import { SideBarComponent } from '../side-bar/side-bar.component';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { VendorDashboardService } from '../../services/vendor-dashboard.service';
+import { ThemeService } from '../../services/theme.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-vendor-products',
   standalone: true,
-  imports: [TopBarComponent, SideBarComponent, RouterLink, CommonModule],
+  imports: [TopBarComponent, SideBarComponent, RouterLink, CommonModule,NgClass],
   templateUrl: './vendor-products.component.html',
   styleUrl: './vendor-products.component.css',
 })
@@ -17,7 +19,7 @@ export class VendorProductsComponent implements OnInit {
 
   products: any[] = [];
 
-  constructor(private _vendorDashboardService: VendorDashboardService) {}
+  constructor(private _vendorDashboardService: VendorDashboardService,public _themeservice:ThemeService) {}
 
   ngOnInit(): void {
     this.fetchProducts();

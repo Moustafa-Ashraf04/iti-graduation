@@ -7,13 +7,14 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { AuthVendor } from '../services/authVendor.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-vendor-login',
@@ -21,6 +22,7 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NgClass,
     HeaderComponent,
     FooterComponent,
     FormsModule,
@@ -39,12 +41,14 @@ export class VendorLoginComponent {
   constructor(
     private _Router: Router,
     private http: HttpClient,
-    private _AuthVendor: AuthVendor
+    private AuthService: AuthVendor,
+    public _themeservice: ThemeService
   ) {}
+  
   ngOnInit(): void {
-    this._AuthVendor.vendorData.subscribe({
+    this.AuthService.vendorData.subscribe({
       next: () => {
-        if (this._AuthVendor.vendorData.getValue() != null) {
+        if (this.AuthService.vendorData.getValue() != null) {
           this.isVendorLogin = true;
         } else {
           this.isVendorLogin = false;
@@ -67,7 +71,7 @@ export class VendorLoginComponent {
     formdata.append('email', this.loginform.get('email')?.value);
     formdata.append('password', this.loginform.get('password')?.value);
 
-    this._AuthVendor.login(formdata).subscribe({
+    this.AuthService.login(formdata).subscribe({
       next: (res) => {
         localStorage.setItem('vendorToken', res.token);
         // this._AuthVendor.saveVendorData();
@@ -76,7 +80,7 @@ export class VendorLoginComponent {
         // console.log(res.user);
       },
       error: (err) => console.log(err.error.error),
-      
+
       complete: () => {},
     });
   }
