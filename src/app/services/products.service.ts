@@ -13,4 +13,7 @@ export class ProductsService {
   getSingleProduct(id: number): Observable<any> {
     return this.http.get(`http://localhost:8000/products/${id}`);
   }
+  getRecommendedProducts(): Observable<any> {
+    return this.http.get('http://localhost:8000/products/recommended/4');
+  }
 }

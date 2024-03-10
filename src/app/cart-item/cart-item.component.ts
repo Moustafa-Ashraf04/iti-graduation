@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ThemeService } from '../services/theme.service';
 import { NgClass } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
@@ -13,6 +13,7 @@ import { CartService } from '../services/cart.service';
 })
 export class CartItemComponent {
   @Input() item!: any;
+  @Output() itemDeleted: EventEmitter<any> = new EventEmitter<any>();
   _cartService = inject(CartService);
   constructor(public _themeservice: ThemeService) {}
   toggleDarkMood() {
@@ -20,5 +21,6 @@ export class CartItemComponent {
   }
   deleteFromCart(item: any) {
     this._cartService.delete(item);
+    this.itemDeleted.emit(item);
   }
 }

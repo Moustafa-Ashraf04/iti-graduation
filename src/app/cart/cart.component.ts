@@ -6,8 +6,9 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../services/theme.service';
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { CartService } from '../services/cart.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,15 +21,49 @@ import { CartService } from '../services/cart.service';
     TopBarComponent,
     RouterLink,
     NgClass,
+    CommonModule,
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
   _cartService = inject(CartService);
+  _productService = inject(ProductsService);
 
+  items: any[] = [];
+  recommendedProducts: any[] = [];
+  paymentMethods: any;
   constructor(public _themeservice: ThemeService) {
     // this.taggleDarkMood()
+  }
+  ngOnInit() {
+    this._cartService.getCartFromDb().subscribe((res) => {
+      console.log(res.data);
+      this.items = res.data;
+      this._cartService.setCart(this.items);
+      this._cartService.setItems(this.items['products']);
+    });
+    this._productService.getRecommendedProducts().subscribe((res) => {
+      console.log('recommended', res);
+      this.recommendedProducts = res;
+    });
+  }
+  handleItemDeleted(deletedItem: any) {
+    console.log(deletedItem);
+    console.log(this.items);
+
+    const index = this.items['products'].findIndex(
+      (item) => item.id === deletedItem.id,
+    );
+    if (index !== -1) {
+      this.items['products'].splice(index, 1);
+    }
+  }
+
+  emptyCart(cart: any) {
+    cart.products.forEach((product) => {
+      this._cartService.delete(product);
+    });
   }
 
   taggleDarkMood() {
